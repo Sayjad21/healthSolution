@@ -1,11 +1,11 @@
 
 import React from 'react';
-import Test from './components/Test';
+import ExercisePage from './ExercisePage';
 
 function App() {
   return (
     <div className="App">
-      <Test />
+       <ExercisePage />
     </div>
   );
 }
