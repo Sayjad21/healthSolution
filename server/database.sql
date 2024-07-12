@@ -7,7 +7,9 @@ CREATE TABLE users (
     height DECIMAL(5,2) NOT NULL, -- Assuming height is in cm
     weight DECIMAL(5,2) NOT NULL, -- Assuming weight is in kg
     gender VARCHAR(10) NOT NULL,
-    address VARCHAR(255) NOT NULL,
+    country VARCHAR(100) NOT NULL,  -- New column: Country
+    state VARCHAR(100) NOT NULL,    -- New column: State
+    police_station VARCHAR(100) NOT NULL,  -- New column: Police Station
     blood_group VARCHAR(3),
     blood_donor BOOLEAN,
     last_donated_blood DATE,
@@ -17,6 +19,17 @@ CREATE TABLE users (
     bmr DECIMAL(10,2), -- BMR calculation will be handled via trigger
     bmi DECIMAL(10,2)  -- BMI calculation will be handled via trigger
 );
+
+-- Add new columns to the existing users table
+ALTER TABLE users
+ADD COLUMN country VARCHAR(100) NOT NULL,
+ADD COLUMN state VARCHAR(100) NOT NULL,
+ADD COLUMN police_station VARCHAR(100) NOT NULL;
+
+
+-- Drop the 'address' column from the users table
+ALTER TABLE users
+DROP COLUMN address;
 
 
 -- Trigger for BMR calculation
