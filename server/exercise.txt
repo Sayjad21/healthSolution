@@ -1,0 +1,71 @@
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Push-up', 'Strength', 'A basic push-up involves lowering and raising your body using your arms while keeping your body straight.', 'Chest', 'None', 'Beginner', '10 reps', 'https://www.youtube.com/watch?v=ba8tr1NzwXU&pp=ygUHcHVzaCB1cA%3D%3D', 8.0),
+('Running', 'Cardio', 'Running is a form of cardio exercise that involves moving at a steady and moderate speed.', 'Legs', 'None', 'Intermediate', '30 minutes', 'https://www.youtube.com/watch?v=woYOoEAPb_4&pp=ygUHcnVubmluZw%3D%3D', 10.0),
+('Yoga Pose - Downward Dog', 'Flexibility', 'A common yoga pose that stretches the shoulders, hamstrings, calves, and arches.', 'Full Body', 'Yoga Mat', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=EC7RGJ975iM&pp=ygUMZG93bndhcmQgZG9n', 3.0),
+('Pull-up', 'Strength', 'An upper body exercise where you lift your body up by your arms until your chin is above the bar.', 'Back', 'Pull-up Bar', 'Advanced', '10 reps', 'https://www.youtube.com/watch?v=gy1dyxEdCqc&pp=ygUGcHVsbHVw', 12.0),
+('Cycling', 'Cardio', 'Cycling is a low-impact exercise that can be performed outdoors or on a stationary bike.', 'Legs', 'Bicycle', 'Intermediate', '45 minutes', 'https://www.youtube.com/watch?v=VsuShNWghXk&pp=ygUQY3ljbGluZyB0dXRvcmlhbA%3D%3D', 9.0),
+('Squat', 'Strength', 'A lower body exercise that targets the thighs, hips, and buttocks.', 'Legs', 'None', 'Beginner', '15 reps', 'https://www.youtube.com/watch?v=PPmvh7gBTi0&pp=ygUFc3F1YXQ%3D', 5.0),
+('Jumping Jacks', 'Cardio', 'A full body exercise that increases heart rate and burns calories.', 'Full Body', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=iSSAk4XCsRA&pp=ygUManVtcGluZyBqYWNr', 7.0),
+('Bench Press', 'Strength', 'A chest exercise where you press a weight upwards from a supine position.', 'Chest', 'Bench, Barbell', 'Intermediate', '10 reps', 'https://www.youtube.com/watch?v=hWbUlkb5Ms4&pp=ygULYmVuY2ggcHJlc3M%3D', 11.0),
+('Swimming', 'Cardio', 'A low-impact exercise that works the entire body, especially the muscles in the arms and legs.', 'Full Body', 'Pool', 'Intermediate', '30 minutes', 'https://www.youtube.com/watch?v=9Wm0kyjtmaE&pp=ygUIc3dpbW1pbmc%3D', 8.5),
+('Lunges', 'Strength', 'A lower body exercise that works the quadriceps, glutes, and hamstrings.', 'Legs', 'None', 'Beginner', '10 reps each leg', 'https://www.youtube.com/watch?v=MxfTNXSFiYI&pp=ygUGbHVuZ2Vz', 6.0);
+
+
+
+
+
+
+-- Additional variations for recommendations table
+
+-- Push-up variations
+INSERT INTO recommendations (height_range, weight_range, age_range, gender, bmi_range, exercise_id, sets_or_duration)
+VALUES 
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 1, '4 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 1, '3 sets of 8 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 1, '5 sets of 8 reps'),
+
+-- Running variations
+('170-180 cm', '70-80 kg', '18-30', 'Female', '18.5-24.9', 2, '40 minutes'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '18.5-24.9', 2, '25 minutes'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 2, '35 minutes'),
+
+-- Yoga Pose - Downward Dog variations
+('150-160 cm', '50-60 kg', '18-30', 'Male', '18.5-24.9', 3, '4 sets of 1 minute'),
+('170-180 cm', '70-80 kg', '30-45', 'Female', '18.5-24.9', 3, '3 sets of 1.5 minutes'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '25-29.9', 3, '5 sets of 1.5 minutes'),
+
+-- Pull-up variations
+('170-180 cm', '70-80 kg', '18-30', 'Female', '18.5-24.9', 4, '4 sets of 8 reps'),
+('180-190 cm', '80-90 kg', '30-45', 'Male', '18.5-24.9', 4, '3 sets of 12 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '25-29.9', 4, '5 sets of 6 reps'),
+
+-- Cycling variations
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 5, '60 minutes'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 5, '50 minutes'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 5, '40 minutes'),
+
+-- Squat variations
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 6, '4 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '18.5-24.9', 6, '3 sets of 15 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '25-29.9', 6, '5 sets of 10 reps'),
+
+-- Jumping Jacks variations
+('150-160 cm', '50-60 kg', '18-30', 'Male', '18.5-24.9', 7, '2 minutes'),
+('160-170 cm', '60-70 kg', '30-45', 'Female', '18.5-24.9', 7, '1.5 minutes'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 7, '3 minutes'),
+
+-- Bench Press variations
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 8, '4 sets of 10 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '18.5-24.9', 8, '3 sets of 12 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '25-29.9', 8, '5 sets of 8 reps'),
+
+-- Swimming variations
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 9, '40 minutes'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 9, '35 minutes'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 9, '45 minutes'),
+
+-- Lunges variations
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 10, '4 sets of 10 reps each leg'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '18.5-24.9', 10, '3 sets of 12 reps each leg'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '25-29.9', 10, '5 sets of 8 reps each leg');
