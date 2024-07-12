@@ -8,13 +8,13 @@ CREATE TABLE exercises (
     difficulty_level VARCHAR(50),
     duration VARCHAR(50),
     video_url VARCHAR(255),
-    calories_burned DECIMAL(5,2),
+    calories_burned DECIMAL(5,2)
 );
 
 Create table user_choice_exercise (
     user_id INT NOT NULL,
     preferred_type VARCHAR(50) NOT NULL,
-    muscle_groups VARCHAR(255),
+    muscle_groups VARCHAR(255)
 );
 
 
