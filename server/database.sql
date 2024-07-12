@@ -16,6 +16,8 @@ CREATE TABLE users (
     sperm_donor BOOLEAN,
     last_donated_sperm DATE,
     stats VARCHAR(20),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
     bmr DECIMAL(10,2), -- BMR calculation will be handled via trigger
     bmi DECIMAL(10,2)  -- BMI calculation will be handled via trigger
 );
@@ -25,6 +27,12 @@ ALTER TABLE users
 ADD COLUMN country VARCHAR(100) NOT NULL,
 ADD COLUMN state VARCHAR(100) NOT NULL,
 ADD COLUMN police_station VARCHAR(100) NOT NULL;
+
+--add email and password columns to the existing users table
+ALTER TABLE users
+ADD COLUMN email VARCHAR(100) NOT NULL UNIQUE,
+ADD COLUMN password VARCHAR(100) NOT NULL;
+
 
 
 -- Drop the 'address' column from the users table

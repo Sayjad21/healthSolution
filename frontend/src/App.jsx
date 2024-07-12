@@ -1,11 +1,17 @@
 
-import React from 'react';
-import Test from './components/Test';
+import React, { useState } from 'react';
+import { userContext } from './context/context';
+import SignUp from './components/SignUp';
+
 
 function App() {
+  const [user,setUser] = useState(null);
   return (
     <div className="App">
-      <Test />
+      <userContext.Provider value={{user,setUser}}>
+        <SignUp/>
+      </userContext.Provider>
+      
     </div>
   );
 }
