@@ -15,12 +15,8 @@ Create table user_choice_exercise (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
     preferred_type VARCHAR(50) NOT NULL,
-<<<<<<< HEAD
     muscle_groups VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-=======
-    muscle_groups VARCHAR(255)
->>>>>>> 20e89317d8069355317c70544f7be649309febd2
 );
 
 
