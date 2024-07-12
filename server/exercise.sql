@@ -11,6 +11,12 @@ CREATE TABLE exercises (
     calories_burned DECIMAL(5,2),
 );
 
+Create table user_choice_exercise (
+    user_id INT NOT NULL,
+    preferred_type VARCHAR(50) NOT NULL,
+    muscle_groups VARCHAR(255),
+);
+
 
 CREATE TABLE recommendations (
     id SERIAL PRIMARY KEY,
