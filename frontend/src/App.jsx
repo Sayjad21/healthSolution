@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { userContext } from './context/context';
 import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
   return (
     <div className="App">
       <userContext.Provider value={{user,setUser}}>
-        <SignUp/>
+        {/* <SignUp/> */}
+        <Login/>
       </userContext.Provider>
       
     </div>

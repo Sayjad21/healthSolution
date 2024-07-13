@@ -63,12 +63,13 @@ export default function SignUp() {
 
             if (response.status === 200) {
                 alert("User registered successfully");
+                const responseData = await response.json();
                 // Close the modal
-                // const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-                // modal.hide();
+                const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+                modal.hide();
                 value.setUser(formData);
-                console.log("signup success");
-                console.log(value.user);
+                // console.log("signup success");
+                // console.log(value.user);
             }
         } catch (error) {
             console.error(error.message);
