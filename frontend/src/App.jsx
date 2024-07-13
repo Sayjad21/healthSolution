@@ -1,4 +1,6 @@
 
+import React from 'react';
+import ExercisePage from './ExercisePage';
 import React, { useState } from 'react';
 import { userContext } from './context/context';
 import SignUp from './components/SignUp';
