@@ -1,15 +1,19 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
+import { userContext } from "../../context/context";
+// import SignUp from '../RegLoginAuth/SignUp';;
+// import '../../cssFiles/Signup.css';
+import "../../cssFiles/navbar.css";
 
-import "./css/navbar.css";
+// import { userContext} from "../../context/context";
 
-{/* <Route exact path="/" element={<Home />} />
-<Route exact path="/diet" element={<Diet />} />
-<Route exact path="/exercise" element={<ExercisePage />} />
-<Route exact path="/login" element={<Login />} />
-<Route exact path="/signup" element={<SignUp />} /> */}
+//import signup.jsx from RegLoginAuth folder
+
+
+
 
 const Navbar = () => {
+  const userValue = useContext(userContext);
   return (
     <Fragment>
       <div>
@@ -22,10 +26,10 @@ const Navbar = () => {
                 display: "flex",
               }}
             >
-              <i
+              {/* <i
                 className="fa-brands fa-slack fa-2x"
                 style={{ color: "white", padding: "10px" }}
-              ></i>
+              ></i> */}
               <div
                 className="navbar-brand"
                 style={{ color: "white", fontSize: "20px", padding: "10px" }}
@@ -36,7 +40,6 @@ const Navbar = () => {
 
             <input type="checkbox" id="check" />
             <span className="menu">
-              {/* Menu items */}
               <li>
                 <Link to="/" className="nav-link">
                   Home
@@ -53,15 +56,33 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/signup" className="nav-link">
-                  Sign Up
-                </Link>
+                {userValue.user ? (
+                  <li className="nav-item dropdown">
+                  <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div>{userValue.user.name}</div>
+                  </button>
+                  <ul className="dropdown-menu dropdown-menu-dark">
+                    <li><a className="dropdown-item" href="#">Action1</a></li>
+                    <li><a className="dropdown-item" href="#">Action2</a></li>
+                    <li><Link className="dropdown-item nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
+                  </ul>
+                </li>
+                ) : (
+                  <div style={{ display: 'flex', gap: '10px' }}>
+                    <li>
+                      <Link to="/signup" className="nav-link" target="_self">
+                        Sign Up
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/login" className="nav-link" target="_self">
+                        Login
+                      </Link>
+                    </li>
+                  </div>
+                )}
               </li>
-              <li>
-                <Link to="/login" className="nav-link">
-                    Login
-                </Link>
-              </li>
+
               <label htmlFor="check" className="close-menu">
                 <i className="fas fa-times"></i>
               </label>

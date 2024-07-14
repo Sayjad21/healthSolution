@@ -19,3 +19,7 @@
 .align-right {
     float: right;
 }
+
+.container {
+    background-color: lightgrey;
+}

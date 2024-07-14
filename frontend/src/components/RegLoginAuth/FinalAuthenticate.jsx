@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { userContext,tokenContext } from '../context/context';
-import '../cssFiles/button.css';
+import React, { useState, useEffect, useContext,useRef } from 'react';
+import { userContext,tokenContext } from '../../context/context'
+import { useNavigate } from 'react-router-dom';
+import '../../cssFiles/button.css';
 import UserLifeInfo from './UserLifeInfo';
 
 export default function FinalAuthenticate() {
@@ -9,12 +10,25 @@ export default function FinalAuthenticate() {
     const tokenValue = useContext(tokenContext);
     const [gotUser, setGotUser] = useState(false);
     const [modalVisible, setModalVisible] = useState(true);
+    const authButtonRef = useRef(null);
+    const [btnVisible, setbtnVisible] = useState(true);
+    const closeButttonRef = useRef(null);
+    const navigate = useNavigate(); 
+
 
     // useEffect(() => {
     //     // Initialize and show the modal when the component mounts
     //     const modal = new window.bootstrap.Modal(document.getElementById('exampleModal'));
     //     modal.show();
     // }, []);
+
+    useEffect(() => {
+        if (authButtonRef.current) {
+            authButtonRef.current.click();
+            setbtnVisible(false);
+        }
+    }, [tokenValue.token]);
+
 
     useEffect(() => {
         // Check if user is updated
@@ -45,6 +59,11 @@ export default function FinalAuthenticate() {
                 alert(responsedata.message);
                 // setModalVisible(false); // Hide modal after verification
                 value.setUser(responsedata.user);
+                closeButttonRef.current.click();
+                navigate('/'); // Redirect to home page
+                //redirected to home page
+
+
             } else {
                 alert("Verification failed");
             }
@@ -56,7 +75,7 @@ export default function FinalAuthenticate() {
     // Check if user is authenticated and show UserLifeInfo component
     return (
         <div className='container'>
-           {tokenValue.token!=='' && <button type="button" className="btn btn-primary my-3 custom-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal3">
+           {tokenValue.token!=='' && btnVisible && <button type="button" className="btn btn-primary my-3 custom-btn"  data-bs-toggle="modal" data-bs-target="#exampleModal3" ref={authButtonRef}>
                 JWT Authentication
             </button>}
 
@@ -74,7 +93,7 @@ export default function FinalAuthenticate() {
                                     <input type="text" className="form-control" id="Token" name="Token" value={token} onChange={e => setToken(e.target.value)} required />
                                 </div>
                                 <div className="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" ref ={closeButttonRef}>Close</button>
                                     <button type="submit" className="btn btn-primary">Verify</button>
                                 </div>
                             </form>

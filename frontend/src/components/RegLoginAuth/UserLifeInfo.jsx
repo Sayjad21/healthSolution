@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { userContext } from '../context/context';
-import '../cssFiles/userInfo.css';
-import '../cssFiles/userlifeInfo.css';
+import { userContext } from '../../context/context';
+import '../../cssFiles/userInfo.css';
+import '../../cssFiles/userlifeInfo.css';
 
 export default function UserLifeInfo() {
     const value = useContext(userContext);
@@ -23,7 +23,11 @@ export default function UserLifeInfo() {
         weight: '',
         gender: '',
         last_donated_blood: '',
-        last_donated_sperm: ''
+        last_donated_sperm: '',
+        blood_donor: '',
+        sperm_donor: '',
+        blood_group: ''
+
     });
 
     useEffect(() => {
@@ -45,7 +49,10 @@ export default function UserLifeInfo() {
                 weight: value.user.weight,
                 gender: value.user.gender,
                 last_donated_blood: value.user.last_donated_blood || '00-00-0000',
-                last_donated_sperm: value.user.last_donated_sperm || '00-00-0000'
+                last_donated_sperm: value.user.last_donated_sperm || '00-00-0000',
+                blood_donor: value.user.blood_donor,
+                sperm_donor: value.user.sperm_donor,
+                blood_group: value.user.blood_group
             });
         }
     }, [value.user]);
@@ -160,6 +167,7 @@ export default function UserLifeInfo() {
                 const data = await response.json();
                 console.log(data);
                 setEdit(false);
+                setIsEditable(false);
                 alert(data.message);
             } else {
                 console.log('Error in updating user');
@@ -241,10 +249,23 @@ export default function UserLifeInfo() {
                                     <label htmlFor="last_donated_sperm" className="form-label custom-label">Last Sperm Donation</label>
                                     <input type="date" className="form-control custom-input" id="last_donated_sperm" value={editableUser.last_donated_sperm} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
-                                <div className="col-md-2">
+                                {/* <div className="col-md-2">
                                     <label htmlFor="input08" className="form-label custom-label">Status</label>
                                     <input type="text" className="form-control custom-input" id="input08" value={value.user.stats} readOnly />
+                                </div> */}
+                                <div className="col-md-2">
+                                    <label htmlFor="blood_donor" className="form-label custom-label">Blood Donor</label>
+                                    <input type="text" className="form-control custom-input" id="blood_donor" value={editableUser.blood_donor} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
+                                <div className="col-md-2">
+                                    <label htmlFor="sperm_donor" className="form-label custom-label">Sperm Donor</label>
+                                    <input type="text" className="form-control custom-input" id="sperm_donor" value={editableUser.sperm_donor} onChange={handleInputChange} readOnly={!isEditable} />
+                                </div>
+                                <div className="col-md-3">
+                                    <label htmlFor="blood_group" className="form-label custom-label">Blood Group</label>
+                                    <input type="text" className="form-control custom-input" id="blood_group" value={editableUser.blood_group} onChange={handleInputChange} readOnly={!isEditable} />
+                                </div>
+                
                                 <div className="col-md-6">
                                     <label htmlFor="input09" className="form-label custom-label">BMR</label>
                                     <input type="text" className="form-control custom-input" id="input09" value={value.user.bmr} readOnly />

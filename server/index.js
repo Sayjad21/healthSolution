@@ -170,9 +170,9 @@ app.post('/verify', async (req, res) => {
 app.get('/getAllergy_antibiotics', async (req, res) => {
   const client = await pool.connect();
   try {
-    const clientQuery = `SELECT * FROM allergy`;
+    const clientQuery = `SELECT * FROM allergy ORDER BY allergy_name`;
     const allergy = await client.query(clientQuery);
-    const clientQuery1 = `SELECT * FROM antibiotic`;
+    const clientQuery1 = `SELECT * FROM antibiotic ORDER BY name`;
     const antibiotic = await client.query(clientQuery1);
     res.status(200).json({
       message: "Allergy and Antibiotics fetched successfully",
