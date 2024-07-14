@@ -1,0 +1,20 @@
+/* styles.css */
+.custom-btn {
+    background-color: #138a80; /* Bootstrap primary color */
+    color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    transition: background-color 0.3s ease;
+    margin-top: 15px;
+}
+
+.custom-btn:hover {
+    background-color: #418f99; /* Darker shade for hover effect */
+}
+
+.custom-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px #083944;
+}

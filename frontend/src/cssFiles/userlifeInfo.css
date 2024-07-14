@@ -1,0 +1,21 @@
+.scrollable-list {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #281aee; /* Optional: adds a border for better visibility */
+    padding: 10px; /* Optional: adds padding inside the scrollable area */
+    margin-bottom: 20px; /* Optional: adds some space below the list */
+    background-color: #b3d3ef;
+}
+
+.scrollable-list2 {
+    max-height: 1000px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #281aee; /* Optional: adds a border for better visibility */
+    padding: 10px; /* Optional: adds padding inside the scrollable area */
+    margin-bottom: 20px; /* Optional: adds some space below the list */
+    background-color: #e9cb9b;
+}
+
+.align-right {
+    float: right;
+}

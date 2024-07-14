@@ -127,6 +127,9 @@ CREATE TABLE allergy (
     id SERIAL PRIMARY KEY,
     allergy_name VARCHAR(100) NOT NULL
 );
+ALTER TABLE allergy
+ADD COLUMN description VARCHAR(255);
+
 
 
 CREATE TABLE user_allergy (
@@ -143,7 +146,8 @@ CREATE TABLE antibiotic (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
-
+ALTER TABLE antibiotic
+ADD COLUMN description VARCHAR(255);
 
 
 

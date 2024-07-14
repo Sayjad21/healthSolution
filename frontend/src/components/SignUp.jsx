@@ -26,10 +26,12 @@ export default function SignUp() {
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,}$/;
 
     useEffect(() => {
-        // Initialize and show the modal when the component mounts
-        const modal = new window.bootstrap.Modal(document.getElementById('exampleModal'));
-        modal.show();
-    }, []);
+        // Check if user is updated
+        if (value.user) {
+            console.log('User updated:', value.user);
+            // setGotUser(true);
+        }
+    }, [value.user]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -65,9 +67,9 @@ export default function SignUp() {
                 alert("User registered successfully");
                 const responseData = await response.json();
                 // Close the modal
-                const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
-                modal.hide();
-                value.setUser(formData);
+                // const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
+                // modal.hide();
+                value.setUser(responseData.user);
                 // console.log("signup success");
                 // console.log(value.user);
             }
@@ -90,8 +92,12 @@ export default function SignUp() {
 
     return (
         <div className="container">
+
+            <button type="button" className="btn btn-primary my-3 custom-btn" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                Signup
+            </button>
             {/* <!-- Modal --> */}
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">

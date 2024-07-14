@@ -1,0 +1,23 @@
+/* styles.css */
+.custom-input {
+    background-color: #dde17a; /* Light grey background */
+    border: 1px solid #f44725; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the input */
+    font-size: 16px; /* Font size */
+    color: #0f1112; /* Text color */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+.custom-input:focus {
+    background-color: #e2a672; 
+    border-color: #e3a019; /* Border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(90, 150, 215, 0.5); /* Shadow on focus */
+}
+
+.custom-label {
+    font-weight: bold; /* Bold labels */
+    margin-bottom: 5px; /* Space below the label */
+    color: #34373b; /* Label color */
+}
