@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
+import Populate from './components/admin/populate';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,6 +24,7 @@ function App() {
             <Route exact path="/diet" element={<Diet />} />
             <Route exact path="/meal" element={<MealPlanner />} />
             <Route exact path="/recipe" element={<Recipe />} />
+            <Route exact path="/populate" element={<Populate />} />
             <Route exact path="/exercise" element={<ExercisePage />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<SignUp />} />

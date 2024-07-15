@@ -110,9 +110,6 @@ CREATE TABLE hospital (
     CONSTRAINT unique_address UNIQUE (street, city, policestation)
 );
 
-
-
-
 CREATE TABLE thana_nearest (
     id SERIAL PRIMARY KEY,
     thana_name_from VARCHAR(100) NOT NULL,
