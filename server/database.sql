@@ -196,5 +196,21 @@ CREATE TABLE disease_symptom (
 );
 
 
+Create table Blood_donation_candidate (
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    blood_group VARCHAR(3) NOT NULL,
+    last_donated_blood DATE NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL
+    
+);
+
+
+
+ALTER TABLE Blood_donation_candidate
+ADD CONSTRAINT unique_candidate UNIQUE (name, phone_number, email);
 
 

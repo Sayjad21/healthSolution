@@ -15,8 +15,8 @@ Create table user_choice_exercise (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
     preferred_type VARCHAR(50) NOT NULL,
-    muscle_groups VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+    muscle_groups VARCHAR(255)
+    -- FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
 
@@ -31,4 +31,13 @@ CREATE TABLE recommendations (
     sets_or_duration VARCHAR(50),
     FOREIGN KEY (exercise_id) REFERENCES exercises (id) ON DELETE CASCADE
 
+);
+
+
+CREATE TABLE exercise_routine (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER , -- Assuming a users table existsreference  will be added later
+    recommendation_id INTEGER REFERENCES recommendations(id), -- Assuming a recommendations table exists
+    day VARCHAR(10) NOT NULL CHECK (day IN ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')),
+    UNIQUE (user_id, recommendation_id, day) -- Ensures one recommendation per day per user
 );

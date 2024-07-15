@@ -14,6 +14,24 @@ VALUES
 
 
 
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Bicep Curl', 'Strength', 'An upper body exercise that targets the biceps.', 'Arms', 'Dumbbells', 'Beginner', '12 reps', 'https://www.youtube.com/watch?v=ykJmrZ5v0Oo&pp=ygUJYmljZXAgY3VybA%3D%3D', 5.0),
+('Plank', 'Strength', 'A core exercise that involves maintaining a position similar to a push-up for the maximum possible time.', 'Core', 'None', 'Intermediate', '1 minute', 'https://www.youtube.com/watch?v=B296mZDhrP4&pp=ygUJcGxhbmsgY29yZQ%3D%3D', 4.0),
+('Deadlift', 'Strength', 'A full body exercise where a loaded barbell is lifted off the ground to the level of the hips.', 'Full Body', 'Barbell', 'Advanced', '10 reps', 'https://www.youtube.com/watch?v=ytGaGIn3SjE&pp=ygUOZGVhZGxpZnQgdHV0b3JpYWw%3D', 15.0),
+('Burpees', 'Cardio', 'A full body exercise that combines a squat, push-up, and jump.', 'Full Body', 'None', 'Intermediate', '10 reps', 'https://www.youtube.com/watch?v=JZQA08SlJnM&pp=ygUJYnVycGVlcyA%3D', 10.0),
+('Mountain Climbers', 'Cardio', 'A full body exercise that increases heart rate and targets the legs and core.', 'Full Body', 'None', 'Intermediate', '1 minute', 'https://www.youtube.com/watch?v=nmwgirgXLYM&pp=ygUKbW91bnRhaW4gY2xpbWJlcg%3D%3D', 8.0),
+('Tricep Dips', 'Strength', 'An upper body exercise that targets the triceps.', 'Arms', 'Parallel Bars', 'Intermediate', '12 reps', 'https://www.youtube.com/watch?v=6kALZikXxLc&pp=ygUKdHJpY2VwIGRpcHM%3D', 7.0),
+('High Knees', 'Cardio', 'A full body exercise that involves running in place while lifting the knees to waist height.', 'Full Body', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=OAJ_J3EZkdY&pp=ygUKaGlnaCBrbmVlcyA%3D', 7.0),
+('Russian Twists', 'Strength', 'A core exercise that targets the obliques.', 'Core', 'None', 'Intermediate', '1 minute', 'https://www.youtube.com/watch?v=wkD8rjkodUI&pp=ygUNcnVzc2lhbiB0d2lzdHM%3D', 5.0),
+('Leg Press', 'Strength', 'A lower body exercise that targets the quadriceps, hamstrings, and glutes.', 'Legs', 'Leg Press Machine', 'Intermediate', '12 reps', 'https://www.youtube.com/watch?v=sGVTN6E4mpI&pp=ygUObGVnIHByZXNzIG1hY2hpbmU%3D', 9.0),
+('Side Plank', 'Strength', 'A core exercise that targets the obliques.', 'Core', 'None', 'Intermediate', '1 minute each side', 'https://www.youtube.com/watch?v=wqzrb67Dwf8&pp=ygUMc2lkZSBwbGFuayA%3D', 4.5),
+('Box Jump', 'Strength', 'A lower body exercise that involves jumping onto a box or platform.', 'Legs', 'Box', 'Intermediate', '10 reps', 'https://www.youtube.com/watch?v=52r8lRzK0pA&pp=ygUHYm94IGp1bXA%3D', 10.0),
+('Rowing', 'Cardio', 'A full body exercise that involves rowing on a machine.', 'Full Body', 'Rowing Machine', 'Intermediate', '20 minutes', 'https://www.youtube.com/watch?v=ehikxT0KHUY&pp=ygUJcm93aW5nIG1hY2hpbmU%3D', 9.0);
+
+
+
+
 
 
 -- Additional variations for recommendations table
@@ -69,3 +87,81 @@ VALUES
 ('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 10, '4 sets of 10 reps each leg'),
 ('170-180 cm', '70-80 kg', '30-45', 'Male', '18.5-24.9', 10, '3 sets of 12 reps each leg'),
 ('160-170 cm', '60-70 kg', '18-30', 'Female', '25-29.9', 10, '5 sets of 8 reps each leg');
+
+
+INSERT INTO recommendations (height_range, weight_range, age_range, gender, bmi_range, exercise_id, sets_or_duration)
+VALUES 
+-- Bicep Curl variations
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 11, '4 sets of 12 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 11, '3 sets of 10 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 11, '5 sets of 10 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 11, '3 sets of 15 reps'),
+('160-170 cm', '60-70 kg', '45-60', 'Male', '18.5-24.9', 11, '4 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '18-30', 'Female', '25-29.9', 11, '5 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '30-34.9', 11, '3 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '18.5-24.9', 11, '4 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '45-60', 'Male', '18.5-24.9', 11, '5 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '30-34.9', 11, '3 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 11, '4 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '30-45', 'Female', '25-29.9', 11, '5 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Male', '30-34.9', 11, '3 sets of 8 reps'),
+
+-- Plank variations
+('170-180 cm', '70-80 kg', '18-30', 'Female', '18.5-24.9', 12, '2 minutes'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '18.5-24.9', 12, '1.5 minutes'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 12, '2.5 minutes'),
+('150-160 cm', '50-60 kg', '45-60', 'Male', '18.5-24.9', 12, '1 minute'),
+('170-180 cm', '70-80 kg', '30-45', 'Female', '18.5-24.9', 12, '3 minutes'),
+('160-170 cm', '60-70 kg', '18-30', 'Male', '30-34.9', 12, '1.5 minutes'),
+('180-190 cm', '80-90 kg', '30-45', 'Female', '18.5-24.9', 12, '2 minutes'),
+('150-160 cm', '50-60 kg', '18-30', 'Male', '25-29.9', 12, '2.5 minutes'),
+('170-180 cm', '70-80 kg', '45-60', 'Female', '18.5-24.9', 12, '3.5 minutes'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '18.5-24.9', 12, '1 minute'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '30-34.9', 12, '2 minutes'),
+('150-160 cm', '50-60 kg', '30-45', 'Male', '18.5-24.9', 12, '1.5 minutes'),
+('170-180 cm', '70-80 kg', '18-30', 'Female', '25-29.9', 12, '2.5 minutes'),
+
+-- Tricep Dip variations
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 13, '4 sets of 12 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 13, '3 sets of 10 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 13, '5 sets of 10 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 13, '3 sets of 15 reps'),
+('160-170 cm', '60-70 kg', '45-60', 'Male', '18.5-24.9', 13, '4 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '18-30', 'Female', '25-29.9', 13, '5 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '30-34.9', 13, '3 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '18.5-24.9', 13, '4 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '45-60', 'Male', '18.5-24.9', 13, '5 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '30-34.9', 13, '3 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 13, '4 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '30-45', 'Female', '25-29.9', 13, '5 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Male', '30-34.9', 13, '3 sets of 8 reps'),
+
+-- Deadlift variations
+('170-180 cm', '70-80 kg', '18-30', 'Female', '18.5-24.9', 14, '4 sets of 12 reps'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '18.5-24.9', 14, '3 sets of 10 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 14, '5 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '45-60', 'Male', '18.5-24.9', 14, '3 sets of 15 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Female', '18.5-24.9', 14, '4 sets of 8 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Male', '25-29.9', 14, '5 sets of 12 reps'),
+('180-190 cm', '80-90 kg', '30-45', 'Female', '30-34.9', 14, '3 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '18-30', 'Male', '18.5-24.9', 14, '4 sets of 15 reps'),
+('170-180 cm', '70-80 kg', '45-60', 'Female', '18.5-24.9', 14, '5 sets of 8 reps'),
+('160-170 cm', '60-70 kg', '30-45', 'Male', '30-34.9', 14, '3 sets of 12 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 14, '4 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Male', '25-29.9', 14, '5 sets of 15 reps'),
+('170-180 cm', '70-80 kg', '18-30', 'Female', '30-34.9', 14, '3 sets of 8 reps'),
+
+-- Burpee variations
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 15, '4 sets of 12 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 15, '3 sets of 10 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 15, '5 sets of 10 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '18.5-24.9', 15, '3 sets of 15 reps'),
+('160-170 cm', '60-70 kg', '45-60', 'Male', '18.5-24.9', 15, '4 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '18-30', 'Female', '25-29.9', 15, '5 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '30-34.9', 15, '3 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '18-30', 'Female', '18.5-24.9', 15, '4 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '45-60', 'Male', '18.5-24.9', 15, '5 sets of 8 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '30-34.9', 15, '3 sets of 12 reps'),
+('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 15, '4 sets of 10 reps'),
+('160-170 cm', '60-70 kg', '30-45', 'Female', '25-29.9', 15, '5 sets of 15 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Male', '30-34.9', 15, '3 sets of 8 reps');
