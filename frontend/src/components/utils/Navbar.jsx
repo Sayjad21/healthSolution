@@ -64,7 +64,7 @@ const Navbar = () => {
                   <ul className="dropdown-menu dropdown-menu-dark">
                     <li><a className="dropdown-item" href="#">Action1</a></li>
                     <li><a className="dropdown-item" href="#">Action2</a></li>
-                    <li><Link className="dropdown-item nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
+                    <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
                   </ul>
                 </li>
                 ) : (

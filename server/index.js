@@ -167,17 +167,20 @@ app.post('/verify', async (req, res) => {
 
 });
 
-app.get('/getAllergy_antibiotics', async (req, res) => {
+app.get('/getAllergy_antibiotics_disease', async (req, res) => {
   const client = await pool.connect();
   try {
     const clientQuery = `SELECT * FROM allergy ORDER BY allergy_name`;
     const allergy = await client.query(clientQuery);
     const clientQuery1 = `SELECT * FROM antibiotic ORDER BY name`;
     const antibiotic = await client.query(clientQuery1);
+    const clientQuery2 = `SELECT * FROM disease ORDER BY disease_name`;
+    const disease = await client.query(clientQuery2);
     res.status(200).json({
       message: "Allergy and Antibiotics fetched successfully",
       allergy: allergy.rows,
-      antibiotic: antibiotic.rows
+      antibiotic: antibiotic.rows,
+      disease: disease.rows
     });
 
   } catch (error) {
@@ -198,7 +201,7 @@ app.get('/getAllergy_antibiotics', async (req, res) => {
 app.post('/updateUser', async (req, res) => {
   const client = await pool.connect();
   try {
-      const { user, allergy, antibiotics } = req.body;
+      const { user, allergy, antibiotics,disease } = req.body;
       const updateQuery = 
       `UPDATE users SET name = $1, age = $2, height = $3, weight = $4, country = $5, state = $6, police_station = $7, 
       blood_group = $8,last_donated_blood = $9, last_donated_sperm = $10 where email = $11`;
@@ -251,6 +254,23 @@ app.post('/updateUser', async (req, res) => {
       const insertUserAntibioticQuery = `INSERT INTO user_antibiotic_resistance (user_id, antibiotic_id) VALUES ($1, $2)`;
       for (const antibioticId of antibioticIds) {
           await client.query(insertUserAntibioticQuery, [userId, antibioticId]);
+      }
+
+      //delete existing diseases for the user
+      const deleteUserDiseaseQuery = `DELETE FROM DISEASE_HISTORY WHERE user_id = $1`;
+      await client.query(deleteUserDiseaseQuery, [userId]);
+
+      // Fetch disease IDs from disease names
+      const fetchDiseaseIdsQuery = `SELECT disease_id FROM disease WHERE disease_name = ANY($1::text[])`; 
+      const diseaseIdsResult = await client.query(fetchDiseaseIdsQuery, [disease]);
+      const diseaseIds = diseaseIdsResult.rows.map(row => row.disease_id);
+      console.log(disease);
+      console.log(diseaseIds);
+
+      // Insert new diseases for the user
+      const insertUserDiseaseQuery = `INSERT INTO DISEASE_HISTORY (user_id, disease_id) VALUES ($1, $2)`;
+      for (const diseaseId of diseaseIds) {
+          await client.query(insertUserDiseaseQuery, [userId, diseaseId]);
       }
 
       // Commit the transaction

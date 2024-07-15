@@ -178,8 +178,23 @@ CREATE TABLE organ (
 CREATE TABLE disease (
     disease_id SERIAL PRIMARY KEY,
     disease_name VARCHAR(100) NOT NULL,
+    
     preferred_specialized VARCHAR(100) NOT NULL
 );
+
+ALTER TABLE disease
+ADD COLUMN symptom VARCHAR(255);
+
+
+CREATE TABLE DISEASE_HISTORY(
+    id SERIAL PRIMARY KEY,
+    disease_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (disease_id) REFERENCES disease (disease_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+
 
 
 

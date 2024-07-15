@@ -8,8 +8,10 @@ export default function UserLifeInfo() {
     const [gotUser, setGotUser] = useState(false);
     const [allergy, setAllergy] = useState(null);
     const [antibiotics, setAntibiotics] = useState(null);
+    const [disease, setDisease] = useState(null);
     const [allergyHistory, setAllergyHistory] = useState([]);
     const [antibioticHistory, setAntibioticHistory] = useState([]);
+    const [diseaseHistory, setDiseaseHistory] = useState([]);
     const [edit, setEdit] = useState(false);
     const [isEditable, setIsEditable] = useState(false);
     const [editableUser, setEditableUser] = useState({
@@ -27,17 +29,13 @@ export default function UserLifeInfo() {
         blood_donor: '',
         sperm_donor: '',
         blood_group: ''
-
     });
 
     useEffect(() => {
-        fetchPatientAntibioticAndAllergyHistory();
-
-
-
         if (value.user) {
             setGotUser(true);
-            Fetch_Allergy_Antibiotics();
+            fetchPatientAntibioticAndAllergyHistory();
+            Fetch_Allergy_Antibiotics_Disease();
             setEditableUser({
                 name: value.user.name,
                 age: value.user.age,
@@ -64,9 +62,8 @@ export default function UserLifeInfo() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: value.user.email })
             });
-            if (response.status === 200) {
+            if (response.ok) {
                 const data = await response.json();
-                console.log(data);
                 setAllergyHistory(data.allergy);
                 setAntibioticHistory(data.antibiotic);
             } else {
@@ -76,11 +73,29 @@ export default function UserLifeInfo() {
             console.log(error);
         }
     };
-    
+
+    const Fetch_Allergy_Antibiotics_Disease = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/getAllergy_antibiotics_disease', {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setAllergy(data.allergy);
+                setAntibiotics(data.antibiotic);
+                setDisease(data.disease);
+            } else {
+                console.log('Error in fetching allergy and antibiotics');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
-        
+
         // Check if the input is for last_donated_blood or last_donated_sperm
         if (id === 'last_donated_blood' || id === 'last_donated_sperm') {
             // If the input is cleared, set the default date
@@ -88,48 +103,9 @@ export default function UserLifeInfo() {
                 value = '00-00-0000'; // Assuming '00-00-0000' is your default date format
             }
         }
-    
+
         // Update the state with the new value
         setEditableUser(prevState => ({ ...prevState, [id]: value }));
-    };
-    
-
-    useEffect(() => {
-        if (value.user) {
-            setGotUser(true);
-            Fetch_Allergy_Antibiotics();
-
-            // const interval = setInterval(() => {
-            //     Fetch_Allergy_Antibiotics();
-            // }, 10000);
-
-            // return () => clearInterval(interval);
-        }
-    }, [value.user]);
-
-    // useEffect(() => {
-    //     console.log(allergyHistory);
-    //     console.log(antibioticHistory);
-
-    // }, [allergyHistory, antibioticHistory]);
-
-    const Fetch_Allergy_Antibiotics = async () => {
-        try {
-            const response = await fetch('http://localhost:3000/getAllergy_antibiotics', {
-                method: 'GET',
-                headers: { 'Content-Type': 'application/json' }
-            });
-            if (response.status === 200) {
-                const data = await response.json();
-                console.log(data);
-                setAllergy(data.allergy);
-                setAntibiotics(data.antibiotic);
-            } else {
-                console.log('Error in fetching allergy and antibiotics');
-            }
-        } catch (error) {
-            console.log(error);
-        }
     };
 
     const handleAllergyChange = (event) => {
@@ -146,26 +122,35 @@ export default function UserLifeInfo() {
         );
     };
 
+    const handleDiseaseChange = (event) => {
+        const { value, checked } = event.target;
+        setDiseaseHistory(prevState =>
+            checked ? [...prevState, value] : prevState.filter(item => item !== value)
+        );
+    };
+
+
     const HandleEdit = () => {
         setEdit(!edit);
         setIsEditable(!isEditable);
-        console.log(edit);
-    }
+    };
 
-    const HandleChanges = async () => {
+    const HandleChanges = async (event) => {
+        event.preventDefault(); // Prevent form submission
+
         try {
             const response = await fetch('http://localhost:3000/updateUser', {
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     user: editableUser,
                     allergy: allergyHistory,
-                    antibiotics: antibioticHistory
+                    antibiotics: antibioticHistory,
+                    disease: diseaseHistory
                 })
             });
-            if(response.status === 200){
+            if (response.ok) {
                 const data = await response.json();
-                console.log(data);
                 setEdit(false);
                 setIsEditable(false);
                 alert(data.message);
@@ -175,10 +160,7 @@ export default function UserLifeInfo() {
         } catch (error) {
             console.log(error);
         }
-        // console.log(editableUser);
-        // console.log(allergyHistory);
-        // console.log(antibioticHistory);
-    }
+    };
 
     return (
         <div className='container'>
@@ -214,7 +196,7 @@ export default function UserLifeInfo() {
                                     <label htmlFor="email" className="form-label custom-label">Email</label>
                                     <div className="input-group has-validation">
                                         <span className="input-group-text" id="inputGroupPrepend">@</span>
-                                        <input type="text" className="form-control custom-input" id="email" value={editableUser.email} aria-describedby="inputGroupPrepend" readOnly/>
+                                        <input type="text" className="form-control custom-input" id="email" value={editableUser.email} aria-describedby="inputGroupPrepend" readOnly />
                                     </div>
                                 </div>
                                 <div className="col-md-4">
@@ -257,7 +239,7 @@ export default function UserLifeInfo() {
                                     <label htmlFor="blood_donor" className="form-label custom-label">Blood Donor</label>
                                     <input type="text" className="form-control custom-input" id="blood_donor" value={editableUser.blood_donor} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
-                                <div className="col-md-2">
+                                <div className="col-md-3">
                                     <label htmlFor="sperm_donor" className="form-label custom-label">Sperm Donor</label>
                                     <input type="text" className="form-control custom-input" id="sperm_donor" value={editableUser.sperm_donor} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
@@ -265,12 +247,12 @@ export default function UserLifeInfo() {
                                     <label htmlFor="blood_group" className="form-label custom-label">Blood Group</label>
                                     <input type="text" className="form-control custom-input" id="blood_group" value={editableUser.blood_group} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
-                
-                                <div className="col-md-6">
+
+                                <div className="col-md-3">
                                     <label htmlFor="input09" className="form-label custom-label">BMR</label>
                                     <input type="text" className="form-control custom-input" id="input09" value={value.user.bmr} readOnly />
                                 </div>
-                                <div className="col-md-6">
+                                <div className="col-md-3">
                                     <label htmlFor="input10" className="form-label custom-label">BMI</label>
                                     <input type="text" className="form-control custom-input" id="input10" value={value.user.bmi} readOnly />
                                 </div>
@@ -314,8 +296,29 @@ export default function UserLifeInfo() {
                                         ))}
                                     </div>
                                 </div>
+                                <div className="col-md-12">
+                                    <label className="form-label custom-label">Patient's Disease History</label>
+                                    <div className="scrollable-list">
+                                        {diseaseHistory.map((item, index) => (
+                                            <div key={index} className="form-check">
+                                                <input
+                                                    className="form-check-input"
+                                                    type="checkbox"
+                                                    value={item}
+                                                    id={`diseaseHistory-${index}`}
+                                                    checked
+                                                    readOnly
+                                                />
+                                                <label className="form-check-label" htmlFor={`diseaseHistory-${index}`}>
+                                                    {item}
+                                                </label>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
 
-                                {allergy && antibiotics && edit && (
+
+                                {allergy && antibiotics && disease && edit && (
                                     <>
                                         <h5>Name of Allergies & Antibiotic Resistance</h5>
                                         <div className="col-md-6 scrollable-list">
@@ -351,6 +354,27 @@ export default function UserLifeInfo() {
                                                     </label>
                                                 </div>
                                             ))}
+                                        </div>
+
+                                        <div className="col-md-12 scrollable-list">
+                                            {/* //create a checkBox for disease */}
+
+                                            <label className="form-label custom-label">Disease</label>
+                                            {disease.map((item, index) => (
+                                                <div key={index} className="form-check">
+                                                    <input
+                                                        className="form-check-input"
+                                                        type="checkbox"
+                                                        value={item.disease_name} 
+                                                        id={`disease-${index}`}
+                                                        onChange={handleDiseaseChange}
+                                                    />
+                                                    <label className="form-check-label" htmlFor={`disease-${index}`}>
+                                                        {item.disease_name}
+                                                    </label>
+                                                </div>
+                                            ))}
+                                            
                                         </div>
                                         <button type="button" class="btn btn-info my-4 align-right" onClick={HandleChanges}>Save Changes</button>
                                     </>
