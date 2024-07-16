@@ -1,0 +1,63 @@
+.scrollable-list {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #281aee; /* Optional: adds a border for better visibility */
+    padding: 10px; /* Optional: adds padding inside the scrollable area */
+    margin-bottom: 20px; /* Optional: adds some space below the list */
+    background-color: #b3d3ef;
+}
+
+.scrollable-list2 {
+    max-height: 700px; /* Adjust the height as needed */
+    overflow-y: auto;
+    border: 1px solid #281aee; /* Optional: adds a border for better visibility */
+    padding: 10px; /* Optional: adds padding inside the scrollable area */
+    margin-bottom: 20px; /* Optional: adds some space below the list */
+    background-color: #e9cb9b;
+}
+
+.align-right {
+    float: right;
+}
+
+.container {
+    background-color: lightgrey;
+}
+
+/* DiseaseTable.css */
+.scrollable-list .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.scrollable-list .table th, .scrollable-list .table td {
+    padding: 12px 15px;
+}
+
+.scrollable-list .table thead tr {
+    background-color: #6ddac4;
+    color: #1b5d39;
+    text-align: left;
+    font-weight: bold;
+}
+
+.scrollable-list .table tbody tr {
+    border-bottom: 1px solid #c9f195;
+}
+
+.scrollable-list .table tbody tr:nth-of-type(even) {
+    background-color: #9ceec5;
+}
+
+.scrollable-list .table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.scrollable-list .table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+

@@ -84,6 +84,12 @@ CREATE TABLE doctors (
     contact_info VARCHAR(50) NOT NULL
 );
 
+ALTER TABLE doctors
+DROP COLUMN chamber_address,
+ADD COLUMN hospital_id INT,
+ADD CONSTRAINT fk_hospital
+    FOREIGN KEY (hospital_id) 
+    REFERENCES hospital(id);
 
 
 
@@ -98,6 +104,8 @@ CREATE TABLE drugRoutine (
     CHECK (end_date >= initial_date), -- Ensures that the end date is not before the initial date
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
+
+
 
 CREATE TABLE hospital (
     id SERIAL PRIMARY KEY,
@@ -120,10 +128,15 @@ CREATE TABLE thana_nearest (
 
 
 
+
+
 CREATE TABLE allergy (
     id SERIAL PRIMARY KEY,
     allergy_name VARCHAR(100) NOT NULL
 );
+ALTER TABLE allergy
+ADD COLUMN description VARCHAR(255);
+
 
 
 CREATE TABLE user_allergy (
@@ -140,7 +153,8 @@ CREATE TABLE antibiotic (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
-
+ALTER TABLE antibiotic
+ADD COLUMN description VARCHAR(255);
 
 
 
@@ -171,8 +185,23 @@ CREATE TABLE organ (
 CREATE TABLE disease (
     disease_id SERIAL PRIMARY KEY,
     disease_name VARCHAR(100) NOT NULL,
+    
     preferred_specialized VARCHAR(100) NOT NULL
 );
+
+ALTER TABLE disease
+ADD COLUMN symptom VARCHAR(255);
+
+
+CREATE TABLE DISEASE_HISTORY(
+    id SERIAL PRIMARY KEY,
+    disease_id INT NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (disease_id) REFERENCES disease (disease_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+
 
 
 
