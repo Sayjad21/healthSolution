@@ -122,11 +122,11 @@ CREATE TABLE hospital (
 -- ADD CONSTRAINT unique_address UNIQUE (street, city, policestation);
 
 
-//CREATE A TABLE FOR POLICE STATION
-CREATE TABLE police_station(
-    PS_ID SERIAL PRIMARY KEY,
-    NAME VARCHAR(100) NOT NULL
-);
+-- //CREATE A TABLE FOR POLICE STATION
+-- CREATE TABLE police_station(
+--     PS_ID SERIAL PRIMARY KEY,
+--     NAME VARCHAR(100) NOT NULL
+-- );
 
 
 
