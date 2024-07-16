@@ -26,15 +26,18 @@ export default function Diet() {
                 </p>
             </div>
 
-            <div className="calc-holder">
-                <BMR/>
-                <hr/>
-                <BMI/>
+            <div className="calc-holder mt-3" style={{marginLeft: "35px"}}>
+                    <div className="row">
+                        <div className="calc-container col-md-6">
+                            <BMR />
+                        </div>
+                        <div className="calc-container col-md-6">
+                            <BMI />
+                        </div>
+                    </div>
             </div>
-
-            <hr/>
             
-            <div className="article-container">
+            <div className="header-container">
                 <h2 align="center">Why a Balanced Meal According to Your BMI and Calorie Needs is Important</h2>
                 <p className="description">
                     Maintaining a balanced diet according to your BMI and calorie needs is essential for optimal health. It ensures that your body gets the right nutrients in the right amounts, helping you maintain a healthy weight, improve energy levels, and reduce the risk of chronic diseases such as heart disease, diabetes, and obesity.
@@ -48,7 +51,7 @@ export default function Diet() {
             </div>
 
             <div className="button-container" align="center">
-                <Link to="/recipes">
+                <Link to="/meal">
                     <button className="btn btn-primary">Find Recipes</button>
                 </Link>
             </div>

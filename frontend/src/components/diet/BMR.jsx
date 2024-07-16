@@ -1,8 +1,6 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
-export default function BMR() {
-    console.log("BMR");
-
+const BMR = () => {
     const [weight, setWeight] = useState(0.0);
     const [height, setHeight] = useState(0.0);
     const [age, setAge] = useState(0);
@@ -41,39 +39,39 @@ export default function BMR() {
     };
 
     return (
-        <div className="bmr-calculator" style={styles.container}>
-            <h2 style={styles.heading}>BMR Calculator</h2>
-            <div style={styles.inputGroup}>
-                <label style={styles.label}>Age (years):</label>
+        <div className="bmr-calculator">
+            <h2 className="mb-4">BMR Calculator</h2>
+            <div className="mb-3">
+                <label className="form-label">Age (years):</label>
                 <input
                     type="number"
+                    className="form-control"
                     value={age}
                     onChange={(e) => setAge(e.target.value)}
-                    style={styles.input}
                 />
             </div>
-            <div style={styles.inputGroup}>
-                <label style={styles.label}>Weight (kg):</label>
+            <div className="mb-3">
+                <label className="form-label">Weight (kg):</label>
                 <input
                     type="number"
+                    className="form-control"
                     value={weight}
                     onChange={(e) => setWeight(e.target.value)}
-                    style={styles.input}
                 />
             </div>
-            <div style={styles.inputGroup}>
-                <label style={styles.label}>Height (cm):</label>
+            <div className="mb-3">
+                <label className="form-label">Height (cm):</label>
                 <input
                     type="number"
+                    className="form-control"
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
-                    style={styles.input}
                 />
             </div>
-            <div style={styles.inputGroup}>
-                <label style={styles.label}>Gender:</label>
-                <div style={styles.radioGroup}>
-                    <div style={styles.radioItem}>
+            <div className="mb-3">
+                <label className="form-label">Gender:</label>
+                <div>
+                    <div className="form-check form-check-inline">
                         <input
                             type="radio"
                             id="male"
@@ -81,11 +79,11 @@ export default function BMR() {
                             value="male"
                             checked={gender === true}
                             onChange={() => setGender(true)}
-                            style={styles.radio}
+                            className="form-check-input"
                         />
-                        <label htmlFor="male" style={styles.radioLabel}>Male</label>
+                        <label htmlFor="male" className="form-check-label">Male</label>
                     </div>
-                    <div style={styles.radioItem}>
+                    <div className="form-check form-check-inline">
                         <input
                             type="radio"
                             id="female"
@@ -93,115 +91,55 @@ export default function BMR() {
                             value="female"
                             checked={gender === false}
                             onChange={() => setGender(false)}
-                            style={styles.radio}
+                            className="form-check-input"
                         />
-                        <label htmlFor="female" style={styles.radioLabel}>Female</label>
+                        <label htmlFor="female" className="form-check-label">Female</label>
                     </div>
                 </div>
             </div>
-            <button onClick={calculateBMR} style={styles.button}>Calculate BMR</button>
-            {bmr && <p style={styles.result}>Your Basal Metabolic Rate (BMR) is: {bmr.toFixed(2)} calories/day</p>}
+            <button className="btn btn-primary mb-3" onClick={calculateBMR}>Calculate BMR</button>
+            {bmr && <p className="mb-4">Your Basal Metabolic Rate (BMR) is: {bmr.toFixed(2)} calories/day</p>}
 
             {bmr > 0 && (
-                <div style={styles.calorieContainer}>
-                    <h3 style={styles.calorieHeading}>Daily Calorie Requirements</h3>
-                    <ul style={styles.calorieList}>
-                        <li style={styles.calorieItem}>Little to no exercise: {calories.sedentary.toFixed(2)} calories/day</li>
-                        <li style={styles.calorieItem}>Light exercise (1-3 times per week): {calories.lightlyActive.toFixed(2)} calories/day</li>
-                        <li style={styles.calorieItem}>Moderate exercise (3-5 times per week): {calories.moderatelyActive.toFixed(2)} calories/day</li>
-                        <li style={styles.calorieItem}>Heavy exercise (5-6 times per week): {calories.veryActive.toFixed(2)} calories/day</li>
-                        <li style={styles.calorieItem}>Heavy exercise (6-7 times per week): {calories.superActive.toFixed(2)} calories/day</li>
-                    </ul>
+                <div>
+                    <h3 className="mb-3">Daily Calorie Requirements</h3>
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Activity Level</th>
+                                <th>Calories/day</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Little to no exercise</td>
+                                <td>{calories.sedentary.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td>Light exercise (1-3 times per week)</td>
+                                <td>{calories.lightlyActive.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td>Moderate exercise (3-5 times per week)</td>
+                                <td>{calories.moderatelyActive.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td>Heavy exercise (5-6 times per week)</td>
+                                <td>{calories.veryActive.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td>Very heavy exercise (6-7 times per week)</td>
+                                <td>{calories.superActive.toFixed(2)}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             )}
         </div>
     );
-}
-
-const styles = {
-    container: {
-        maxWidth: "600px",
-        margin: "0 auto",
-        padding: "2rem",
-        backgroundColor: "#f7f7f7",
-        borderRadius: "8px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-    },
-    heading: {
-        textAlign: "center",
-        marginBottom: "1.5rem",
-        color: "#333",
-    },
-    inputGroup: {
-        marginBottom: "1rem",
-    },
-    label: {
-        display: "block",
-        marginBottom: "0.5rem",
-        fontWeight: "bold",
-        color: "#555",
-    },
-    input: {
-        width: "100%",
-        padding: "0.5rem",
-        borderRadius: "4px",
-        border: "1px solid #ddd",
-    },
-    radioGroup: {
-        display: "flex",
-        justifyContent: "space-around",
-    },
-    radioItem: {
-        display: "flex",
-        alignItems: "center",
-    },
-    radio: {
-        marginRight: "0.5rem",
-    },
-    radioLabel: {
-        color: "#555",
-    },
-    button: {
-        display: "block",
-        width: "100%",
-        padding: "0.75rem",
-        backgroundColor: "#007BFF",
-        color: "#fff",
-        border: "none",
-        borderRadius: "4px",
-        cursor: "pointer",
-        fontWeight: "bold",
-    },
-    buttonHover: {
-        backgroundColor: "#0056b3",
-    },
-    result: {
-        textAlign: "center",
-        marginTop: "1rem",
-        fontSize: "1.25rem",
-        color: "#333",
-    },
-    calorieContainer: {
-        marginTop: "2rem",
-    },
-    calorieHeading: {
-        fontSize: "1.5rem",
-        marginBottom: "1rem",
-        color: "#333",
-    },
-    calorieList: {
-        listStyleType: "none",
-        paddingLeft: "0",
-    },
-    calorieItem: {
-        marginBottom: "0.5rem",
-        fontSize: "1rem",
-        color: "#555",
-    },
 };
 
-
-
+export default BMR;
 
 
 
