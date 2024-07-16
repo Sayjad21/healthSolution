@@ -48,7 +48,7 @@ export default function SearchFilter() {
         const body = { search , doctorSpeciality, treatmentType, degree, policestation };
         // console.log(body);
         try {
-            const response = await fetch('http://localhost:5000/doctorHospital', {
+            const response = await fetch('http://localhost:8000/doctorHospital', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -77,8 +77,10 @@ export default function SearchFilter() {
 
     }
     return (
+        <>
+        <Navbar />
         <div className="container">
-            <Navbar />
+            
             <div class="container text-center my-3">
                 <div class="row align-items-start">
                     <div class="col-3">
@@ -247,6 +249,7 @@ export default function SearchFilter() {
                 </div>
             </div>
         </div>
+        </>
 
     )
 }

@@ -24,7 +24,7 @@ const AddHospitalForm = () => {
     e.preventDefault();
     console.log('Form data:', formData);
     try {
-      const response = await axios.post('http://localhost:5000/addHospitals', formData);
+      const response = await axios.post('http://localhost:8000/addHospitals', formData);
       console.log('Hospital added successfully:', response.data);
       
     //   setHospitals(response.data);
@@ -46,7 +46,7 @@ const AddHospitalForm = () => {
     useEffect(() => {
         const fetchHospitals = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/gethospitals');
+                const response = await axios.get('http://localhost: 8000/gethospitals');
                 setHospitals(response.data);
             } catch (error) {
                 console.error('Error fetching hospitals:', error);

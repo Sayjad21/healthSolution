@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import '../../cssFiles/Signup.css'
 import { userContext } from '../../context/context';
+import { Navigate } from 'react-router-dom';
 
 export default function SignUp() {
-    const port = 5000;
+    const port =  8000;
+    const navigate = Navigate();
     const value = useContext(userContext);
     const signupButtonRef = useRef(null);
 
@@ -72,7 +74,7 @@ export default function SignUp() {
         try {
             const body = { formData };
             console.log(body);
-            const response = await fetch("http://localhost:5000/signup", {
+            const response = await fetch("http://localhost:8000/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
@@ -85,6 +87,7 @@ export default function SignUp() {
                 // const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
                 // modal.hide();
                 value.setUser(responseData.user);
+                navigate('/home');
                 // console.log("signup success");
                 // console.log(value.user);
             }

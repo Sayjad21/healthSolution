@@ -4,7 +4,7 @@ const cors = require('cors');
 const pool = require('./db'); // db.js file
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const port = 5000;
+const port =  8000;
 
 //secret key for jwt
 const secretKey = "RDAS191373321";
@@ -410,6 +410,42 @@ app.post('/doctorHospital', async (req, res) => {
     client.release();
   }
 });
+
+
+app.get('/getDoctors', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const allDoctors = await pool.query('SELECT * FROM doctors INNER JOIN hospital ON doctors.hospital_id = hospital.id ORDER BY doctor_name');
+    res.status(200).json({
+      message: "Doctors fetched successfully",
+      doctors: allDoctors.rows
+    }
+    );
+
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+);
+
+app.post('/addDoctors', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const { doctorName, degree, doctorSpeciality, hospital, treatmentType, contactInfo } = req.body;
+    const clientQuery = `SELECT id FROM hospital WHERE name = $1`;
+    const hospitalResult = await client.query(clientQuery, [hospital]);
+    const hospitalId = hospitalResult.rows[0].id;
+    const insertQuery = `INSERT INTO doctors (doctor_name, degree, doctor_speciality, hospital_id, treatment_type, contact_info) VALUES ($1, $2, $3, $4, $5, $6)`;
+    await client.query(insertQuery, [doctorName, degree, doctorSpeciality, hospitalId, treatmentType, contactInfo]);
+    res.status(200).json({ message: 'Doctor added successfully' });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  } finally {
+    client.release();
+  }
+}
+);
 
 
 

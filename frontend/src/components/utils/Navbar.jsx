@@ -12,6 +12,7 @@ import "../../cssFiles/navbar.css";
 
 const Navbar = () => {
   const userValue = useContext(userContext);
+  console.log(userValue.stats);
   return (
     <Fragment>
       <div>
@@ -53,24 +54,30 @@ const Navbar = () => {
                   Exercize
                 </Link>
               </li>
-                <li>
+              <li>
                 <Link to="/FindDocHos" className="nav-link">
                   Doctor & Hospital
                 </Link>
-                </li>
+              </li>
+
+                <li>
+                <Link to="/addDoctor" className="nav-link">
+                  Add Doctor
+                </Link>
+              </li>
 
               <li>
                 {userValue.user ? (
                   <li className="nav-item dropdown">
-                  <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div>{userValue.user.name}</div>
-                  </button>
-                  <ul className="dropdown-menu dropdown-menu-dark">
-                    <li><a className="dropdown-item" href="#">Action1</a></li>
-                    <li><a className="dropdown-item" href="#">Action2</a></li>
-                    <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
-                  </ul>
-                </li>
+                    <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div>{userValue.user.name}</div>
+                    </button>
+                    <ul className="dropdown-menu dropdown-menu-dark">
+                      <li><a className="dropdown-item" href="#">Action1</a></li>
+                      <li><a className="dropdown-item" href="#">Action2</a></li>
+                      <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
+                    </ul>
+                  </li>
                 ) : (
                   <div style={{ display: 'flex', gap: '10px' }}>
                     <li>
