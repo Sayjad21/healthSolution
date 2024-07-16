@@ -48,7 +48,7 @@ export default function SearchFilter() {
         const body = { search , doctorSpeciality, treatmentType, degree, policestation };
         // console.log(body);
         try {
-            const response = await fetch('http://localhost:3000/doctorHospital', {
+            const response = await fetch('http://localhost:5000/doctorHospital', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

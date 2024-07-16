@@ -14,6 +14,7 @@ import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
 import SearchFilter from './components/Search&Filter/SearchFilter';
+import Populate from './components/admin/populate';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -29,6 +30,7 @@ function App() {
               <Route exact path="/diet" element={<Diet />} />
               <Route exact path="/meal" element={<MealPlanner />} />
               <Route exact path="/recipe" element={<Recipe />} />
+              <Route exact path="/populate" element={<Populate />} />
               <Route exact path="/exercise" element={<ExercisePage />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />
@@ -37,25 +39,6 @@ function App() {
               {/* Add more routes as needed */}
             </Routes>
           </Router>
-
-          {/* <div className="container text-center">
-            <div className="row align-items-center">
-              <div className="col">
-                <SignUp />
-              </div>
-              <div className="col">
-                <Login />
-              </div>
-              <div className="col">
-                <Verification />
-              </div>
-              <div className="col">
-                <FinalAuthenticate />
-              </div>
-            </div>
-          </div> */}
-
-          {/* <UserLifeInfo /> */}
         </tokenContext.Provider>
       </userContext.Provider>
     </div>

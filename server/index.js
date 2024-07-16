@@ -4,13 +4,17 @@ const cors = require('cors');
 const pool = require('./db'); // db.js file
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const port = 3000;
+const port = 5000;
 
 //secret key for jwt
 const secretKey = "RDAS191373321";
 
 app.use(cors());
 app.use(express.json());
+
+// Routes (Abhishek)
+app.use('/addHospitals', require('./admin'));
+app.use('/getHospitals', require('./admin'));
 
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {

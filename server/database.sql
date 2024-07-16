@@ -118,18 +118,6 @@ CREATE TABLE hospital (
     CONSTRAINT unique_address UNIQUE (street, city, policestation)
 );
 
--- ALTER TABLE hospital
--- ADD CONSTRAINT unique_address UNIQUE (street, city, policestation);
-
-
--- //CREATE A TABLE FOR POLICE STATION
--- CREATE TABLE police_station(
---     PS_ID SERIAL PRIMARY KEY,
---     NAME VARCHAR(100) NOT NULL
--- );
-
-
-
 CREATE TABLE thana_nearest (
     id SERIAL PRIMARY KEY,
     thana_name_from VARCHAR(100) NOT NULL,
@@ -137,18 +125,7 @@ CREATE TABLE thana_nearest (
     CONSTRAINT unique_thana_pair UNIQUE (thana_name_from, thana_name_to) --existing problem here
 );
 
--- DROP TABLE THANA_NEAREST;
 
-
-
--- CREATE TABLE thana_nearest (
---     id SERIAL PRIMARY KEY,
---     thana_ID_from INT NOT NULL,
---     thana_ID_to INT NOT NULL,
---     CONSTRAINT fk_thana_from FOREIGN KEY (thana_ID_from) REFERENCES police_station (PS_ID),
---     CONSTRAINT fk_thana_to FOREIGN KEY (thana_ID_to) REFERENCES police_station (PS_ID),
---     CONSTRAINT unique_thana_pair UNIQUE (thana_ID_from, thana_ID_to)
--- );
 
 
 
