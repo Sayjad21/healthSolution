@@ -10,8 +10,6 @@ import "../../cssFiles/navbar.css";
 //import signup.jsx from RegLoginAuth folder
 
 
-
-
 const Navbar = () => {
   const userValue = useContext(userContext);
   return (
