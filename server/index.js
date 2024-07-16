@@ -15,6 +15,10 @@ app.use(express.json());
 // Routes (Abhishek)
 app.use('/addHospitals', require('./admin'));
 app.use('/getHospitals', require('./admin'));
+app.use('/deleteHospital', require('./admin'));
+app.use('/addThana', require('./admin'));
+app.use('/getThana', require('./admin'));
+app.use('/deleteThana', require('./admin'));
 
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {

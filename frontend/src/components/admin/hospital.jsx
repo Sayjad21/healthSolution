@@ -27,7 +27,7 @@ const AddHospitalForm = () => {
       const response = await axios.post('http://localhost:5000/addHospitals', formData);
       console.log('Hospital added successfully:', response.data);
       
-    //   setHospitals(response.data);
+      fetchHospitals(); // Fetch hospitals again to display the updated list
       
       // Reset form
       setFormData({
@@ -43,24 +43,35 @@ const AddHospitalForm = () => {
     }
   };
 
-    useEffect(() => {
-        const fetchHospitals = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/gethospitals');
-                setHospitals(response.data);
-            } catch (error) {
-                console.error('Error fetching hospitals:', error);
-            }
-        };
+  const fetchHospitals = async () => {
+      try {
+          const response = await axios.get('http://localhost:5000/gethospitals');
+          setHospitals(response.data);
+      } catch (error) {
+          console.error('Error fetching hospitals:', error);
+      }
+  };
 
-        fetchHospitals();
-    }, []);
+  useEffect(() => {     
 
-    function renderHospitals(){
-        return hospitals.map((hospital, index) => {
-            return <HospitalCard key={index} hospital={hospital} />;
-        });
-    }
+      fetchHospitals();
+  }, []);
+
+
+  const handleDelete = async (id) => {
+    try {
+        await axios.delete(`http://localhost:5000/deleteHospital/${id}`);
+        fetchHospitals(); // Refresh the data after deletion
+    } catch (error) {
+        console.error('Error deleting hospital data:', error);
+    }    
+  }
+
+  function renderHospitals(){
+      return hospitals.map((hospital, index) => {
+          return <HospitalCard key={index} hospital={hospital} handleDelete={handleDelete}/>;
+      });
+  }
 
   return (
     <Fragment>
@@ -91,7 +102,7 @@ const AddHospitalForm = () => {
             <label className="form-label">Email:</label>
             <input type="email" className="form-control" name="email" value={formData.email} onChange={handleChange} required/>
             </div>
-            <button type="submit" className="btn btn-primary">Add Hospital</button>
+            <button type="submit" className="btn btn-primary mb-3">Add Hospital</button>
         </form>
         </div>
 
