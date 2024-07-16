@@ -55,6 +55,12 @@ const Navbar = () => {
                   Exercize
                 </Link>
               </li>
+                <li>
+                <Link to="/FindDocHos" className="nav-link">
+                  Doctor & Hospital
+                </Link>
+                </li>
+
               <li>
                 {userValue.user ? (
                   <li className="nav-item dropdown">

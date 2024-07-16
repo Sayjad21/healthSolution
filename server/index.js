@@ -327,6 +327,55 @@ app.post('/getPatientAntibioticAndAllergyHistory', async (req, res) => {
 });
 
 
+app.post('/doctorHospital', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const { search } = req.body;
+    // console.log(search);
+    // Step 1: Separate the words of the search string
+    const words = search.split(' ');
+
+    // Step 2: Add a percentage symbol before and after each letter in every word
+    const modifiedWords = words.map(word =>
+      word.split('').map(letter => `%${letter}%`).join('')
+    );
+
+    // Convert modifiedWords array to a string for SQL query
+    const modifiedSearchString = modifiedWords.join(' ');
+
+    // Step 4: Filter the doctors table
+    const doctorQuery = `
+  SELECT DISTINCT doctors.doctor_name, doctors.degree, doctors.doctor_speciality, doctors.treatment_type, doctors.contact_info, hospital.name AS hospital_name, hospital.street, hospital.city, hospital.policestation, hospital.contact_number, hospital.email
+  FROM doctors 
+  LEFT JOIN hospital ON doctors.hospital_id = hospital.id
+  WHERE doctors.doctor_name ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}])
+  OR doctors.doctor_speciality ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}]);
+`;
+
+// Filter the hospital table
+const hospitalQuery = `
+  SELECT * FROM hospital
+  WHERE name ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}]);
+`;
+
+
+    const doctorsResult = await client.query(doctorQuery);
+    const hospitalsResult = await client.query(hospitalQuery);
+
+    // Combine the results
+    const results = {
+      doctors: doctorsResult.rows,
+      hospitals: hospitalsResult.rows
+    };
+
+    res.status(200).json(results);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  } finally {
+    client.release();
+  }
+});
 
     
 

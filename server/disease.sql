@@ -149,3 +149,32 @@ VALUES
 ('Hypersensitivity Pneumonitis', 'Pulmonologist', 'Cough, shortness of breath, fatigue, chills'),
 ('Mononucleosis', 'General Practitioner', 'Fatigue, fever, sore throat, swollen lymph nodes, swollen spleen'),
 ('Bell’s Palsy', 'Neurologist', 'Sudden weakness or paralysis on one side of the face, drooping mouth, drooling, loss of taste');
+
+
+-- Viral Fever
+INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
+('Viral Fever', 'High fever, body aches, headache, fatigue, chills', 'Infectious Disease Specialist');
+
+-- Cardiac Diseases
+INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
+('Coronary Artery Disease', 'Chest pain, shortness of breath, fatigue, heart attack', 'Cardiologist'),
+('Hypertension', 'High blood pressure, headaches, dizziness, shortness of breath', 'Cardiologist'),
+('Congestive Heart Failure', 'Shortness of breath, swelling in legs, rapid heartbeat, fatigue', 'Cardiologist');
+
+-- Kidney Diseases
+INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
+('Chronic Kidney Disease', 'Fatigue, swollen ankles, frequent urination, shortness of breath', 'Nephrologist'),
+('Kidney Stones', 'Severe pain in side and back, pain during urination, nausea', 'Urologist'),
+('Acute Kidney Injury', 'Decreased urine output, fluid retention, confusion, fatigue', 'Nephrologist');
+
+-- Brain Diseases
+INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
+('Stroke', 'Sudden numbness or weakness, confusion, trouble speaking, severe headache', 'Neurologist'),
+('Alzheimer Disease', 'Memory loss, confusion, difficulty completing familiar tasks, mood changes', 'Neurologist'),
+('Parkinson Disease', 'Tremors, stiffness, slow movement, balance problems', 'Neurologist');
+
+-- Eye Diseases
+INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
+('Cataract', 'Blurred vision, difficulty seeing at night, sensitivity to light, fading colors', 'Ophthalmologist'),
+('Glaucoma', 'Loss of peripheral vision, halos around lights, eye pain, nausea', 'Ophthalmologist'),
+('Age-related Macular Degeneration', 'Blurred vision, difficulty recognizing faces, need for brighter light', 'Ophthalmologist');

@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
+import SearchFilter from './components/Search&Filter/SearchFilter';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ function App() {
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/UserLifeLog" element ={<UserLifeInfo />} />
+              <Route exact path="/FindDocHos" element={<SearchFilter /> } />
               {/* Add more routes as needed */}
             </Routes>
           </Router>
