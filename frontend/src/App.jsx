@@ -9,12 +9,14 @@ import Login from './components/RegLoginAuth/Login';
 import UserLifeInfo from './components/RegLoginAuth/UserLifeInfo';
 import Verification from './components/RegLoginAuth/Verification';
 import FinalAuthenticate from './components/RegLoginAuth/FinalAuthenticate';
+import SearchFilter from './components/Search&Filter/SearchFilter';
+
 import Home from './components/Home';
 import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
-import SearchFilter from './components/Search&Filter/SearchFilter';
 import Populate from './components/admin/populate';
+import Blog from './components/blog/blog';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,6 +38,7 @@ function App() {
               <Route exact path="/signup" element={<SignUp />} />
               <Route exact path="/UserLifeLog" element ={<UserLifeInfo />} />
               <Route exact path="/FindDocHos" element={<SearchFilter /> } />
+              <Route exact path="/blog" element={<Blog />} />
               {/* Add more routes as needed */}
             </Routes>
           </Router>

@@ -20,6 +20,9 @@ app.use('/addThana', require('./admin'));
 app.use('/getThana', require('./admin'));
 app.use('/deleteThana', require('./admin'));
 
+app.use('/addBlogs', require('./blog'));
+app.use('/getBlogs', require('./blog'));
+
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {
 //   try {
