@@ -15,6 +15,10 @@ import Home from './components/Home';
 import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
+import SearchFilter from './components/Search&Filter/SearchFilter';
+import Populate from './components/admin/populate';
+// import Doctor from './components/admin/Doctor';
+import Updatedoctor from './components/admin/Updatedoctor';
 //-import ExercisePage from './components/exercise/ExercisePage.js';
 import ExerciseDetails from './components/exercise/ExerciseDetails.js';
 import ExerciseRoutine from './components/exercise/ExerciseRoutine.js';
@@ -50,9 +54,13 @@ function App() {
               <Route exact path="/diet" element={<Diet />} />
               <Route exact path="/meal" element={<MealPlanner />} />
               <Route exact path="/recipe" element={<Recipe />} />
+              <Route exact path="/populate" element={<Populate />} />
               <Route exact path="/exercise" element={<ExercisePage />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />
+              <Route exact path="/UserLifeLog" element ={<UserLifeInfo />} />
+              <Route exact path="/FindDocHos" element={<SearchFilter /> } />
+              <Route exact path="/addDoctor" element ={<Updatedoctor />} />
               <Route exact path="/UserLifeLog" element={<UserLifeInfo />} />
 
 
@@ -79,6 +87,7 @@ function App() {
             </Routes>
           </Router>
 
+          
 
 
           {/* <UserLifeInfo /> */}

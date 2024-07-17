@@ -84,6 +84,12 @@ CREATE TABLE doctors (
     contact_info VARCHAR(50) NOT NULL
 );
 
+ALTER TABLE doctors
+DROP COLUMN chamber_address,
+ADD COLUMN hospital_id INT,
+ADD CONSTRAINT fk_hospital
+    FOREIGN KEY (hospital_id) 
+    REFERENCES hospital(id);
 
 
 
@@ -99,6 +105,8 @@ CREATE TABLE drugRoutine (
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 
+
+
 CREATE TABLE hospital (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -110,15 +118,14 @@ CREATE TABLE hospital (
     CONSTRAINT unique_address UNIQUE (street, city, policestation)
 );
 
-
-
-
 CREATE TABLE thana_nearest (
     id SERIAL PRIMARY KEY,
     thana_name_from VARCHAR(100) NOT NULL,
     thana_name_to VARCHAR(100) NOT NULL,
     CONSTRAINT unique_thana_pair UNIQUE (thana_name_from, thana_name_to) --existing problem here
 );
+
+
 
 
 

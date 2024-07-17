@@ -57,7 +57,7 @@ export default function UserLifeInfo() {
 
     const fetchPatientAntibioticAndAllergyHistory = async () => {
         try {
-            const response = await fetch('http://localhost:3000/getPatientAntibioticAndAllergyHistory', {
+            const response = await fetch('http://localhost:8000/getPatientAntibioticAndAllergyHistory', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email: value.user.email })
@@ -76,7 +76,7 @@ export default function UserLifeInfo() {
 
     const Fetch_Allergy_Antibiotics_Disease = async () => {
         try {
-            const response = await fetch('http://localhost:3000/getAllergy_antibiotics_disease', {
+            const response = await fetch('http://localhost:8000/getAllergy_antibiotics_disease', {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' }
             });
@@ -139,7 +139,7 @@ export default function UserLifeInfo() {
         event.preventDefault(); // Prevent form submission
 
         try {
-            const response = await fetch('http://localhost:3000/updateUser', {
+            const response = await fetch('http://localhost:8000/updateUser', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

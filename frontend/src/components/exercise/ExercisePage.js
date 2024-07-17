@@ -40,7 +40,7 @@ export default function ExercisePage() {
         console.log(data);
 
         try {
-            const response = await fetch('http://localhost:3000/userpreference', {
+            const response = await fetch('http://localhost:8000/userpreference', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

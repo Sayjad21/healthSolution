@@ -48,7 +48,7 @@ export default function FinalAuthenticate() {
         e.preventDefault();
         try {
             const body = { token };
-            const response = await fetch("http://localhost:3000/verify", {
+            const response = await fetch("http://localhost:8000/verify", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)

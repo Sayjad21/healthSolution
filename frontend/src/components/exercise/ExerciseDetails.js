@@ -24,7 +24,7 @@ export default function ExerciseDetails() {
 
     const handleAddToRoutine = async () => {
         try {
-            const response = await fetch('http://localhost:3000/addToExerciseRoutine', {
+            const response = await fetch('http://localhost:8000/addToExerciseRoutine', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

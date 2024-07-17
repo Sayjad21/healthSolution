@@ -13,7 +13,7 @@ export default function ExerciseRoutine() {
     useEffect(() => {
         const fetchRoutine = async () => {
             try {
-                const response = await fetch('http://localhost:3000/getExerciseRoutine', {
+                const response = await fetch('http://localhost:8000/getExerciseRoutine', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

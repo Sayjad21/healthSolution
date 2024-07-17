@@ -5,13 +5,17 @@ const nodemailer = require('nodemailer');
 const pool = require('./db'); // db.js file
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const port = 3000;
+const port =  8000;
 
 //secret key for jwt
 const secretKey = "RDAS191373321";
 
 app.use(cors());
 app.use(express.json());
+
+// Routes (Abhishek)
+app.use('/addHospitals', require('./admin'));
+app.use('/getHospitals', require('./admin'));
 
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {
@@ -453,134 +457,250 @@ app.get('/getAllergy_antibiotics_disease', async (req, res) => {
 app.post('/updateUser', async (req, res) => {
   const client = await pool.connect();
   try {
-      const { user, allergy, antibiotics,disease } = req.body;
-      const updateQuery = 
+    const { user, allergy, antibiotics, disease } = req.body;
+    const updateQuery =
       `UPDATE users SET name = $1, age = $2, height = $3, weight = $4, country = $5, state = $6, police_station = $7, 
       blood_group = $8,last_donated_blood = $9, last_donated_sperm = $10 where email = $11`;
-      await client.query('BEGIN');
-      await client.query(updateQuery, [
-          user.name,
-          user.age,
-          user.height,
-          user.weight,
-          user.country,
-          user.state_district,
-          user.police_station,
-          user.blood_group,
-          user.last_donated_blood,
-          user.last_donated_sperm,
-          user.email
-      ]);
+    await client.query('BEGIN');
+    await client.query(updateQuery, [
+      user.name,
+      user.age,
+      user.height,
+      user.weight,
+      user.country,
+      user.state_district,
+      user.police_station,
+      user.blood_group,
+      user.last_donated_blood,
+      user.last_donated_sperm,
+      user.email
+    ]);
 
-      // Fetch id of user from given email
-      const clientQuery = `SELECT * FROM users WHERE email = $1`;
-      const user1 = await client.query(clientQuery, [user.email]);
-      const userId = user1.rows[0].id;
+    // Fetch id of user from given email
+    const clientQuery = `SELECT * FROM users WHERE email = $1`;
+    const user1 = await client.query(clientQuery, [user.email]);
+    const userId = user1.rows[0].id;
 
-      // Delete existing allergies for the user
-      const deleteUserAllergyQuery = `DELETE FROM user_allergy WHERE user_id = $1`;
-      await client.query(deleteUserAllergyQuery, [userId]);
+    // Delete existing allergies for the user
+    const deleteUserAllergyQuery = `DELETE FROM user_allergy WHERE user_id = $1`;
+    await client.query(deleteUserAllergyQuery, [userId]);
 
-      // Fetch allergy IDs from allergy names
-      const fetchAllergyIdsQuery = `SELECT id FROM allergy WHERE allergy_name = ANY($1::text[])`;
-      const allergyIdsResult = await client.query(fetchAllergyIdsQuery, [allergy]);
-      const allergyIds = allergyIdsResult.rows.map(row => row.id);
+    // Fetch allergy IDs from allergy names
+    const fetchAllergyIdsQuery = `SELECT id FROM allergy WHERE allergy_name = ANY($1::text[])`;
+    const allergyIdsResult = await client.query(fetchAllergyIdsQuery, [allergy]);
+    const allergyIds = allergyIdsResult.rows.map(row => row.id);
 
-      // Insert new allergies for the user
-      const insertUserAllergyQuery = `INSERT INTO user_allergy (user_id, allergy_id) VALUES ($1, $2)`;
-      for (const allergyId of allergyIds) {
-          await client.query(insertUserAllergyQuery, [userId, allergyId]);
-      }
+    // Insert new allergies for the user
+    const insertUserAllergyQuery = `INSERT INTO user_allergy (user_id, allergy_id) VALUES ($1, $2)`;
+    for (const allergyId of allergyIds) {
+      await client.query(insertUserAllergyQuery, [userId, allergyId]);
+    }
 
 
-      //delete existing antibiotics for the user
-      const deleteUserAntibioticQuery = `DELETE FROM user_antibiotic_resistance WHERE user_id = $1`;
-      await client.query(deleteUserAntibioticQuery, [userId]);
+    //delete existing antibiotics for the user
+    const deleteUserAntibioticQuery = `DELETE FROM user_antibiotic_resistance WHERE user_id = $1`;
+    await client.query(deleteUserAntibioticQuery, [userId]);
 
-      // Fetch antibiotic IDs from antibiotic names
-      const fetchAntibioticIdsQuery = `SELECT id FROM antibiotic WHERE name = ANY($1::text[])`;
-      const antibioticIdsResult = await client.query(fetchAntibioticIdsQuery, [antibiotics]);
-      const antibioticIds = antibioticIdsResult.rows.map(row => row.id);
+    // Fetch antibiotic IDs from antibiotic names
+    const fetchAntibioticIdsQuery = `SELECT id FROM antibiotic WHERE name = ANY($1::text[])`;
+    const antibioticIdsResult = await client.query(fetchAntibioticIdsQuery, [antibiotics]);
+    const antibioticIds = antibioticIdsResult.rows.map(row => row.id);
 
-      // Insert new antibiotics for the user
-      const insertUserAntibioticQuery = `INSERT INTO user_antibiotic_resistance (user_id, antibiotic_id) VALUES ($1, $2)`;
-      for (const antibioticId of antibioticIds) {
-          await client.query(insertUserAntibioticQuery, [userId, antibioticId]);
-      }
+    // Insert new antibiotics for the user
+    const insertUserAntibioticQuery = `INSERT INTO user_antibiotic_resistance (user_id, antibiotic_id) VALUES ($1, $2)`;
+    for (const antibioticId of antibioticIds) {
+      await client.query(insertUserAntibioticQuery, [userId, antibioticId]);
+    }
 
-      //delete existing diseases for the user
-      const deleteUserDiseaseQuery = `DELETE FROM DISEASE_HISTORY WHERE user_id = $1`;
-      await client.query(deleteUserDiseaseQuery, [userId]);
+    //delete existing diseases for the user
+    const deleteUserDiseaseQuery = `DELETE FROM DISEASE_HISTORY WHERE user_id = $1`;
+    await client.query(deleteUserDiseaseQuery, [userId]);
 
-      // Fetch disease IDs from disease names
-      const fetchDiseaseIdsQuery = `SELECT disease_id FROM disease WHERE disease_name = ANY($1::text[])`; 
-      const diseaseIdsResult = await client.query(fetchDiseaseIdsQuery, [disease]);
-      const diseaseIds = diseaseIdsResult.rows.map(row => row.disease_id);
-      console.log(disease);
-      console.log(diseaseIds);
+    // Fetch disease IDs from disease names
+    const fetchDiseaseIdsQuery = `SELECT disease_id FROM disease WHERE disease_name = ANY($1::text[])`;
+    const diseaseIdsResult = await client.query(fetchDiseaseIdsQuery, [disease]);
+    const diseaseIds = diseaseIdsResult.rows.map(row => row.disease_id);
+    console.log(disease);
+    console.log(diseaseIds);
 
-      // Insert new diseases for the user
-      const insertUserDiseaseQuery = `INSERT INTO DISEASE_HISTORY (user_id, disease_id) VALUES ($1, $2)`;
-      for (const diseaseId of diseaseIds) {
-          await client.query(insertUserDiseaseQuery, [userId, diseaseId]);
-      }
+    // Insert new diseases for the user
+    const insertUserDiseaseQuery = `INSERT INTO DISEASE_HISTORY (user_id, disease_id) VALUES ($1, $2)`;
+    for (const diseaseId of diseaseIds) {
+      await client.query(insertUserDiseaseQuery, [userId, diseaseId]);
+    }
 
-      // Commit the transaction
-      await client.query('COMMIT');
-      res.status(200).json({ message: 'User updated successfully' });
+    // Commit the transaction
+    await client.query('COMMIT');
+    res.status(200).json({ message: 'User updated successfully' });
   } catch (error) {
-      await client.query('ROLLBACK');
-      console.error(error.message);
-      res.status(500).json({ error: 'Internal Server Error' });
+    await client.query('ROLLBACK');
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
   } finally {
-      client.release();
+    client.release();
   }
 });
 
 app.post('/getPatientAntibioticAndAllergyHistory', async (req, res) => {
   const client = await pool.connect();
   try {
-      const { email } = req.body;
+    const { email } = req.body;
 
-      // Fetch user id from email
-      const clientQuery = `SELECT id FROM users WHERE email = $1`;
-      const userResult = await client.query(clientQuery, [email]);
-      const userId = userResult.rows[0].id;
+    // Fetch user id from email
+    const clientQuery = `SELECT id FROM users WHERE email = $1`;
+    const userResult = await client.query(clientQuery, [email]);
+    const userId = userResult.rows[0].id;
 
-      // Query to fetch user allergies
-      const userAllergyQuery = `
+    // Query to fetch user allergies
+    const userAllergyQuery = `
           SELECT allergy.allergy_name 
           FROM user_allergy 
           JOIN allergy ON user_allergy.allergy_id = allergy.id 
           WHERE user_id = $1`;
-      const userAllergyResult = await client.query(userAllergyQuery, [userId]);
-      const userAllergies = userAllergyResult.rows.map(row => row.allergy_name);
+    const userAllergyResult = await client.query(userAllergyQuery, [userId]);
+    const userAllergies = userAllergyResult.rows.map(row => row.allergy_name);
 
-      // Query to fetch user antibiotics
-      const userAntibioticQuery = `
+    // Query to fetch user antibiotics
+    const userAntibioticQuery = `
           SELECT antibiotic.name 
           FROM user_antibiotic_resistance 
           JOIN antibiotic ON user_antibiotic_resistance.antibiotic_id = antibiotic.id 
           WHERE user_id = $1`;
-      const userAntibioticResult = await client.query(userAntibioticQuery, [userId]);
-      const userAntibiotics = userAntibioticResult.rows.map(row => row.name);
+    const userAntibioticResult = await client.query(userAntibioticQuery, [userId]);
+    const userAntibiotics = userAntibioticResult.rows.map(row => row.name);
 
-      res.status(200).json({
-          message: 'Antibiotic and Allergy history fetched successfully',
-          allergy: userAllergies,
-          antibiotic: userAntibiotics
-      });
+    res.status(200).json({
+      message: 'Antibiotic and Allergy history fetched successfully',
+      allergy: userAllergies,
+      antibiotic: userAntibiotics
+    });
   } catch (error) {
-      console.error(error.message);
-      res.status(500).json({ error: 'Internal Server Error' });
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
   } finally {
-      client.release();
+    client.release();
   }
 });
 
 
+app.post('/doctorHospital', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const { search, doctorSpeciality, treatmentType, degree, policestation } = req.body;
 
-    
+    // Step 1: Separate the words of the search string
+    const words = search.split(' ');
+
+    // Step 2: Add a percentage symbol before and after each letter in every word
+    const modifiedWords = words.map(word =>
+      word.split('').map(letter => `%${letter}%`).join('')
+    );
+
+    // Convert modifiedWords array to a string for SQL query
+    const modifiedSearchString = modifiedWords.join(' ');
+
+    // Base query parts
+    let doctorQueryBase = `
+      SELECT DISTINCT doctors.doctor_name, doctors.degree, doctors.doctor_speciality, doctors.treatment_type, doctors.contact_info, hospital.name AS hospital_name, hospital.street, hospital.city, hospital.policestation, hospital.contact_number, hospital.email
+      FROM doctors 
+      LEFT JOIN hospital ON doctors.hospital_id = hospital.id
+      WHERE 1=1
+    `;
+
+    let hospitalQueryBase = `
+      SELECT * FROM hospital
+      WHERE 1=1
+    `;
+
+    // Build query conditions
+    let doctorConditions = '';
+    let hospitalConditions = '';
+
+    if (search !== '') {
+      doctorConditions += ` AND (doctors.doctor_name ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}]) 
+                          OR doctors.doctor_speciality ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}]))`;
+
+      hospitalConditions += ` AND name ILIKE ANY (ARRAY[${modifiedWords.map(word => `'${word}'`).join(',')}])`;
+    }
+
+    if (doctorSpeciality !== '') {
+      doctorConditions += ` AND doctors.doctor_speciality ILIKE '%${doctorSpeciality}%'`;
+    }
+
+    if (treatmentType !== '') {
+      doctorConditions += ` AND doctors.treatment_type = '${treatmentType}'`;
+    }
+
+    if (degree !== '') {
+      doctorConditions += ` AND doctors.degree ILIKE '%${degree}%'`;
+    }
+
+    if (policestation !== '') {
+      doctorConditions += ` AND hospital.policestation ILIKE '%${policestation}%'`;
+      hospitalConditions += ` AND policestation ILIKE '%${policestation}%'`;
+    }
+
+    // Combine base query with conditions
+    const doctorQuery = doctorQueryBase + doctorConditions;
+    const hospitalQuery = hospitalQueryBase + hospitalConditions;
+
+    // Execute queries
+    const doctorsResult = await client.query(doctorQuery);
+    const hospitalsResult = await client.query(hospitalQuery);
+
+    // Combine the results
+    const results = {
+      doctors: doctorsResult.rows,
+      hospitals: hospitalsResult.rows
+    };
+
+    res.status(200).json(results);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: "Internal Server Error" });
+  } finally {
+    client.release();
+  }
+});
+
+
+app.get('/getDoctors', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const allDoctors = await pool.query('SELECT * FROM doctors INNER JOIN hospital ON doctors.hospital_id = hospital.id ORDER BY doctor_name');
+    res.status(200).json({
+      message: "Doctors fetched successfully",
+      doctors: allDoctors.rows
+    }
+    );
+
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+);
+
+app.post('/addDoctors', async (req, res) => {
+  const client = await pool.connect();
+  try {
+    const { doctorName, degree, doctorSpeciality, hospital, treatmentType, contactInfo } = req.body;
+    const clientQuery = `SELECT id FROM hospital WHERE name = $1`;
+    const hospitalResult = await client.query(clientQuery, [hospital]);
+    const hospitalId = hospitalResult.rows[0].id;
+    const insertQuery = `INSERT INTO doctors (doctor_name, degree, doctor_speciality, hospital_id, treatment_type, contact_info) VALUES ($1, $2, $3, $4, $5, $6)`;
+    await client.query(insertQuery, [doctorName, degree, doctorSpeciality, hospitalId, treatmentType, contactInfo]);
+    res.status(200).json({ message: 'Doctor added successfully' });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  } finally {
+    client.release();
+  }
+}
+);
+
+
+
 
 
 

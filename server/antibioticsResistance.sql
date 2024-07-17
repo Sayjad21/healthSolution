@@ -60,9 +60,6 @@ INSERT INTO antibiotic (name) VALUES
 ('Telavancin'),
 ('Plazomicin');
 
-ALTER TABLE antibiotic
-ADD COLUMN description VARCHAR(255);
-
 
 UPDATE antibiotic SET description = 'Broad-spectrum antibiotic used to treat various infections.' WHERE name = 'Amoxicillin';
 UPDATE antibiotic SET description = 'Used to treat serious bacterial infections, particularly in hospital settings.' WHERE name = 'Vancomycin';
