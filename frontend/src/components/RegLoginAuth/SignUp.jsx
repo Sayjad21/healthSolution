@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import '../../cssFiles/Signup.css'
 import { userContext } from '../../context/context';
 import { useNavigate} from 'react-router-dom';
+import {tokenContext} from '../../context/context';
 
 export default function SignUp() {
     const port =  8000;

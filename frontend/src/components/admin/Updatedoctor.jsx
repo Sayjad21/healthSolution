@@ -89,7 +89,7 @@ export default function Updatedoctor() {
             });
             const data = await response.json();
             console.log(data);
-            setDoctor(data.doctors || []); 
+            setDoctor(data.doctors || []);
         }
         catch (error) {
             console.log(error);
@@ -123,82 +123,84 @@ export default function Updatedoctor() {
 
     return (
         <>
-        <Navbar />
-        <div className="container">
-            <div>
-                <form className="row g-3">
-                    <div className="col-md-6">
-                        <label for="doctorName" className="form-label">Doctor's Name</label>
-                        <input type="text" className="form-control" id="doctorName" onChange={(e) => setDoctorName(e.target.value)} />
-                    </div>
-                    <div className="col-md-6">
-                        <label for="degree" className="form-label">Degree</label>
-                        <select id="degree" className="form-select" onChange={(e) => setDegree(e.target.value)}>
-                            <option selected>Choose...</option>
-                            {degrees.map(degree => <option key={degree}>{degree}</option>)}
-                        </select>
-                    </div>
-                    <div className="col-md-6">
-                        <label for="speciality" className="form-label">Speciality</label>
-                        <select id="speciality" className="form-select" onChange={(e) => setDoctorSpeciality(e.target.value)}>
-                            <option selected>Choose...</option>
-                            {doctorSpecialities.map(speciality => <option key={speciality}>{speciality}</option>)}
-                        </select>
-                    </div>
-                    <div className="col-md-6">
-                        <label for="hospital" className="form-label">Hospital</label>
-                        <select id="hospital" className="form-select" onChange={(e) => setHospital(e.target.value)}>
-                            <option selected>Choose...</option>
-                            {hospitals.map(hospital => <option key={hospital}>{hospital}</option>)}
-                        </select>
-                    </div>
-                    <div className="col-md-6">
-                        <label for="treatmentType" className="form-label">Treatment Type</label>
-                        <select id="treatmentType" className="form-select" onChange={(e) => setTreatmentType(e.target.value)}>
-                            <option selected>Choose...</option>
-                            {treatmentTypes.map(type => <option key={type}>{type}</option>)}
-                        </select>
-                    </div>
-                    <div className="col-md-6">
-                        <label for="contactInfo" className="form-label">Contact Info</label>
-                        <input type="text" className="form-control" id="contactInfo" onChange={(e) => setContactInfo(e.target.value)} />
-                    </div>
-                    <div className="col-12">
-                        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
-                    </div>
-                </form>
-            </div>
+            <Navbar />
+            <div className="container my-3">
+                <div>
+                    <form className="row g-3">
+                        <div className="col-md-6">
+                            <label for="doctorName" className="form-label">Doctor's Name</label>
+                            <input type="text" className="form-control" id="doctorName" onChange={(e) => setDoctorName(e.target.value)} />
+                        </div>
+                        <div className="col-md-6">
+                            <label for="degree" className="form-label">Degree</label>
+                            <select id="degree" className="form-select" onChange={(e) => setDegree(e.target.value)}>
+                                <option selected>Choose...</option>
+                                {degrees.map(degree => <option key={degree}>{degree}</option>)}
+                            </select>
+                        </div>
+                        <div className="col-md-6">
+                            <label for="speciality" className="form-label">Speciality</label>
+                            <select id="speciality" className="form-select" onChange={(e) => setDoctorSpeciality(e.target.value)}>
+                                <option selected>Choose...</option>
+                                {doctorSpecialities.map(speciality => <option key={speciality}>{speciality}</option>)}
+                            </select>
+                        </div>
+                        <div className="col-md-6">
+                            <label for="hospital" className="form-label">Hospital</label>
+                            <select id="hospital" className="form-select" onChange={(e) => setHospital(e.target.value)}>
+                                <option selected>Choose...</option>
+                                {hospitals.map(hospital => <option key={hospital}>{hospital}</option>)}
+                            </select>
+                        </div>
+                        <div className="col-md-6">
+                            <label for="treatmentType" className="form-label">Treatment Type</label>
+                            <select id="treatmentType" className="form-select" onChange={(e) => setTreatmentType(e.target.value)}>
+                                <option selected>Choose...</option>
+                                {treatmentTypes.map(type => <option key={type}>{type}</option>)}
+                            </select>
+                        </div>
+                        <div className="col-md-6">
+                            <label for="contactInfo" className="form-label">Contact Info</label>
+                            <input type="text" className="form-control" id="contactInfo" onChange={(e) => setContactInfo(e.target.value)} />
+                        </div>
+                        <div className="col-12">
+                            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+                        </div>
+                    </form>
+                </div>
 
-            <div>
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Doctor's Name</th>
-                            <th scope="col">Degree</th>
-                            <th scope="col">Speciality</th>
-                            <th scope="col">Hospital</th>
-                            <th scope="col">Treatment Type</th>
-                            <th scope="col">Contact Info</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {doctor && doctor.map(doc => (
-                            <tr key={doc.doctor_id}>
-                                <td>{doc.doctor_name}</td>
-                                <td>{doc.degree}</td>
-                                <td>{doc.doctor_speciality}</td>
-                                <td>{doc.hospital}</td>
-                                <td>{doc.treatment_type}</td>
-                                <td>{doc.contact_info}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
+                <div>
+                    <div style={{ height: '100vh', overflowY: 'scroll' }}>
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Doctor's Name</th>
+                                    <th scope="col">Degree</th>
+                                    <th scope="col">Speciality</th>
+                                    <th scope="col">Hospital</th>
+                                    <th scope="col">Treatment Type</th>
+                                    <th scope="col">Contact Info</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {doctor && doctor.map(doc => (
+                                    <tr key={doc.doctor_id}>
+                                        <td>{doc.doctor_name}</td>
+                                        <td>{doc.degree}</td>
+                                        <td>{doc.doctor_speciality}</td>
+                                        <td>{doc.hospital}</td>
+                                        <td>{doc.treatment_type}</td>
+                                        <td>{doc.contact_info}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
 
 
-        </div></>
+            </div></>
     )
-    
+
 }

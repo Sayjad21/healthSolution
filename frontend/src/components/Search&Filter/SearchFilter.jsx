@@ -81,7 +81,7 @@ export default function SearchFilter() {
         <Navbar />
         <div className="container">
             
-            <div class="container text-center my-3">
+            <div class="container text-center my-1">
                 <div class="row align-items-start">
                     <div class="col-3">
                         <div className="container">
