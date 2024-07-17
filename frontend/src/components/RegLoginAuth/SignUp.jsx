@@ -1,11 +1,15 @@
 import React, { useEffect, useState, useContext, useRef } from 'react'
 import '../../cssFiles/Signup.css'
 import { userContext } from '../../context/context';
+import { useNavigate} from 'react-router-dom';
+import {tokenContext} from '../../context/context';
 
 export default function SignUp() {
-    const port = 5000;
+    const port =  8000;
+    const navigate = useNavigate();
     const value = useContext(userContext);
-    const signupButtonRef = useRef(null);
+    const signUpButtonref = useRef(null);
+    const closeButttonRef = useRef(null);
 
     const [btnVisible, setbtnVisible] = useState(true);
     
@@ -40,8 +44,8 @@ export default function SignUp() {
 
     // useEffect to automatically click the Signup button
     useEffect(() => {
-        if (signupButtonRef.current) {
-            signupButtonRef.current.click();
+        if (signUpButtonref.current) {
+            signUpButtonref.current.click();
             setbtnVisible(false);
         }
     }, []);
@@ -72,7 +76,7 @@ export default function SignUp() {
         try {
             const body = { formData };
             console.log(body);
-            const response = await fetch("http://localhost:5000/signup", {
+            const response = await fetch("http://localhost:8000/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(body)
@@ -85,6 +89,8 @@ export default function SignUp() {
                 // const modal = window.bootstrap.Modal.getInstance(document.getElementById('exampleModal'));
                 // modal.hide();
                 value.setUser(responseData.user);
+                closeButttonRef.current.click();
+                navigate('/');
                 // console.log("signup success");
                 // console.log(value.user);
             }
@@ -113,7 +119,7 @@ export default function SignUp() {
                 className="btn btn-primary custom-btn"
                 data-bs-toggle="modal"
                 data-bs-target="#exampleModal1"
-                ref={signupButtonRef}
+                ref={signUpButtonref}
             >
                 Signup
             </button>}
@@ -163,7 +169,22 @@ export default function SignUp() {
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="police_station" className="form-label">Police Station</label>
-                                        <input type="text" className="form-control" id="police_station" name="police_station" value={formData.police_station} onChange={handleChange} required />
+                                        <select className="form-control" id="police_station" name="police_station" value={formData.police_station} onChange={handleChange} required>
+                                        <option value="">Select Police Station</option>
+                                        <option value="Mirpur">Mirpur</option>
+                                        <option value="Motijheel">Motijheel</option>
+                                        <option value="Lalbagh">Lalbagh</option>
+                                        <option value="Dhanmondi">Dhanmondi</option>
+                                        <option value="Ramna">Ramna</option>
+                                        <option value="Cantonment">Cantonment</option>
+                                        <option value="Mugdha">Mugdha</option>
+                                        <option value="Tejgaon">Tejgaon</option>
+                                        <option value="Gulshan">Gulshan</option>
+                                        <option value="Shahjahanpur">Shahjahanpur</option>
+                                        <option value="Shahbag">Shahbag</option>
+                                        <option value="Sher-e-Bangla Nagar">Sher-e-Bangla Nagar</option>
+                                        <option value="Badda">Badda</option>
+                                    </select>
                                     </div>
                                     <div className="form-group mb-3">
                                         <label htmlFor="blood_group" className="form-label">Blood Group</label>
@@ -215,7 +236,7 @@ export default function SignUp() {
 
 
                                     <div className="modal-footer">
-                                        {/* <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
+                                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" ref={closeButttonRef} >Close</button>
                                         <button type="submit" className="btn btn-primary">register</button>
                                     </div>
                                 </form>

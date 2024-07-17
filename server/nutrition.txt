@@ -1,0 +1,138 @@
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Rice', 'Grain', 130.00, 2.69, 0.28, 0.40, 28.17),
+('Wheat', 'Grain', 339.00, 13.68, 2.47, 12.20, 72.57),
+('Oats', 'Grain', 389.00, 16.89, 6.90, 10.60, 66.27),
+('Barley', 'Grain', 354.00, 12.48, 2.30, 17.30, 73.48),
+('Quinoa', 'Grain', 368.00, 14.12, 6.07, 7.00, 64.16),
+('Millet', 'Grain', 378.00, 11.02, 4.22, 8.50, 72.85),
+('Rye', 'Grain', 335.00, 10.34, 1.63, 15.10, 75.86),
+('Corn', 'Grain', 365.00, 9.42, 4.74, 7.30, 74.26),
+('Sorghum', 'Grain', 329.00, 11.30, 3.30, 6.70, 72.09),
+('Teff', 'Grain', 367.00, 13.30, 2.38, 8.00, 73.13);
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Spinach', 'Vegetable', 23.00, 2.86, 0.39, 2.20, 3.63),
+('Broccoli', 'Vegetable', 34.00, 2.82, 0.37, 2.60, 6.64),
+('Carrot', 'Vegetable', 41.00, 0.93, 0.24, 2.80, 9.58),
+('Kale', 'Vegetable', 49.00, 4.28, 0.93, 3.60, 8.75),
+('Cauliflower', 'Vegetable', 25.00, 1.92, 0.28, 2.00, 4.97),
+('Tomato', 'Vegetable', 18.00, 0.88, 0.20, 1.20, 3.89),
+('Zucchini', 'Vegetable', 17.00, 1.21, 0.32, 1.00, 3.11),
+('Peas', 'Vegetable', 81.00, 5.42, 0.40, 5.70, 14.45),
+('Bell Pepper', 'Vegetable', 20.00, 0.86, 0.17, 1.70, 4.64),
+('Asparagus', 'Vegetable', 20.00, 2.20, 0.12, 2.10, 3.88),
+('Eggplant', 'Vegetable', 25.00, 0.98, 0.18, 3.00, 5.88),
+('Brussels Sprouts', 'Vegetable', 43.00, 3.38, 0.30, 3.80, 8.95),
+('Cucumber', 'Vegetable', 16.00, 0.65, 0.11, 0.50, 3.63),
+('Cabbage', 'Vegetable', 25.00, 1.28, 0.10, 2.50, 5.80),
+('Sweet Potato', 'Vegetable', 86.00, 1.57, 0.05, 3.00, 20.12),
+('Lettuce', 'Vegetable', 15.00, 1.36, 0.15, 1.30, 2.87),
+('Radish', 'Vegetable', 16.00, 0.68, 0.10, 1.60, 3.40),
+('Onion', 'Vegetable', 40.00, 1.10, 0.10, 1.70, 9.34),
+('Garlic', 'Vegetable', 149.00, 6.36, 0.50, 2.10, 33.06),
+('Pumpkin', 'Vegetable', 26.00, 1.00, 0.10, 0.50, 6.50),
+('Green Beans', 'Vegetable', 31.00, 1.83, 0.22, 3.40, 7.13),
+('Celery', 'Vegetable', 16.00, 0.69, 0.17, 1.60, 2.97),
+('Mushroom', 'Vegetable', 22.00, 3.09, 0.34, 1.00, 3.26),
+('Beetroot', 'Vegetable', 43.00, 1.61, 0.17, 2.80, 9.56),
+('Leek', 'Vegetable', 61.00, 1.50, 0.30, 1.80, 14.15),
+('Artichoke', 'Vegetable', 47.00, 3.27, 0.15, 5.40, 10.51),
+('Turnip', 'Vegetable', 28.00, 0.90, 0.10, 1.80, 6.43),
+('Radicchio', 'Vegetable', 23.00, 1.43, 0.25, 0.90, 4.48),
+('Swiss Chard', 'Vegetable', 19.00, 1.80, 0.20, 1.60, 3.74),
+('Okra', 'Vegetable', 33.00, 1.90, 0.19, 3.20, 7.45);
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Parsnip', 'Vegetable', 75.00, 1.20, 0.30, 4.90, 18.00),
+('Butternut Squash', 'Vegetable', 45.00, 1.00, 0.10, 2.00, 11.69),
+('Green Bell Pepper', 'Vegetable', 20.00, 0.86, 0.17, 1.70, 4.64),
+('Yellow Bell Pepper', 'Vegetable', 27.00, 1.00, 0.21, 1.80, 6.32),
+('Red Bell Pepper', 'Vegetable', 31.00, 1.00, 0.30, 2.10, 6.00),
+('Watercress', 'Vegetable', 11.00, 2.30, 0.10, 0.50, 1.29),
+('Endive', 'Vegetable', 17.00, 1.25, 0.20, 3.10, 3.35),
+('Kohlrabi', 'Vegetable', 27.00, 1.70, 0.10, 3.60, 6.20),
+('Arugula', 'Vegetable', 25.00, 2.58, 0.66, 1.60, 3.65),
+('Chicory', 'Vegetable', 23.00, 1.70, 0.30, 4.00, 4.70);
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Chicken Breast', 'Meat', 165.00, 31.00, 3.60, 0.00, 0.00),
+('Beef Sirloin', 'Meat', 206.00, 27.00, 10.00, 0.00, 0.00),
+('Pork Tenderloin', 'Meat', 143.00, 23.00, 3.50, 0.00, 0.00),
+('Lamb Chop', 'Meat', 282.00, 25.00, 20.00, 0.00, 0.00),
+('Turkey Breast', 'Meat', 135.00, 30.00, 1.00, 0.00, 0.00),
+('Duck Breast', 'Meat', 195.00, 19.00, 13.00, 0.00, 0.00),
+('Veal Cutlet', 'Meat', 172.00, 24.00, 7.60, 0.00, 0.00),
+('Bison Steak', 'Meat', 143.00, 27.00, 3.10, 0.00, 0.00),
+('Rabbit', 'Meat', 173.00, 28.00, 6.80, 0.00, 0.00),
+('Venison', 'Meat', 157.00, 30.00, 3.20, 0.00, 0.00),
+('Goat Meat', 'Meat', 143.00, 27.00, 3.00, 0.00, 0.00),
+('Elk Steak', 'Meat', 137.00, 29.00, 1.70, 0.00, 0.00),
+('Quail', 'Meat', 134.00, 21.80, 5.00, 0.00, 0.00),
+('Ostrich', 'Meat', 97.00, 22.00, 1.00, 0.00, 0.00),
+('Pigeon', 'Meat', 142.00, 23.00, 5.00, 0.00, 0.00);
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Salmon', 'Fish', 206.00, 22.00, 13.00, 0.00, 0.00),
+('Tuna', 'Fish', 132.00, 28.00, 1.00, 0.00, 0.00),
+('Trout', 'Fish', 148.00, 20.00, 6.00, 0.00, 0.00),
+('Sardines', 'Fish', 208.00, 25.00, 11.00, 0.00, 0.00),
+('Mackerel', 'Fish', 305.00, 20.00, 25.00, 0.00, 0.00),
+('Cod', 'Fish', 105.00, 23.00, 0.90, 0.00, 0.00),
+('Halibut', 'Fish', 140.00, 28.00, 3.00, 0.00, 0.00),
+('Herring', 'Fish', 251.00, 25.00, 17.00, 0.00, 0.00),
+('Snapper', 'Fish', 128.00, 26.00, 2.00, 0.00, 0.00),
+('Sole', 'Fish', 91.00, 19.00, 1.00, 0.00, 0.00),
+('Flounder', 'Fish', 91.00, 19.00, 1.00, 0.00, 0.00),
+('Catfish', 'Fish', 105.00, 20.00, 5.00, 0.00, 0.00),
+('Bass', 'Fish', 126.00, 22.00, 4.00, 0.00, 0.00),
+('Swordfish', 'Fish', 121.00, 24.00, 3.00, 0.00, 0.00),
+('Tilapia', 'Fish', 128.00, 26.00, 2.70, 0.00, 0.00);
+
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Whole Milk', 'Dairy', 61.00, 3.20, 3.25, 0.00, 4.80),
+('Skim Milk', 'Dairy', 34.00, 3.40, 0.10, 0.00, 5.00),
+('Greek Yogurt', 'Dairy', 97.00, 10.00, 0.40, 0.00, 3.60),
+('Cheddar Cheese', 'Dairy', 402.00, 25.00, 33.00, 0.00, 1.29),
+('Mozzarella Cheese', 'Dairy', 280.00, 25.00, 17.00, 0.00, 3.10),
+('Cottage Cheese', 'Dairy', 98.00, 11.10, 4.30, 0.00, 3.40),
+('Cream Cheese', 'Dairy', 342.00, 6.20, 34.00, 0.00, 5.00),
+('Butter', 'Dairy', 717.00, 0.85, 81.00, 0.00, 0.06),
+('Yogurt', 'Dairy', 59.00, 3.50, 1.00, 0.00, 4.00),
+('Ice Cream', 'Dairy', 207.00, 3.50, 11.00, 0.00, 23.00);
+
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Sour Cream', 'Dairy', 193.00, 2.00, 20.00, 0.00, 3.60),
+('Parmesan Cheese', 'Dairy', 431.00, 38.00, 29.00, 0.00, 4.00),
+('Ricotta Cheese', 'Dairy', 174.00, 11.00, 10.00, 0.00, 6.80),
+('Evaporated Milk', 'Dairy', 134.00, 6.70, 7.70, 0.00, 11.00),
+('Condensed Milk', 'Dairy', 321.00, 7.50, 8.70, 0.00, 55.00);
+
+
+
+INSERT INTO nutritions (ingredient_name, ingredient_class, kcal_per_100g_or_100ml, protein_per_100g_or_100ml, fat_per_100g_or_100ml, fiber_per_100g_or_100ml, carb_per_100g_or_100ml)
+VALUES 
+('Olive Oil', 'Fat', 884.00, 0.00, 100.00, 0.00, 0.00),
+('Butter', 'Fat', 717.00, 0.85, 81.00, 0.00, 0.01),
+('Coconut Oil', 'Fat', 862.00, 0.00, 100.00, 0.00, 0.00),
+('Avocado Oil', 'Fat', 884.00, 0.00, 100.00, 0.00, 0.00),
+('Canola Oil', 'Fat', 884.00, 0.00, 100.00, 0.00, 0.00),
+('Ghee', 'Fat', 900.00, 0.00, 99.00, 0.00, 0.00),
+('Lard', 'Fat', 900.00, 0.00, 100.00, 0.00, 0.00),
+('Margarine', 'Fat', 717.00, 0.00, 81.00, 0.00, 0.01),
+('Peanut Oil', 'Fat', 884.00, 0.00, 100.00, 0.00, 0.00),
+('Sesame Oil', 'Fat', 884.00, 0.00, 100.00, 0.00, 0.00);

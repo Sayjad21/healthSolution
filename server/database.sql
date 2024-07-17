@@ -222,5 +222,35 @@ CREATE TABLE disease_symptom (
 );
 
 
+Create table Blood_donation_candidate (
+    id SERIAL PRIMARY KEY, 
+    name VARCHAR(100) NOT NULL,
+    age INT NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    blood_group VARCHAR(3) NOT NULL,
+    last_donated_blood DATE NOT NULL,
+    phone_number VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL
+    
+);
+
+
+
+ALTER TABLE Blood_donation_candidate
+ADD CONSTRAINT unique_candidate UNIQUE (name, phone_number, email);
+
+
+
+CREATE TABLE nutritions (
+    id SERIAL PRIMARY KEY,
+    ingredient_name VARCHAR(100) NOT NULL,
+    ingredient_class VARCHAR(100) NOT NULL,
+    kcal_per_100g_or_100ml DECIMAL(5, 2) NOT NULL,
+    protein_per_100g_or_100ml DECIMAL(5, 2) NOT NULL,
+    fat_per_100g_or_100ml DECIMAL(5, 2) NOT NULL,
+    fiber_per_100g_or_100ml DECIMAL(5, 2) NOT NULL,
+    carb_per_100g_or_100ml DECIMAL(5, 2) NOT NULL
+);
+
 
 

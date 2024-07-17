@@ -24,7 +24,7 @@ const AddHospitalForm = () => {
     e.preventDefault();
     console.log('Form data:', formData);
     try {
-      const response = await axios.post('http://localhost:5000/addHospitals', formData);
+      const response = await axios.post('http://localhost:8000/addHospitals', formData);
       console.log('Hospital added successfully:', response.data);
       
       fetchHospitals(); // Fetch hospitals again to display the updated list

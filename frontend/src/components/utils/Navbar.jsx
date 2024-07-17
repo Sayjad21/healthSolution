@@ -1,6 +1,7 @@
 import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../context/context";
+import {tokenContext} from '../../context/context';
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
 import "../../cssFiles/navbar.css";
@@ -12,6 +13,15 @@ import "../../cssFiles/navbar.css";
 
 const Navbar = () => {
   const userValue = useContext(userContext);
+  const tokenValue = useContext(tokenContext);
+  // console.log(userValue.user.stats);
+  const [signout, setSignout] = React.useState(false);
+
+  const handleSignOut = () => {
+    setSignout(true);
+    userValue.setUser(null);
+    tokenValue.setToken('');
+  }
   return (
     <Fragment>
       <div>
@@ -49,28 +59,44 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/exercize" className="nav-link">
+                <Link to="/BloodDonationForm" className="nav-link">
+                  Donate Blood
+                </Link>
+              </li>
+              <li>
+                <Link to="/ExercisePage" className="nav-link">
                   Exercize
                 </Link>
               </li>
-                <li>
+              <li>
+                <Link to="/NutritionCalc" className="nav-link">
+                  Nutricalc
+                </Link>
+              </li>
+              <li>
                 <Link to="/FindDocHos" className="nav-link">
                   Doctor & Hospital
                 </Link>
-                </li>
+              </li>
+
+              {userValue.user && userValue.user.stats ==='admin' &&  <li>
+                <Link to="/addDoctor" className="nav-link">
+                  Add Doctor
+                </Link>
+              </li>}
 
               <li>
                 {userValue.user ? (
                   <li className="nav-item dropdown">
-                  <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                    <div>{userValue.user.name}</div>
-                  </button>
-                  <ul className="dropdown-menu dropdown-menu-dark">
-                    <li><a className="dropdown-item" href="#">Action1</a></li>
-                    <li><a className="dropdown-item" href="#">Action2</a></li>
-                    <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
-                  </ul>
-                </li>
+                    <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <div>{userValue.user.name}</div>
+                    </button>
+                    <ul className="dropdown-menu dropdown-menu-dark">
+                      <li><a className="dropdown-item" href="#">Action1</a></li>
+                      <button className="dropdown-item" onClick={handleSignOut}>Sign Out</button>
+                      <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
+                    </ul>
+                  </li>
                 ) : (
                   <div style={{ display: 'flex', gap: '10px' }}>
                     <li>
