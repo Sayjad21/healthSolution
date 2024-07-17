@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'; // if needed for dynamic routing
+import { userContext } from '../../context/context';
 
-export default function ViewDonor({ userEmail }) {
+export default function ViewDonor() {
+  const userValue = React.useContext(userContext);
   const [donors, setDonors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [userEmail, setUserEmail] = useState(userValue.user.email);
 
   useEffect(() => {
     const fetchDonors = async () => {

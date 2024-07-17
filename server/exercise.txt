@@ -12,6 +12,39 @@ VALUES
 ('Lunges', 'Strength', 'A lower body exercise that works the quadriceps, glutes, and hamstrings.', 'Legs', 'None', 'Beginner', '10 reps each leg', 'https://www.youtube.com/watch?v=MxfTNXSFiYI&pp=ygUGbHVuZ2Vz', 6.0);
 
 
+('Cat-Cow Stretch', 'Flexibility', 'A yoga pose that helps stretch the spine and relieve tension in the back and neck.', 'Back', 'Yoga Mat', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=kqnua4rHVVA&pp=ygUMY2F0IGNvdyBzdHJldGNo', 2.0),
+('Superman Exercise', 'Strength', 'An exercise that targets the lower back by lifting the arms and legs while lying face down.', 'Back', 'None', 'Intermediate', '15 reps', 'https://www.youtube.com/watch?v=cc6UVRS7PW4&pp=ygUMc3VwZXJtYW4gZXhlcmNpc2U%3D', 4.0);
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Hamstring Stretch', 'Flexibility', 'A simple stretch to lengthen the hamstring muscles and improve flexibility in the back of the thigh.', 'Legs', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=tCsqrCM6e1E&pp=ygULaGFtc3RyaW5nIHN0cmV0Y2g%3D', 2.5),
+('Leg Raises', 'Strength', 'An exercise that targets the lower abdominal muscles and strengthens the legs.', 'Legs', 'None', 'Beginner', '15 reps', 'https://www.youtube.com/watch?v=l4kQd9eWclE&pp=ygUQbGVnIHJhaXNlcyBleGVyY2lzZQ%3D%3D', 5.5);
+
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Tricep Stretch', 'Flexibility', 'A stretch to improve flexibility in the tricep muscles and shoulders.', 'Arms', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=3vC3TtxvjVo&pp=ygUMdHJpY2VwIHN0cmV0Y2g%3D', 2.0),
+('Bicep Stretch', 'Flexibility', 'A stretch to enhance flexibility in the bicep muscles and forearms.', 'Arms', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=Ict-JeVFF_c&pp=ygULYmljZXAgc3RyZXRjaA%3D%3D', 2.0);
+
+
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Shoulder Stretch', 'Flexibility', 'A stretch to improve flexibility and range of motion in the shoulder muscles.', 'Shoulders', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=4i8j6eZG4ao&pp=ygULc2hvdWxkZXIgc3RyZXRjaA%3D%3D', 2.0),
+('Cross-Body Shoulder Stretch', 'Flexibility', 'A stretch to increase flexibility in the shoulders and upper back.', 'Shoulders', 'None', 'Beginner', '1 minute', 'https://www.youtube.com/watch?v=5k0W_63dkQM&pp=ygURY3Jvc3MgYm9keSBzaG91bGRlcg%3D%3D', 2.0);
+
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Plank', 'Strength', 'A core exercise where you hold your body straight and off the ground, supported by your arms and toes.', 'Core', 'None', 'Intermediate', '1 minute', 'https://www.youtube.com/watch?v=pSHjTRCQxIw&pp=ygUKcGxhbmsgZXhlcmNpc2U%3D', 4.0),
+('Russian Twist', 'Strength', 'A core exercise that involves rotating the torso from side to side while holding a weight or medicine ball.', 'Core', 'Weight or Medicine Ball', 'Intermediate', '15 reps each side', 'https://www.youtube.com/watch?v=wkD8rjkodUI&pp=ygUPcnVzc2lhbiB0d2lzdA%3D%3D', 5.0);
+
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Shoulder Press', 'Strength', 'An exercise where you press weights overhead to strengthen the shoulders and upper arms.', 'Shoulders', 'Dumbbells or Barbell', 'Intermediate', '10 reps', 'https://www.youtube.com/watch?v=qEwKCR5JCog&pp=ygUQc2hvdWxkZXIgcHJlc3M%3D', 6.0);
+
+
 
 
 INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
@@ -28,6 +61,11 @@ VALUES
 ('Side Plank', 'Strength', 'A core exercise that targets the obliques.', 'Core', 'None', 'Intermediate', '1 minute each side', 'https://www.youtube.com/watch?v=wqzrb67Dwf8&pp=ygUMc2lkZSBwbGFuayA%3D', 4.5),
 ('Box Jump', 'Strength', 'A lower body exercise that involves jumping onto a box or platform.', 'Legs', 'Box', 'Intermediate', '10 reps', 'https://www.youtube.com/watch?v=52r8lRzK0pA&pp=ygUHYm94IGp1bXA%3D', 10.0),
 ('Rowing', 'Cardio', 'A full body exercise that involves rowing on a machine.', 'Full Body', 'Rowing Machine', 'Intermediate', '20 minutes', 'https://www.youtube.com/watch?v=ehikxT0KHUY&pp=ygUJcm93aW5nIG1hY2hpbmU%3D', 9.0);
+
+
+INSERT INTO exercises (name, type, description, muscle_groups, equipment_needed, difficulty_level, duration, video_url, calories_burned)
+VALUES 
+('Battle Ropes', 'Cardio', 'A high-intensity workout using thick ropes to engage the arms, shoulders, and core while improving cardiovascular fitness.', 'Arms, Shoulders, Core', 'Battle Ropes', 'Intermediate', '30 seconds on, 30 seconds off', 'https://www.youtube.com/watch?v=VsoiCCzR7hE&pp=ygUNYmF0dGxlIHJvcGVz', 10.0);
 
 
 
@@ -165,3 +203,52 @@ VALUES
 ('170-180 cm', '70-80 kg', '18-30', 'Male', '25-29.9', 15, '4 sets of 10 reps'),
 ('160-170 cm', '60-70 kg', '30-45', 'Female', '25-29.9', 15, '5 sets of 15 reps'),
 ('180-190 cm', '80-90 kg', '18-30', 'Male', '30-34.9', 15, '3 sets of 8 reps');
+
+
+INSERT INTO recommendations (height_range, weight_range, age_range, gender, bmi_range, exercise_id, sets_or_duration)
+VALUES 
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 9, '4 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 9, '3 sets of 8 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 9, '5 sets of 8 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 9, '4 sets of 6 reps'),
+('160-170 cm', '70-80 kg', '45-60', 'Male', '30-34.9', 9, '3 sets of 10 reps'),
+('150-160 cm', '60-70 kg', '18-30', 'Female', '30-34.9', 9, '4 sets of 8 reps'),
+('170-180 cm', '80-90 kg', '30-45', 'Male', '35-39.9', 9, '3 sets of 6 reps'),
+('180-190 cm', '70-80 kg', '45-60', 'Female', '35-39.9', 9, '5 sets of 10 reps'),
+('160-170 cm', '80-90 kg', '18-30', 'Male', '40-44.9', 9, '4 sets of 8 reps'),
+('150-160 cm', '70-80 kg', '30-45', 'Female', '40-44.9', 9, '3 sets of 6 reps')
+
+
+
+
+
+INSERT INTO recommendations (height_range, weight_range, age_range, gender, bmi_range, exercise_id, sets_or_duration)
+VALUES 
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 8, '4 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 8, '3 sets of 8 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 8, '5 sets of 8 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 8, '4 sets of 6 reps'),
+('160-170 cm', '70-80 kg', '45-60', 'Male', '30-34.9', 8, '3 sets of 10 reps'),
+('150-160 cm', '60-70 kg', '18-30', 'Female', '30-34.9', 8, '4 sets of 8 reps'),
+('170-180 cm', '80-90 kg', '30-45', 'Male', '35-39.9', 8, '3 sets of 6 reps'),
+('180-190 cm', '70-80 kg', '45-60', 'Female', '35-39.9', 8, '5 sets of 10 reps'),
+('160-170 cm', '80-90 kg', '18-30', 'Male', '40-44.9', 8, '4 sets of 8 reps'),
+('150-160 cm', '70-80 kg', '30-45', 'Female', '40-44.9', 8, '3 sets of 6 reps')
+
+
+
+
+
+
+INSERT INTO recommendations (height_range, weight_range, age_range, gender, bmi_range, exercise_id, sets_or_duration)
+VALUES 
+('160-170 cm', '60-70 kg', '18-30', 'Male', '18.5-24.9', 7, '4 sets of 10 reps'),
+('150-160 cm', '50-60 kg', '30-45', 'Female', '18.5-24.9', 7, '3 sets of 8 reps'),
+('170-180 cm', '70-80 kg', '30-45', 'Male', '25-29.9', 7, '5 sets of 8 reps'),
+('180-190 cm', '80-90 kg', '18-30', 'Female', '25-29.9', 7, '4 sets of 6 reps'),
+('160-170 cm', '70-80 kg', '45-60', 'Male', '30-34.9', 7, '3 sets of 10 reps'),
+('150-160 cm', '60-70 kg', '18-30', 'Female', '30-34.9', 7, '4 sets of 8 reps'),
+('170-180 cm', '80-90 kg', '30-45', 'Male', '35-39.9', 7, '3 sets of 6 reps'),
+('180-190 cm', '70-80 kg', '45-60', 'Female', '35-39.9', 7, '5 sets of 10 reps'),
+('160-170 cm', '80-90 kg', '18-30', 'Male', '40-44.9', 7, '4 sets of 8 reps'),
+('150-160 cm', '70-80 kg', '30-45', 'Female', '40-44.9', 7, '3 sets of 6 reps')

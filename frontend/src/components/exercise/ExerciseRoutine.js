@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { userContext } from '../../context/context';
 
-export default function ExerciseRoutine({ userID }) {
+export default function ExerciseRoutine() {
+    const userValue = React.useContext(userContext);
     const location = useLocation();
     const { state } = location;
     const { recommendation, selectedDays } = state || {};
     const [routine, setRoutine] = useState(null);
+    const [userID, setUserID] = useState(userValue.user.id);
 
     useEffect(() => {
         const fetchRoutine = async () => {

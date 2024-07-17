@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../context/context';
 
 
-export default function ExercisePage({ userID, height, weight, age, gender, bmi }) {
+export default function ExercisePage() {
+    const userValue=React.useContext(userContext);
+    const [userID,setUserID]=useState(userValue.user.id);
+    const [height, setHeight] = useState(userValue.user.height);
+    const [weight, setWeight] = useState(userValue.user.weight);
+    const [age, setAge] = useState(userValue.user.age);
+    const [gender, setGender] = useState(userValue);
+    const [bmi, setBmi] = useState(userValue.user.bmi);
     const [exerciseType, setExerciseType] = useState('');
     const [muscleGroup, setMuscleGroup] = useState('');
     const [recommendations, setRecommendations] = useState(null);

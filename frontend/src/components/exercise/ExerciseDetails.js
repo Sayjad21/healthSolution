@@ -1,11 +1,11 @@
-import React, { useState, Suspense } from 'react';
+import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { userContext } from '../../context/context';
 
-//const ReactPlayer = React.lazy(() => import('react-player'));
-import ReactPlayer from 'react-player';
-
-export default function ExerciseDetails({userID}) {
+export default function ExerciseDetails() {
+    const userValue = React.useContext(userContext);
     const location = useLocation();
+    const [userID, setUserID] = useState(userValue.user.id);
     const { recommendation } = location.state || {}; // Handle undefined state
     const navigate = useNavigate();
 
@@ -35,19 +35,25 @@ export default function ExerciseDetails({userID}) {
                     days: selectedDays,
                 }),
             });
-    
+
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-    
+
             const data = await response.json();
             console.log("Routine added successfully:", data);
-            
+
             // Navigate to the routine page or show a success message
             navigate('/ExerciseRoutine', { state: { recommendation, selectedDays } });
         } catch (error) {
             console.error("Error adding to routine:", error);
             // Handle error (e.g., show an error message)
+        }
+    };
+
+    const handleVideoButtonClick = () => {
+        if (recommendation && recommendation.video_url) {
+            window.open(recommendation.video_url, '_blank');
         }
     };
 
@@ -95,6 +101,16 @@ export default function ExerciseDetails({userID}) {
             marginTop: '20px',
             transition: 'background-color 0.3s ease',
         },
+        videoButton: {
+            backgroundColor: '#28a745',
+            color: 'white',
+            padding: '10px 15px',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginTop: '20px',
+            transition: 'background-color 0.3s ease',
+        },
         daySelector: {
             display: 'flex',
             flexDirection: 'column',
@@ -122,9 +138,6 @@ export default function ExerciseDetails({userID}) {
         checkedBox: {
             backgroundColor: '#007BFF',
         },
-        videoPlayer: {
-            marginTop: '20px',
-        },
         buttonContainer: {
             display: 'flex',
             justifyContent: 'center',
@@ -144,11 +157,11 @@ export default function ExerciseDetails({userID}) {
                         <div style={styles.detail}><strong>Required Equipment:</strong> {recommendation.equipment_needed}</div>
                         <div style={styles.detail}><strong>Description:</strong> {recommendation.description}</div>
                         {recommendation.video_url && (
-                            <Suspense fallback={<div>Loading video...</div>}>
-                                <div style={styles.videoPlayer}>
-                                    <ReactPlayer url={recommendation.video_url} controls width="100%" height="400px" />
-                                </div>
-                            </Suspense>
+                            <div style={styles.buttonContainer}>
+                                <button style={styles.videoButton} onClick={handleVideoButtonClick}>
+                                    Watch Video
+                                </button>
+                            </div>
                         )}
                         <div style={styles.daySelector}>
                             <strong>Select Days:</strong>
