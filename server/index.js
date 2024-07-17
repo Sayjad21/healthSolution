@@ -24,6 +24,9 @@ app.use('/deleteThana', require('./admin'));
 app.use('/addBlogs', require('./blog'));
 app.use('/getBlogs', require('./blog'));
 
+app.use('/getMail', require('./home'));
+app.use('/sendMail', require('./home'));
+
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {
 //   try {

@@ -45,7 +45,7 @@ const AddHospitalForm = () => {
 
   const fetchHospitals = async () => {
       try {
-          const response = await axios.get('http://localhost:5000/gethospitals');
+          const response = await axios.get('http://localhost:8000/gethospitals');
           setHospitals(response.data);
       } catch (error) {
           console.error('Error fetching hospitals:', error);
@@ -60,7 +60,7 @@ const AddHospitalForm = () => {
 
   const handleDelete = async (id) => {
     try {
-        await axios.delete(`http://localhost:5000/deleteHospital/${id}`);
+        await axios.delete(`http://localhost:8000/deleteHospital/${id}`);
         fetchHospitals(); // Refresh the data after deletion
     } catch (error) {
         console.error('Error deleting hospital data:', error);

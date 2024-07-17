@@ -27,7 +27,7 @@ const AddThanaForm = () => {
         console.log('nearestThanas:', nearestThanas);
 
         try {
-            const response = await axios.post('http://localhost:5000/addThana/addThana', {
+            const response = await axios.post('http://localhost:8000/addThana/addThana', {
                 thana_name_from: thanaFrom,
                 nearest_thanas: nearestThanas
             });
@@ -44,7 +44,7 @@ const AddThanaForm = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/deleteThana/deleteThana/${id}`);
+            await axios.delete(`http://localhost:8000/deleteThana/deleteThana/${id}`);
             fetchThana(); // Refresh the data after deletion
         } catch (error) {
             console.error('Error deleting thana nearest data:', error);
@@ -54,7 +54,7 @@ const AddThanaForm = () => {
 
     const fetchThana = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/getThana/getThana');
+            const response = await axios.get('http://localhost:8000/getThana/getThana');
             setThanaData(response.data);
         } catch (error) {
             console.error('Error fetching thana nearest data:', error);
@@ -160,3 +160,4 @@ export default AddThanaForm;
 // Mirpur
 // Lalbag
 // Mugdha
+// Sobujbagh

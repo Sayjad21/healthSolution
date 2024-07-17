@@ -1,0 +1,18 @@
+.button-dsgn {
+    background-color: red;
+    font-size: 30px;
+    font-weight: 800px;
+    height: 120px;
+    width: 300px;
+    border-color: lightcoral;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    margin-left: 600px;
+  }
+  
+  .button-dsgn:hover {
+    transform: scale(1.1);
+    font-size: 36px;
+  }
+
+  

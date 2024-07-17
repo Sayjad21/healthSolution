@@ -14,13 +14,9 @@ const Home = () => {
             <div style = {{
                     height: "auto",
                     width: "auto",   
-                    backgroundColor: "white",
-                    alignItems: "center", 
-                    justifyContent: "center",
-                    margin: "50px",
+                    backgroundColor: "lightcoral", 
+                    // margin: "50px",
                     padding: "20px",
-                    borderRadius: "20px",
-                    boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.3)",
                 }}
                 >
                 <HazardButton />
