@@ -79,6 +79,8 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
+
               {userValue.user && userValue.user.stats ==='admin' &&  <li>
                 <Link to="/addDoctor" className="nav-link">
                   Add Doctor
@@ -92,7 +94,7 @@ const Navbar = () => {
                       <div>{userValue.user.name}</div>
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark">
-                      <li><a className="dropdown-item" href="#">Action1</a></li>
+                    <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
                       <button className="dropdown-item" onClick={handleSignOut}>Sign Out</button>
                       <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
                     </ul>
