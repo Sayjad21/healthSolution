@@ -16,6 +16,16 @@ app.use(express.json());
 // Routes (Abhishek)
 app.use('/addHospitals', require('./admin'));
 app.use('/getHospitals', require('./admin'));
+app.use('/deleteHospital', require('./admin'));
+app.use('/addThana', require('./admin'));
+app.use('/getThana', require('./admin'));
+app.use('/deleteThana', require('./admin'));
+
+app.use('/addBlogs', require('./blog'));
+app.use('/getBlogs', require('./blog'));
+
+app.use('/getMail', require('./home'));
+app.use('/sendMail', require('./home'));
 
 // Routes will be added later
 // app.get('/getDoctors', async (req, res) => {
