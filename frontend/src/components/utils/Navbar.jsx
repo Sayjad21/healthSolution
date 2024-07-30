@@ -79,6 +79,12 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              <li>
+                <Link to="/Vaccination" className="nav-link">
+                  Vaccine
+                </Link>
+              </li>
+
               <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
 
               {userValue.user && userValue.user.stats ==='admin' &&  <li>

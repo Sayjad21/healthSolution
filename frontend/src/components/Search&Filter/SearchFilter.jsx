@@ -61,8 +61,8 @@ export default function SearchFilter() {
                 console.log(data);
                 setDoctor(data.doctors);
                 setHospital(data.hospitals);
-                setShowDoctor(true);
-                setShowHospital(true);
+                // setShowDoctor(true);
+                // setShowHospital(true);
             }
             else {
                 alert('Error fetching doctors');
@@ -139,7 +139,7 @@ export default function SearchFilter() {
                         </label>
 
                         <select class="form-select form-select-lg mb-3" aria-label="Large select example" onChange={(e) => setDoctorSpeciality(e.target.value)}   >
-                            <option selected>Doctor Speciality</option>
+                            <option value=''>Doctor Speciality</option>
                             <option value="ENT Specialist">ENT Specialist</option>
                             <option value="Urologist">Urologist</option>
                             <option value="Obstetrician/Gynecologist">Obstetrician/Gynecologist</option>
@@ -169,7 +169,7 @@ export default function SearchFilter() {
 
                         <select class="form-select form-select-lg mb-3" aria-label="Large select example" onChange={(e) => setTreatmentType(e.target.value)}   >
 
-                            <option selected>Treatment Type</option>
+                            <option value=''>Treatment Type</option>
                             {/* 'surgery', 'medicine' */}
                             <option value="surgery">Surgery</option>
                             <option value="medicine">Medicine</option>
@@ -177,7 +177,7 @@ export default function SearchFilter() {
 
                         <select class="form-select form-select-lg mb-3" aria-label="Large select example" onChange={(e) => setDegree(e.target.value)}   >
 
-                        <option selected>Degree</option>    
+                        <option value=''>Degree</option>    
                         <option value="MBBS, MS">MBBS, MS</option>
                         <option value="MBBS, MD">MBBS, MD</option>
                         <option value="MBBS, MCh">MBBS, MCh</option>
@@ -189,7 +189,7 @@ export default function SearchFilter() {
                             Hospital's Category
                         </label>
                         <select class="form-select form-select-lg mb-3" aria-label="Large select example" onChange={(e) => setPolicestation(e.target.value)}   >
-                        <option selected>Police Station</option>
+                        <option value=''>Police Station</option>
                         <option value="Mirpur">Mirpur</option>
                         <option value="Motijheel">Motijheel</option>
                         <option value="Lalbagh">Lalbagh</option>

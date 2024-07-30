@@ -1,0 +1,59 @@
+.container {
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  overflow-x: auto;
+  padding: 10px 0;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 10px;
+  padding: 15px;
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+}
+
+.card p {
+  margin: 5px 0;
+}
+
+
+
+.vaccineForm {
+  padding: 20px;
+  background: #a1efd2; /* Updated background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-top: 20px;
+  /* display: none; Initially hidden */ /* Ensure it appears above other elements */
+}
+
+
+
+
+.vaccineForm h2 {
+  margin-bottom: 20px;
+}
+
+.vaccineForm .row {
+  margin-bottom: 15px;
+}
+
+.vaccineForm .form-control,
+.vaccineForm .form-select {
+  margin-bottom: 10px;
+}
+
+.vaccineForm .btn-danger {
+  margin-top: 10px;
+}

@@ -28,6 +28,7 @@ import BloodDonationForm from './components/blood/BloodDonationForm.js';
 import ViewDonor from './components/blood/ViewDonor.js';
 import NutritionCalc from './components/nutrition/NutritionCalc.js';
 import Aichat from './components/AIchatbot/Aichat.jsx';
+import Vaccine from './components/vaccination/Vaccine.jsx';
 
 
 
@@ -67,6 +68,7 @@ function App() {
               <Route exact path="/addDoctor" element ={<Updatedoctor />} />
               <Route exact path="/UserLifeLog" element={<UserLifeInfo />} />
               <Route exact path="/AiChatBot" element={<Aichat/> } />
+              <Route exact path="/Vaccination" element={<Vaccine />  } />
 
 
               {/* sayjad */}
