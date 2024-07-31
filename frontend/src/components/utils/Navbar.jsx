@@ -100,7 +100,7 @@ const Navbar = () => {
                       <div>{userValue.user.name}</div>
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark">
-                    <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
+                    {/* <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li> */}
                       <button className="dropdown-item" onClick={handleSignOut}>Sign Out</button>
                       <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
                     </ul>
