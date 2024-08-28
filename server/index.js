@@ -709,6 +709,78 @@ app.post('/addDoctors', async (req, res) => {
 }
 );
 
+app.get('/vaccine', async (req, res) => {
+  try {
+    const allVaccines = await pool.query('SELECT * FROM vaccines');
+    res.json(allVaccines.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+app.get('/disease', async (req, res) => {
+  try {
+    const allDiseases = await pool.query('SELECT * FROM disease');
+    res.json(allDiseases.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+);
+
+app.get('/vaccineDisease', async (req, res) => {
+  try {
+    const allVaccineDiseases = await pool.query('SELECT distinct disease_name FROM vaccines');
+    res.json(allVaccineDiseases.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+);
+
+
+app.post('/vaccinefilter',async (req,res)=>{
+  try {
+    const {age,patientDisease} = req.body;
+    if(patientDisease === ''){
+      const clientQuery =`select * from vaccines where ${age}-from_age>=0 and to_age-${age}>=0`;
+      const result = await pool.query(clientQuery);
+      if(result.rows.length>0){
+        res.status(200).json(result.rows);
+      }
+      else{
+        res.status(400).json({message:"No vaccine found"});
+      }
+    }
+    else{
+      const clientQuery =`select * from vaccines where (${age}-from_age)*(to_age-${age})>=0  AND disease_name  ILIKE $1`;
+      const result = await pool.query(clientQuery,[patientDisease]);
+      if(result.rows.length>0){
+        res.status(200).json(result.rows);
+      }
+      else{
+        res.status(400).json({message:"No vaccine found"});
+      }
+    }
+
+    
+  } catch (error) {
+    console.log(error.message);
+    
+  }
+}
+);
+
+
+app.get('/hospital', async (req, res) => {
+  try {
+    const allHospitals = await pool.query('SELECT * FROM hospital');
+    res.json(allHospitals.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 
 
 
