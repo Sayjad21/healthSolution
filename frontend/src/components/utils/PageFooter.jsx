@@ -5,77 +5,80 @@ import "./css/PageFooter.css";
 
 const PageFooter = () => {
   return (
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">
-              This is where innovation meets convenience! Prioritizing your needs, we
-              offer premium gadgets and electronics. Our commitment includes
-              providing a user-friendly environment and a reliable payment
-              gateway system. With our top-quality products,...
-              <Link
-                    to="/about"
-                    style={{ color: 'lightblue', margin: '7px',textDecoration: 'none', transition: 'color 0.3s ease' }}
-                    onMouseEnter={(e) => e.target.style.color = '#007FFF'}
-                    onMouseLeave={(e) => e.target.style.color = 'lightblue'}
-                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                    Read More
-                </Link>
+    <footer className="site-footer">
+      <div className="" style={{
+        padding: '50px',
+      }}>
+        <div className="row">
+          <div className="col-sm-12 col-md-6">
+            <h6>Welcome to HealthSolution</h6>
+            <p className="text-justify">
+                Your comprehensive digital companion for optimal health and wellness. At HealthSolution, we believe that maintaining a healthy lifestyle should be accessible and convenient for everyone. Our platform offers a wide range of services designed to cater to your health needs—from personalized diet plans and nutrition calculators to exercise suggestions and symptom matching. Our advanced tools include a streamlined doctor and hospital finder, an innovative organ donor-recipient matching system, and a user-friendly medication reminder. Whether you're seeking to improve your fitness, manage your diet, or find reliable medical advice, HealthSolution provides the resources you need to make informed decisions and lead a healthier life. Join us on this journey to better health and discover how our integrated solutions can transform your well-being.            
             </p>            
           </div>
-          <div class="col-6 col-md-3">
-            <h6>Categories</h6>
-            <ul class="footer-links ">
+          <div className="col-6 col-md-3">
+            <h6>Key Features</h6>
+            <ul className="">
               <li>
-                <a href="#">Website Design</a>
+                Symptom Matcher and Disease Prediction
               </li>
               <li>
-                <a href="#">UI Design</a>
+                Diet Planner
               </li>
               <li>
-                <a href="#">Web Development</a>
+                Blood Donation
               </li>
               <li>
-                <a href="#">Video Editor</a>
+                Blog Writting
               </li>
               <li>
-                <a href="#">Theme Creator</a>
+                Health Tips
               </li>
               <li>
-                <a href="#">Templates</a>
+                Medication Reminder
+              </li>
+              <li>
+                Excersize Planner
+              </li>
+              <li>
+                Doctor Filter
+              </li>
+              <li>
+                Admin Site and Secure Authorization
               </li>
             </ul>
           </div>
-          <div class="col-6 col-md-3">
+
+          <div className="col-6 col-md-3">
             <h6>Quick Links</h6>
-            <ul class="footer-links">
+            <ul className="footer-links">
               <li>
-                <a href="#">About Us</a>
+                <Link to="/about-us">About Us</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link to="/contact-us">Contact Us</Link>
               </li>
               <li>
-                <a href="#">Contribute</a>
+                <Link to="/contribute">Contribute</Link>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#">Sitemap</a>
+                <Link to="/sitemap">Sitemap</Link>
               </li>
             </ul>
           </div>
         </div>
-        <hr class="small" />
+        
+        <hr className="small" />
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-12">
-            <p class="copyright-text">
+      <div className="" style={{
+        padding: '0px 50px',
+      }}>
+        <div className="row">
+          <div className="col-md-8 col-sm-6 col-12">
+            <p className="copyright-text">
               Copyright © 2024 All Rights Reserved by 
               <Link
                     to="https://www.facebook.com/profile.php?id=100014861868150"
@@ -85,37 +88,46 @@ const PageFooter = () => {
                 >
                     Abhishek Roy
                 </Link>
-              and 
+              , 
               <Link
-                    to="https://www.facebook.com/raihan.rashid.75685"
+                    to="https://www.facebook.com/robin.niloy.526"
                     style={{ color: 'lightblue', margin: '7px',textDecoration: 'none', transition: 'color 0.3s ease' }}
                     onMouseEnter={(e) => e.target.style.color = '#007FFF'}
                     onMouseLeave={(e) => e.target.style.color = 'lightblue'}
                 >
-                    Raihan Rashid
-                </Link>
+                    Niloy Das Robin
+              </Link>
+              and
+              <Link
+                    to="https://www.facebook.com/sayjad.rahman.9"
+                    style={{ color: 'lightblue', margin: '7px',textDecoration: 'none', transition: 'color 0.3s ease' }}
+                    onMouseEnter={(e) => e.target.style.color = '#007FFF'}
+                    onMouseLeave={(e) => e.target.style.color = 'lightblue'}
+                >
+                    Sayjad Rahman
+              </Link>
             </p>
           </div>
-          <div class="col-md-4 col-sm-6 col-12">
-            <ul class="social-icons">
+          <div className="col-md-4 col-sm-6 col-12">
+            <ul className="social-icons">
               <li>
-                <a class="facebook" href="#">
-                  <i class="fab fa-facebook-f"></i>
+                <a className="facebook" href="#">
+                  <i className="fab fa-facebook-f"></i>
                 </a>
               </li>
               <li>
-                <a class="twitter" href="#">
-                  <i class="fab fa-twitter"></i>
+                <a className="twitter" href="#">
+                  <i className="fab fa-twitter"></i>
                 </a>
               </li>
               <li>
-                <a class="dribbble" href="#">
-                  <i class="fab fa-dribbble"></i>
+                <a className="dribbble" href="#">
+                  <i className="fab fa-dribbble"></i>
                 </a>
               </li>
               <li>
-                <a class="linkedin" href="#">
-                  <i class="fab fa-linkedin-in"></i>
+                <a className="linkedin" href="#">
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
               </li>
             </ul>

@@ -1,0 +1,55 @@
+.darkShadow{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+.content
+{
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    width : 90%;
+    margin-top: 35px;
+    margin-left: 30px;
+    animation: fadeInUp 2s ease;
+}
+.content .title{
+    color : navy;
+    width : 600px;
+    margin : 0px 0px;
+}
+.content p{
+    color : navy;
+    font-size: 18px;
+    text-align: justify;
+}
+.imageSection{
+    margin-left: 100px;
+    /* border: 2px solid blueviolet; */
+    padding: 3px;
+    animation: fadeInRight 2s ease;
+}
+.imageSection img{
+    width : auto;
+    height : auto;    
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}

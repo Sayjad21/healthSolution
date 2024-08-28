@@ -16,7 +16,7 @@ export default function Blog() {
 
     const fetchBlogs = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/getBlogs');
+            const response = await axios.get('http://localhost:8000/getBlogs');
             setBlogs(response.data);
         } catch (error) {
             console.error('Error fetching blogs:', error);
@@ -30,6 +30,8 @@ export default function Blog() {
     return(
         <Fragment>
             <Navbar/>
+
+            {/* BLOG FORM */}
             {   
                 showForm ? (
                 <CreateBlogForm setShowForm={setShowForm}/>
@@ -49,20 +51,21 @@ export default function Blog() {
                             onClick={toggleForm}
                     >
                         <IoAddCircleOutline size={60}  />
-                        <h2 className='ms-2'>Click here to create a new blog</h2>
+                        <h2 className='mt-2 ms-2'>Click here to create a new blog</h2>
                     </div>
                )
             }
 
+            {/* BLOG LIST */}
             <div style = {{
-                                height: "auto",
-                                width: "auto",   
-                                backgroundColor: "white",
-                                alignItems: "center",  // Align items vertically in the center
-                                margin: "50px",
-                                padding: "20px",
-                                borderRadius: "20px",
-                                boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.3)",
+                        height: "auto",
+                        width: "auto",   
+                        backgroundColor: "white",
+                        alignItems: "center",  // Align items vertically in the center
+                        margin: "50px",
+                        padding: "20px",
+                        borderRadius: "20px",
+                        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.3)",
                             }}>
                 <h2 style={{
                     textAlign: "center",
@@ -70,6 +73,7 @@ export default function Blog() {
                 }}>
                     Blog List
                 </h2>
+                
                 {/* Display list of blogs */}  
                 {
                     blogs.map((blog) => (

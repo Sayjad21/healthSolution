@@ -11,7 +11,7 @@ const CreateBlogForm = ({setShowForm}) => {
         console.log('Creating blog:', title, description);
         
         try {
-            const response = await axios.post('http://localhost:5000/addBlogs', {
+            const response = await axios.post('http://localhost:8000/addBlogs', {
                 title,
                 description,
                 user_id: 2, // Replace with actual user_id or get dynamically

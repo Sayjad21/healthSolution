@@ -4,7 +4,9 @@ import { userContext } from "../../context/context";
 import {tokenContext} from '../../context/context';
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
-import "../../cssFiles/navbar.css";
+
+// import "../../cssFiles/navbar.css";
+import "./css/navbar.css";
 
 // import { userContext} from "../../context/context";
 
@@ -42,7 +44,7 @@ const Navbar = () => {
                 className="navbar-brand"
                 style={{ color: "white", fontSize: "20px", padding: "10px" }}
               >
-                Health Guru
+                Health Solutions
               </div>
             </Link>
 
