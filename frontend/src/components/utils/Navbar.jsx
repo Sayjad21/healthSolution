@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../context/context";
 import {tokenContext} from '../../context/context';
+import { useNavigate } from "react-router-dom";
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
 import "../../cssFiles/navbar.css";
@@ -16,11 +17,12 @@ const Navbar = () => {
   const tokenValue = useContext(tokenContext);
   // console.log(userValue.user.stats);
   const [signout, setSignout] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleSignOut = () => {
     setSignout(true);
     userValue.setUser(null);
     tokenValue.setToken('');
+    navigate('/');
   }
   return (
     <Fragment>
