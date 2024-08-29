@@ -786,6 +786,231 @@ app.get('/hospital', async (req, res) => {
 
 
 
+app.get('/diseaseData', async (req, res) => {
+  try {
+    // Query to fetch data with JOINs
+    const query = `
+      SELECT
+        d.disease_id,
+        d.disease_name,
+        d.preferred_specialized,
+        s.id as symptom_id,
+        s.body_part,
+        s.body_symptom,
+        s.duration
+      FROM
+        disease d
+      LEFT JOIN
+        disease_symptom ds ON d.disease_id = ds.disease_id
+      LEFT JOIN
+        symptom s ON ds.symptom_id = s.id;
+    `;
+    
+    const result = await pool.query(query);
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+app.post('/diagnosis', async (req, res) => {
+  const { bodyPart, bodySymptom, duration } = req.body;
+
+  // Query to fetch disease names based on body part
+  const query = `
+      SELECT 
+          DISTINCT d.disease_name
+      FROM 
+          disease d
+      JOIN 
+          disease_symptom ds ON d.disease_id = ds.disease_id
+      JOIN 
+          symptom s ON ds.symptom_id = s.id
+      WHERE 
+          s.body_part = $1
+  `;
+
+  try {
+    // Execute the query with the provided body part
+    const result = await pool.query(query, [bodyPart]);
+    const diseaseNames = result.rows.map(row => row.disease_name);
+
+    // Object to store symptoms and durations for each disease
+    const diseaseDetails = {};
+
+    // Loop through each disease to get symptoms and durations
+    for (const disease of diseaseNames) {
+      // Initialize arrays for symptoms and durations for each disease
+      diseaseDetails[disease] = {
+        symptoms: [],
+        durations: []
+      };
+
+      // Query to get symptoms and durations for each disease
+      const detailsQuery = `
+          SELECT 
+              s.body_symptom,
+              s.duration
+          FROM 
+              disease d
+          JOIN 
+              disease_symptom ds ON d.disease_id = ds.disease_id
+          JOIN 
+              symptom s ON ds.symptom_id = s.id
+          WHERE 
+              d.disease_name = $1
+      `;
+      
+      const detailsResult = await pool.query(detailsQuery, [disease]);
+
+      // Collect symptoms and durations from the query result
+      detailsResult.rows.forEach(row => {
+        if (!diseaseDetails[disease].symptoms.includes(row.body_symptom)) {
+          diseaseDetails[disease].symptoms.push(row.body_symptom);
+        }
+        if (!diseaseDetails[disease].durations.includes(row.duration)) {
+          diseaseDetails[disease].durations.push(row.duration);
+        }
+      });
+    }
+
+    // Array to store disease scores
+    const diseaseScores = [];
+
+    // Loop through each disease and calculate the score
+    for (const [disease, details] of Object.entries(diseaseDetails)) {
+      let score = 0;
+
+      // Check for symptom matches
+      for (const symptom of bodySymptom) {
+        if (details.symptoms.includes(symptom)) {
+          score++;
+        }
+      }
+
+      // Check for duration matches
+      for (const dur of duration) {
+        if (details.durations.includes(dur)) {
+          score++;
+        }
+      }
+
+      // Store the disease and its score
+      diseaseScores.push({ disease, score });
+    }
+
+    // Find the disease with the maximum score
+    if (diseaseScores.length > 0) {
+      const maxScoreDisease = diseaseScores.reduce((max, curr) => curr.score > max.score ? curr : max);
+      // Send the disease with the maximum score back as JSON
+      res.json(maxScoreDisease);
+    } else {
+      res.json({ message: 'No diseases found' });
+    }
+
+  } catch (error) {
+    console.error('Error fetching diagnosis:', error);
+    res.status(500).send('Error fetching diagnosis');
+  }
+});
+
+
+
+app.post('/get-specialization', async (req, res) => {
+  const { disease } = req.body;
+
+  if (!disease) {
+    return res.status(400).json({ error: 'Disease name is required.' });
+  }
+
+  try {
+    const result = await pool.query(
+      'SELECT preferred_specialized FROM disease WHERE disease_name = $1',
+      [disease]
+    );
+
+    if (result.rows.length > 0) {
+      res.json({ specialization: result.rows[0].preferred_specialized });
+    } else {
+      res.status(404).json({ error: 'Disease not found' });
+    }
+  } catch (err) {
+    console.error('Error fetching specialization:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+// API to get doctors by city, police station, and specialization
+app.post('/get-doctors', async (req, res) => {
+  const { city, policeStation, specialization } = req.body;
+
+  try {
+    const query = `
+      SELECT doctors.doctor_name AS doctor_name, doctors.doctor_speciality, hospital.name AS hospital_name,doctors.contact_info AS contact_info,hospital.email AS email
+      FROM doctors
+      JOIN hospital ON doctors.hospital_id = hospital.id
+      WHERE hospital.city = $1 AND hospital.policestation = $2 AND doctors.doctor_speciality = $3
+    `;
+    const values = [city, policeStation, specialization];
+
+    const result = await pool.query(query, values);
+
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'No doctors found for the specified criteria.' });
+    }
+
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred while fetching doctors.' });
+  }
+});
+
+
+app.post('/book-appointment', async (req, res) => {
+  const { doctorName, email } = req.body;
+
+  // Placeholder for the actual logic to book an appointment with the doctor
+  // You might interact with a database or other service here
+  const appointmentDetails = `Booking an appointment with Dr. ${doctorName}`;
+  
+  // Create a transporter object using the default SMTP transport
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'sayjadrahman@gmail.com', // Replace with your fixed admin email
+      pass: 'nqvy ctyx jtnl kybj'   // Replace with your admin email password or app password
+    }
+  });
+
+  // Setup email data
+  const mailOptions = {
+    from: 'sayjadrahman@gmail.com', // Sender address
+    to: email, // List of receivers
+    subject: 'Appointment Confirmation', // Subject line
+    text: `Dear Patient,\n\nYour appointment with Dr. ${doctorName} has been successfully booked.\n\nThank you!` // Plain text body
+  };
+
+  try {
+    // Send email with defined transport object
+    await transporter.sendMail(mailOptions);
+    console.log('Email sent successfully.');
+
+    // Send response to client
+    res.json({ message: `Appointment booked successfully with Dr. ${doctorName}. A confirmation email has been sent to ${email}.` });
+  } catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Failed to book appointment. Please try again later.' });
+  }
+});
+
+
+
+
+
 
 
 

@@ -1,180 +1,412 @@
--- Insert data into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Influenza', 'General Practitioner', 'Fever, cough, sore throat, muscle aches'),
-('Diabetes', 'Endocrinologist', 'Increased thirst, frequent urination, fatigue'),
-('Hypertension', 'Cardiologist', 'Headache, dizziness, shortness of breath'),
-('Asthma', 'Pulmonologist', 'Wheezing, shortness of breath, chest tightness'),
-('Migraine', 'Neurologist', 'Severe headache, nausea, sensitivity to light and sound'),
-('COVID-19', 'Infectious Disease Specialist', 'Fever, cough, difficulty breathing, loss of taste and smell');
+INSERT INTO disease (disease_name, preferred_specialized) VALUES
+-- Cardiovascular System
+('Coronary Artery Disease', 'Cardiologist'),
+('Congestive Heart Failure', 'Cardiologist'),
+('Hypertension', 'Cardiologist'),
 
--- Insert additional data into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Common Cold', 'General Practitioner', 'Runny nose, sore throat, cough, congestion'),
-('Chickenpox', 'Pediatrician', 'Itchy rash, fever, tiredness, loss of appetite'),
-('Tuberculosis', 'Pulmonologist', 'Chronic cough, weight loss, night sweats, fever'),
-('Malaria', 'Infectious Disease Specialist', 'Fever, chills, headache, muscle pain'),
-('HIV/AIDS', 'Infectious Disease Specialist', 'Fever, chills, rash, night sweats'),
-('Pneumonia', 'Pulmonologist', 'Chest pain, cough, fever, difficulty breathing'),
-('Hepatitis B', 'Gastroenterologist', 'Jaundice, fatigue, abdominal pain, dark urine'),
-('Lyme Disease', 'Infectious Disease Specialist', 'Fever, headache, fatigue, skin rash'),
-('Ebola', 'Infectious Disease Specialist', 'Fever, severe headache, muscle pain, vomiting'),
-('Zika Virus', 'Infectious Disease Specialist', 'Fever, rash, joint pain, red eyes'),
-('Cholera', 'Infectious Disease Specialist', 'Severe diarrhea, dehydration, muscle cramps'),
-('Dengue Fever', 'Infectious Disease Specialist', 'High fever, severe headache, pain behind eyes, joint pain'),
-('Rabies', 'Infectious Disease Specialist', 'Fever, headache, excess salivation, muscle spasms'),
-('Measles', 'Pediatrician', 'Fever, cough, runny nose, inflamed eyes'),
-('Tetanus', 'General Practitioner', 'Jaw cramping, muscle stiffness, difficulty swallowing'),
-('Meningitis', 'Neurologist', 'Severe headache, stiff neck, fever, nausea'),
-('Polio', 'Neurologist', 'Fatigue, fever, muscle weakness, paralysis'),
-('Leprosy', 'Dermatologist', 'Skin lesions, muscle weakness, numbness, eye problems'),
-('Syphilis', 'Dermatologist', 'Sores, skin rash, mucous membrane lesions, swollen lymph nodes');
+-- Respiratory System
+('Asthma', 'Pulmonologist'),
+('Chronic Obstructive Pulmonary Disease (COPD)', 'Pulmonologist'),
+('Pneumonia', 'Pulmonologist'),
 
+-- Digestive System
+('Gastroesophageal Reflux Disease (GERD)', 'Gastroenterologist'),
+('Irritable Bowel Syndrome (IBS)', 'Gastroenterologist'),
+('Ulcerative Colitis', 'Gastroenterologist'),
 
--- Insert additional data into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Smallpox', 'Infectious Disease Specialist', 'Fever, rash, body aches, vomiting'),
-('Anthrax', 'Infectious Disease Specialist', 'Fever, chills, shortness of breath, chest discomfort'),
-('E. Coli Infection', 'Gastroenterologist', 'Severe stomach cramps, diarrhea, vomiting'),
-('Salmonella Infection', 'Gastroenterologist', 'Fever, diarrhea, stomach cramps'),
-('Norovirus', 'Gastroenterologist', 'Nausea, vomiting, diarrhea, stomach pain'),
-('Legionnaires’ Disease', 'Pulmonologist', 'Cough, shortness of breath, fever, muscle aches'),
-('Cystic Fibrosis', 'Pulmonologist', 'Persistent cough, frequent lung infections, wheezing'),
-('Celiac Disease', 'Gastroenterologist', 'Diarrhea, bloating, gas, fatigue'),
-('Crohn’s Disease', 'Gastroenterologist', 'Abdominal pain, diarrhea, weight loss, fatigue'),
-('Ulcerative Colitis', 'Gastroenterologist', 'Abdominal pain, diarrhea, rectal bleeding, fatigue'),
-('Parkinson’s Disease', 'Neurologist', 'Tremor, slowed movement, muscle stiffness, balance problems'),
-('Alzheimer’s Disease', 'Neurologist', 'Memory loss, confusion, difficulty with language, mood changes'),
-('Multiple Sclerosis', 'Neurologist', 'Numbness, tingling, muscle weakness, balance issues'),
-('Lupus', 'Rheumatologist', 'Fatigue, joint pain, skin rashes, fever'),
-('Rheumatoid Arthritis', 'Rheumatologist', 'Joint pain, swelling, stiffness, fatigue'),
-('Psoriasis', 'Dermatologist', 'Red patches of skin, scaling, itching, burning'),
-('Dermatitis', 'Dermatologist', 'Red rash, itching, swelling, blisters'),
-('Osteoporosis', 'Endocrinologist', 'Bone fractures, loss of height, back pain'),
-('Gout', 'Rheumatologist', 'Severe pain, redness, and swelling in joints, often the big toe'),
-('Hemophilia', 'Hematologist', 'Excessive bleeding, easy bruising, joint pain'),
-('Sickle Cell Disease', 'Hematologist', 'Anemia, pain crises, swelling in hands and feet'),
-('Thalassemia', 'Hematologist', 'Fatigue, weakness, pale or yellowish skin, slow growth in children'),
-('Hypothyroidism', 'Endocrinologist', 'Fatigue, weight gain, cold intolerance, depression'),
-('Hyperthyroidism', 'Endocrinologist', 'Weight loss, rapid heartbeat, sweating, nervousness'),
-('Addison’s Disease', 'Endocrinologist', 'Fatigue, muscle weakness, weight loss, low blood pressure'),
-('Cushing’s Syndrome', 'Endocrinologist', 'Weight gain, thinning skin, easy bruising, high blood pressure'),
-('ALS (Amyotrophic Lateral Sclerosis)', 'Neurologist', 'Muscle weakness, difficulty speaking, difficulty swallowing, muscle cramps'),
-('Huntington’s Disease', 'Neurologist', 'Movement disorders, cognitive decline, psychiatric disorders'),
-('Prostate Cancer', 'Oncologist', 'Difficulty urinating, blood in urine, pelvic discomfort'),
-('Breast Cancer', 'Oncologist', 'Lump in breast, change in breast shape, skin changes on breast'),
-('Lung Cancer', 'Oncologist', 'Persistent cough, chest pain, shortness of breath, coughing up blood'),
-('Colorectal Cancer', 'Oncologist', 'Change in bowel habits, rectal bleeding, abdominal pain'),
-('Skin Cancer', 'Dermatologist', 'New growths, sores that don’t heal, changes in moles'),
-('Leukemia', 'Hematologist', 'Fatigue, frequent infections, easy bruising, weight loss'),
-('Lymphoma', 'Hematologist', 'Swollen lymph nodes, fatigue, fever, night sweats'),
-('Pancreatic Cancer', 'Oncologist', 'Abdominal pain, weight loss, jaundice, nausea'),
-('Kidney Disease', 'Nephrologist', 'Fatigue, swelling in legs, changes in urination, high blood pressure');
+-- Nervous System
+('Alzheimer Disease', 'Neurologist'),
+('Parkinsons Disease', 'Neurologist'),
+('Multiple Sclerosis', 'Neurologist'),
 
--- Insert data related to genital diseases into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Chlamydia', 'Gynecologist/Urologist', 'Painful urination, lower abdominal pain, vaginal discharge, discharge from penis'),
-('Gonorrhea', 'Gynecologist/Urologist', 'Painful urination, pus-like discharge from penis, increased vaginal discharge, vaginal bleeding between periods'),
-('Genital Herpes', 'Gynecologist/Urologist', 'Pain, itching, small sores, ulcers, scabs'),
-('Human Papillomavirus (HPV)', 'Gynecologist/Urologist', 'Warts on genitals, itching, discomfort, bleeding during intercourse'),
-('Syphilis', 'Gynecologist/Urologist', 'Sores, skin rash, mucous membrane lesions, swollen lymph nodes'),
-('Trichomoniasis', 'Gynecologist/Urologist', 'Foul-smelling vaginal discharge, genital itching, painful urination'),
-('Bacterial Vaginosis', 'Gynecologist', 'Thin gray or white discharge, foul-smelling odor, vaginal itching, burning during urination'),
-('Pelvic Inflammatory Disease (PID)', 'Gynecologist', 'Lower abdominal pain, fever, unusual discharge with a bad odor, painful intercourse, painful urination'),
-('Genital Warts', 'Gynecologist/Urologist', 'Small, flesh-colored or gray swellings in genital area, itching, discomfort, bleeding during intercourse'),
-('HIV/AIDS', 'Infectious Disease Specialist', 'Fever, chills, rash, night sweats, swollen lymph nodes, rapid weight loss'),
-('Candidiasis (Yeast Infection)', 'Gynecologist', 'Itching, irritation, swelling, thick white discharge'),
-('Molluscum Contagiosum', 'Dermatologist', 'Small, raised, flesh-colored lesions, itching, irritation'),
-('Pubic Lice (Crabs)', 'Dermatologist', 'Intense itching, visible lice or eggs in pubic hair'),
-('Urethritis', 'Urologist', 'Painful urination, discharge from penis or vagina, itching, irritation'),
-('Cervicitis', 'Gynecologist', 'Grayish or yellow discharge, pelvic pain, painful intercourse, bleeding between periods'),
-('Prostatitis', 'Urologist', 'Painful urination, pain in groin, pelvic area, or genitals, flu-like symptoms'),
-('Epididymitis', 'Urologist', 'Pain and swelling in the testicles, painful urination, discharge from penis'),
-('Orchitis', 'Urologist', 'Swelling in one or both testicles, pain, fever, nausea'),
-('Testicular Torsion', 'Urologist', 'Sudden severe pain in the scrotum, swelling, abdominal pain, nausea'),
-('Vulvodynia', 'Gynecologist', 'Chronic pain in the vulva, burning, stinging, irritation, rawness');
+-- Musculoskeletal System
+('Osteoarthritis', 'Orthopedic Specialist'),
+('Rheumatoid Arthritis', 'Rheumatologist'),
+('Osteoporosis', 'Rheumatologist'),
+
+-- Endocrine System
+('Diabetes Mellitus', 'Endocrinologist'),
+('Hyperthyroidism', 'Endocrinologist'),
+('Hypothyroidism', 'Endocrinologist'),
+
+-- Urinary System
+('Chronic Kidney Disease', 'Nephrologist'),
+('Urinary Tract Infection (UTI)', 'Urologist'),
+('Kidney Stones', 'Urologist'),
+
+-- Dermatology (Skin)
+('Psoriasis', 'Dermatologist'),
+('Eczema (Atopic Dermatitis)', 'Dermatologist'),
+('Acne', 'Dermatologist'),
+
+-- Reproductive System (Male)
+('Prostate Cancer', 'Urologist'),
+('Erectile Dysfunction', 'Urologist'),
+('Testicular Cancer', 'Urologist'),
+
+-- Reproductive System (Female)
+('Polycystic Ovary Syndrome (PCOS)', 'Gynecologist'),
+('Endometriosis', 'Gynecologist'),
+('Breast Cancer', 'Oncologist'),
+
+-- Others
+('Deep Vein Thrombosis (DVT)', 'Vascular Surgeon'),
+('Hearing Loss', 'ENT Specialist'),
+('Sinusitis', 'ENT Specialist');
 
 
--- Insert data related to diseases affecting girls and women into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Polycystic Ovary Syndrome (PCOS)', 'Gynecologist', 'Irregular periods, excess androgen, polycystic ovaries, weight gain'),
-('Endometriosis', 'Gynecologist', 'Pelvic pain, painful periods, pain with intercourse, infertility'),
-('Cervical Cancer', 'Gynecologist/Oncologist', 'Vaginal bleeding, pelvic pain, pain during intercourse, abnormal discharge'),
-('Ovarian Cancer', 'Gynecologist/Oncologist', 'Abdominal bloating, pelvic pain, difficulty eating, frequent urination'),
-('Pelvic Inflammatory Disease (PID)', 'Gynecologist', 'Lower abdominal pain, fever, unusual discharge, painful intercourse'),
-('Menstrual Disorders', 'Gynecologist', 'Irregular periods, heavy bleeding, severe cramps, PMS symptoms'),
-('Uterine Fibroids', 'Gynecologist', 'Heavy menstrual bleeding, prolonged periods, pelvic pain, frequent urination'),
-('Vaginitis', 'Gynecologist', 'Vaginal itching, discharge, odor, discomfort during intercourse'),
-('Breast Cancer', 'Oncologist', 'Lump in breast, change in size or shape, skin changes, nipple discharge'),
-('Urinary Tract Infection (UTI)', 'Gynecologist/Urologist', 'Frequent urination, burning sensation, cloudy urine, pelvic pain'),
-('Human Papillomavirus (HPV)', 'Gynecologist', 'Genital warts, abnormal Pap smears, increased risk of cervical cancer'),
-('Bacterial Vaginosis', 'Gynecologist', 'Thin gray discharge, fishy odor, itching, burning during urination'),
-('Yeast Infection', 'Gynecologist', 'Itching, thick white discharge, redness, swelling of the vulva'),
-('Preeclampsia', 'Obstetrician/Gynecologist', 'High blood pressure, protein in urine, swelling, severe headaches'),
-('Gestational Diabetes', 'Obstetrician/Gynecologist', 'High blood sugar during pregnancy, increased thirst, frequent urination'),
-('Hyperemesis Gravidarum', 'Obstetrician/Gynecologist', 'Severe nausea, vomiting, weight loss, dehydration'),
-('Postpartum Depression', 'Psychiatrist', 'Depressed mood, severe mood swings, excessive crying, difficulty bonding with baby'),
-('Menopause', 'Gynecologist', 'Hot flashes, night sweats, mood changes, vaginal dryness'),
-('Osteoporosis', 'Endocrinologist', 'Bone fractures, loss of height, back pain, brittle bones');
+
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Coronary Artery Disease
+('Heart', 'Chest pain or discomfort (angina)', 'Often during physical exertion'),
+('Heart', 'Shortness of breath', 'Persistent'),
+('Heart', 'Fatigue', 'Persistent or after activities'),
+
+-- Congestive Heart Failure
+('Heart', 'Swelling in the legs, ankles, or feet (edema)', 'Persistent or progressive'),
+('Heart', 'Shortness of breath, especially when lying down', 'Persistent'),
+('Heart', 'Fatigue and weakness', 'Persistent'),
+
+-- Hypertension
+('Head', 'Headaches', 'Persistent or occasional'),
+('Eyes', 'Blurred vision', 'Intermittent or persistent'),
+('Heart', 'Chest pain', 'Intermittent or persistent');
 
 
--- Insert additional common diseases into the disease table
-INSERT INTO disease (disease_name, preferred_specialized, symptom)
-VALUES
-('Anemia', 'Hematologist', 'Fatigue, weakness, pale skin, shortness of breath'),
-('Bronchitis', 'Pulmonologist', 'Cough, production of mucus, fatigue, shortness of breath'),
-('Gallstones', 'Gastroenterologist', 'Sudden and rapidly intensifying pain in the upper right portion of your abdomen, back pain, nausea'),
-('Gastritis', 'Gastroenterologist', 'Upper abdominal pain, nausea, vomiting, bloating'),
-('Kidney Stones', 'Urologist', 'Severe pain in the side and back, pain during urination, pink or brown urine, nausea'),
-('Osteoarthritis', 'Rheumatologist', 'Joint pain, stiffness, tenderness, loss of flexibility'),
-('Peptic Ulcer', 'Gastroenterologist', 'Burning stomach pain, bloating, heartburn, nausea'),
-('Sinusitis', 'ENT Specialist', 'Facial pain, nasal congestion, headache, fever'),
-('Urinary Tract Infection (UTI)', 'Urologist', 'Strong urge to urinate, burning sensation when urinating, cloudy urine, pelvic pain'),
-('Varicose Veins', 'Vascular Surgeon', 'Swollen, twisted veins, aching pain, heaviness in legs'),
-('Vertigo', 'ENT Specialist/Neurologist', 'Spinning sensation, dizziness, balance problems, nausea'),
-('Tonsillitis', 'ENT Specialist', 'Sore throat, difficulty swallowing, red and swollen tonsils, fever'),
-('Hypoglycemia', 'Endocrinologist', 'Shakiness, sweating, confusion, rapid heartbeat'),
-('Hyperlipidemia', 'Cardiologist', 'Often no symptoms, but high cholesterol levels detected through blood tests'),
-('Herniated Disc', 'Orthopedic Specialist', 'Arm or leg pain, numbness, tingling, muscle weakness'),
-('Gout', 'Rheumatologist', 'Severe pain, redness, and swelling in joints, often the big toe'),
-('Psoriatic Arthritis', 'Rheumatologist', 'Joint pain, stiffness, swelling, red patches of skin'),
-('Chronic Fatigue Syndrome', 'General Practitioner', 'Extreme fatigue, memory problems, muscle pain, headaches'),
-('Irritable Bowel Syndrome (IBS)', 'Gastroenterologist', 'Abdominal pain, cramping, bloating, gas, diarrhea, or constipation'),
-('Celiac Disease', 'Gastroenterologist', 'Diarrhea, bloating, gas, fatigue, anemia, and osteoporosis'),
-('Hives', 'Dermatologist', 'Red, itchy welts on the skin, swelling'),
-('Hypersensitivity Pneumonitis', 'Pulmonologist', 'Cough, shortness of breath, fatigue, chills'),
-('Mononucleosis', 'General Practitioner', 'Fatigue, fever, sore throat, swollen lymph nodes, swollen spleen'),
-('Bell’s Palsy', 'Neurologist', 'Sudden weakness or paralysis on one side of the face, drooping mouth, drooling, loss of taste');
 
 
--- Viral Fever
-INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
-('Viral Fever', 'High fever, body aches, headache, fatigue, chills', 'Infectious Disease Specialist');
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Asthma
+('Lungs', 'Wheezing', 'Intermittent or during an asthma attack'),
+('Lungs', 'Shortness of breath', 'Intermittent or persistent'),
+('Lungs', 'Chest tightness or pain', 'Intermittent or during an asthma attack'),
 
--- Cardiac Diseases
-INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
-('Coronary Artery Disease', 'Chest pain, shortness of breath, fatigue, heart attack', 'Cardiologist'),
-('Hypertension', 'High blood pressure, headaches, dizziness, shortness of breath', 'Cardiologist'),
-('Congestive Heart Failure', 'Shortness of breath, swelling in legs, rapid heartbeat, fatigue', 'Cardiologist');
+-- Chronic Obstructive Pulmonary Disease (COPD)
+('Lungs', 'Chronic cough with mucus', 'Persistent'),
+('Lungs', 'Shortness of breath, especially during physical activities', 'Persistent and progressive'),
+('Lungs', 'Frequent respiratory infections', 'Recurrent'),
 
--- Kidney Diseases
-INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
-('Chronic Kidney Disease', 'Fatigue, swollen ankles, frequent urination, shortness of breath', 'Nephrologist'),
-('Kidney Stones', 'Severe pain in side and back, pain during urination, nausea', 'Urologist'),
-('Acute Kidney Injury', 'Decreased urine output, fluid retention, confusion, fatigue', 'Nephrologist');
+-- Pneumonia
+('Lungs', 'Chest pain when breathing or coughing', 'Persistent'),
+('Lungs', 'Fever, sweating, and chills', 'Acute'),
+('Lungs', 'Shortness of breath', 'Acute or persistent');
 
--- Brain Diseases
-INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
-('Stroke', 'Sudden numbness or weakness, confusion, trouble speaking, severe headache', 'Neurologist'),
-('Alzheimer Disease', 'Memory loss, confusion, difficulty completing familiar tasks, mood changes', 'Neurologist'),
-('Parkinson Disease', 'Tremors, stiffness, slow movement, balance problems', 'Neurologist');
 
--- Eye Diseases
-INSERT INTO disease (disease_name, symptom, preferred_specialized) VALUES 
-('Cataract', 'Blurred vision, difficulty seeing at night, sensitivity to light, fading colors', 'Ophthalmologist'),
-('Glaucoma', 'Loss of peripheral vision, halos around lights, eye pain, nausea', 'Ophthalmologist'),
-('Age-related Macular Degeneration', 'Blurred vision, difficulty recognizing faces, need for brighter light', 'Ophthalmologist');
+
+
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Gastroesophageal Reflux Disease (GERD)
+('Esophagus', 'Heartburn', 'Frequent, especially after eating'),
+('Throat', 'Regurgitation of food or sour liquid', 'Frequent'),
+('Chest', 'Chest pain', 'Intermittent, often after eating'),
+
+-- Irritable Bowel Syndrome (IBS)
+('Abdomen', 'Abdominal pain or cramping', 'Intermittent, often relieved by bowel movements'),
+('Bowel', 'Bloating', 'Frequent'),
+('Bowel', 'Diarrhea or constipation', 'Intermittent or alternating'),
+
+-- Ulcerative Colitis
+('Colon', 'Diarrhea, often with blood or pus', 'Persistent or frequent'),
+('Abdomen', 'Abdominal pain and cramping', 'Intermittent'),
+('Bowel', 'Urgent need to defecate', 'Frequent and sudden');
+
+
+
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Alzheimer's Disease
+('Brain', 'Memory loss', 'Progressive'),
+('Brain', 'Difficulty in completing familiar tasks', 'Progressive'),
+('Brain', 'Confusion with time or place', 'Progressive'),
+
+-- Parkinson's Disease
+('Brain', 'Tremor, especially in hands', 'Persistent and progressive'),
+('Muscles', 'Bradykinesia (slowed movement)', 'Progressive'),
+('Muscles', 'Muscle stiffness or rigidity', 'Persistent and progressive'),
+
+-- Multiple Sclerosis
+('Nerves', 'Numbness or weakness in limbs', 'Intermittent or persistent'),
+('Vision', 'Partial or complete loss of vision', 'Intermittent or sudden onset'),
+('Muscles', 'Tingling or pain in parts of the body', 'Intermittent');
+
+
+
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Osteoarthritis
+('Joints', 'Joint pain', 'Chronic, worsens with activity'),
+('Joints', 'Stiffness', 'Persistent, especially in the morning'),
+('Joints', 'Reduced range of motion', 'Progressive'),
+
+-- Rheumatoid Arthritis
+('Joints', 'Joint pain and tenderness', 'Persistent, often symmetrical'),
+('Joints', 'Joint stiffness', 'Persistent, especially in the morning or after inactivity'),
+('Joints', 'Swelling and inflammation', 'Chronic and progressive'),
+
+-- Osteoporosis
+('Bones', 'Back pain', 'Persistent or intermittent'),
+('Bones', 'Loss of height over time', 'Progressive'),
+('Bones', 'Bone fractures', 'Frequent, especially with minor injuries'),
+
+-- Diabetes Mellitus
+('Body', 'Increased thirst and frequent urination', 'Persistent'),
+('Body', 'Unexplained weight loss', 'Progressive'),
+('Body', 'Fatigue', 'Chronic'),
+
+-- Hyperthyroidism
+('Body', 'Weight loss despite increased appetite', 'Persistent'),
+('Heart', 'Rapid heartbeat (tachycardia)', 'Persistent'),
+('Body', 'Increased sweating and heat intolerance', 'Persistent'),
+
+-- Hypothyroidism
+('Body', 'Fatigue', 'Persistent'),
+('Body', 'Weight gain', 'Progressive'),
+('Skin', 'Dry skin', 'Persistent'),
+
+-- Chronic Kidney Disease
+('Body', 'Fatigue', 'Persistent and progressive'),
+('Body', 'Swelling in ankles and feet', 'Progressive'),
+('Body', 'Changes in urination frequency', 'Persistent'),
+
+-- Urinary Tract Infection (UTI)
+('Urinary tract', 'Burning sensation during urination', 'Acute'),
+('Urinary tract', 'Frequent and urgent need to urinate', 'Acute'),
+('Urinary tract', 'Cloudy or strong-smelling urine', 'Acute'),
+
+-- Kidney Stones
+('Kidneys', 'Severe pain in the side and back', 'Sudden onset, intermittent'),
+('Urinary tract', 'Pain during urination', 'Intermittent'),
+('Urinary tract', 'Pink, red, or brown urine', 'Intermittent'),
+
+-- Psoriasis
+('Skin', 'Red patches of skin covered with thick, silvery scales', 'Persistent'),
+('Skin', 'Dry, cracked skin that may bleed', 'Persistent'),
+('Skin', 'Itching, burning, or soreness', 'Intermittent'),
+
+-- Eczema (Atopic Dermatitis)
+('Skin', 'Dry skin', 'Persistent'),
+('Skin', 'Itching, which may be severe', 'Persistent or intermittent'),
+('Skin', 'Red to brownish-gray patches', 'Persistent'),
+
+-- Acne
+('Skin', 'Pimples, blackheads, or whiteheads', 'Persistent'),
+('Skin', 'Inflamed or swollen spots', 'Intermittent'),
+('Skin', 'Scarring', 'Chronic'),
+
+-- Prostate Cancer
+('Prostate', 'Difficulty urinating', 'Progressive'),
+('Body', 'Blood in urine or semen', 'Intermittent'),
+('Body', 'Bone pain', 'Chronic'),
+
+-- Erectile Dysfunction
+('Body', 'Inability to achieve or maintain an erection', 'Persistent'),
+('Body', 'Reduced sexual desire', 'Persistent'),
+('Body', 'Anxiety or stress', 'Intermittent'),
+
+-- Testicular Cancer
+('Testicles', 'Lump or swelling in the testicle', 'Persistent'),
+('Body', 'Discomfort or pain in the scrotum', 'Persistent'),
+('Body', 'Back pain', 'Persistent'),
+
+-- Polycystic Ovary Syndrome (PCOS)
+('Ovaries', 'Irregular menstrual cycles', 'Persistent'),
+('Body', 'Excess hair growth (hirsutism)', 'Persistent'),
+('Body', 'Weight gain', 'Progressive'),
+
+-- Endometriosis
+('Pelvis', 'Pelvic pain, especially during menstruation', 'Persistent'),
+('Body', 'Pain during intercourse', 'Intermittent'),
+('Body', 'Heavy menstrual bleeding', 'Persistent'),
+
+-- Breast Cancer
+('Breast', 'Lump in the breast or underarm', 'Persistent'),
+('Breast', 'Changes in the size or shape of the breast', 'Progressive'),
+('Breast', 'Nipple discharge', 'Persistent');
+
+
+INSERT INTO symptom (body_part, body_symptom, duration) VALUES
+-- Deep Vein Thrombosis (DVT)
+('Legs', 'Swelling in the affected leg', 'Persistent'),
+('Legs', 'Pain or tenderness, often starting in the calf', 'Persistent'),
+('Legs', 'Red or discolored skin', 'Persistent'),
+
+-- Hearing Loss
+('Ears', 'Difficulty hearing conversations, especially in noisy environments', 'Persistent'),
+('Ears', 'Muffled hearing', 'Persistent'),
+('Ears', 'Ringing in the ears (tinnitus)', 'Persistent or intermittent'),
+
+-- Sinusitis
+('Sinuses', 'Facial pain or pressure', 'Persistent or intermittent'),
+('Sinuses', 'Nasal congestion or blockage', 'Persistent'),
+('Sinuses', 'Thick nasal discharge (often yellow or green)', 'Persistent');
+
+
+
+INSERT INTO disease_symptom (disease_id, symptom_id) VALUES
+-- Coronary Artery Disease
+(1, 1),  -- Chest pain (angina)
+(1, 2),  -- Shortness of breath
+(1, 3),  -- Fatigue
+
+-- Congestive Heart Failure
+(2, 4),  -- Shortness of breath
+(2, 5),  -- Swelling in the legs, ankles, or feet (edema)
+(2, 6),  -- Fatigue and weakness
+
+-- Hypertension
+(3, 7),  -- Headaches
+(3, 8),  -- Shortness of breath
+(3, 9),  -- Nosebleeds
+
+-- Asthma
+(4, 10), -- Wheezing
+(4, 11), -- Shortness of breath
+(4, 12), -- Chest tightness or pain
+
+-- Chronic Obstructive Pulmonary Disease (COPD)
+(5, 13), -- Chronic cough
+(5, 14), -- Shortness of breath, especially during physical activities
+(5, 15); -- Frequent respiratory infections
+
+
+INSERT INTO disease_symptom (disease_id, symptom_id) VALUES
+-- Pneumonia
+(6, 16), -- Cough with phlegm
+(6, 17), -- High fever
+(6, 18), -- Shortness of breath
+
+-- Gastroesophageal Reflux Disease (GERD)
+(7, 19), -- Heartburn
+(7, 20), -- Regurgitation of food or sour liquid
+(7, 21), -- Chest pain
+
+-- Irritable Bowel Syndrome (IBS)
+(8, 22), -- Abdominal pain or cramping
+(8, 23), -- Bloating
+(8, 24), -- Diarrhea or constipation
+
+-- Ulcerative Colitis
+(9, 25), -- Abdominal pain
+(9, 26), -- Diarrhea with blood or pus
+(9, 27), -- Urgent need to have a bowel movement
+
+-- Alzheimer's Disease
+(10, 28), -- Memory loss
+(10, 29), -- Confusion with time or place
+(10, 30); -- Difficulty completing familiar tasks
+
+
+INSERT INTO disease_symptom (disease_id, symptom_id) VALUES
+-- Parkinson's Disease
+(11, 31), -- Tremors or shaking
+(11, 32), -- Stiffness or rigidity in limbs
+(11, 33), -- Slowness of movement
+
+-- Multiple Sclerosis
+(12, 34), -- Fatigue
+(12, 35), -- Difficulty walking or balance problems
+(12, 36), -- Numbness or tingling in limbs
+
+-- Osteoarthritis
+(13, 37), -- Joint pain
+(13, 38), -- Stiffness, especially in the morning
+(13, 39), -- Swelling in the affected joints
+
+-- Rheumatoid Arthritis
+(14, 40), -- Joint pain and swelling
+(14, 41), -- Morning stiffness lasting more than an hour
+(14, 42), -- Fatigue
+
+-- Osteoporosis
+(15, 43), -- Back pain due to fractured vertebrae
+(15, 44), -- Loss of height over time
+(15, 45), -- Stooped posture
+
+-- Diabetes Mellitus
+(16, 46), -- Increased thirst
+(16, 47), -- Frequent urination
+(16, 48), -- Fatigue
+
+-- Hyperthyroidism
+(17, 49), -- Unexplained weight loss
+(17, 50), -- Rapid heartbeat or palpitations
+(17, 51), -- Sweating
+
+-- Hypothyroidism
+(18, 52), -- Fatigue
+(18, 53), -- Weight gain
+(18, 54), -- Cold intolerance
+
+-- Chronic Kidney Disease
+(19, 55), -- Swelling in the legs or ankles
+(19, 56), -- Fatigue
+(19, 57), -- Changes in urine output
+
+-- Urinary Tract Infection (UTI)
+(20, 58), -- Painful urination
+(20, 59), -- Frequent urge to urinate
+(20, 60), -- Cloudy or strong-smelling urine
+
+-- Kidney Stones
+(21, 61), -- Severe pain in the back or side
+(21, 62), -- Painful urination
+(21, 63), -- Nausea or vomiting
+
+-- Psoriasis
+(22, 64), -- Red patches of skin covered with thick, silvery scales
+(22, 65), -- Dry, cracked skin that may bleed
+(22, 66), -- Itching or soreness
+
+-- Eczema (Atopic Dermatitis)
+(23, 67), -- Itchy, red rash
+(23, 68), -- Dry, scaly skin
+(23, 69), -- Thickened skin from scratching
+
+-- Acne
+(24, 70), -- Pimples or zits
+(24, 71), -- Blackheads or whiteheads
+(24, 72), -- Oily skin
+
+-- Prostate Cancer
+(25, 73), -- Difficulty urinating
+(25, 74), -- Painful ejaculation
+(25, 75), -- Blood in urine or semen
+
+-- Erectile Dysfunction
+(26, 76), -- Difficulty achieving or maintaining an erection
+(26, 77), -- Reduced sexual desire
+(26, 78), -- Premature ejaculation
+
+-- Testicular Cancer
+(27, 79), -- Lump or swelling in the testicle
+(27, 80), -- Pain or discomfort in the testicle
+(27, 81), -- A feeling of heaviness in the scrotum
+
+-- Polycystic Ovary Syndrome (PCOS)
+(28, 82), -- Irregular menstrual periods
+(28, 83), -- Excessive hair growth
+(28, 84), -- Acne
+
+-- Endometriosis
+(29, 85), -- Painful periods
+(29, 86), -- Pain during intercourse
+(29, 87), -- Pain with bowel movements or urination
+
+-- Breast Cancer
+(30, 88), -- Lump or mass in the breast
+(30, 89), -- Changes in breast size or shape
+(30, 90); -- Nipple discharge
+
+INSERT INTO disease_symptom (disease_id, symptom_id) VALUES
+-- Deep Vein Thrombosis (DVT)
+(31, 91), -- Swelling in one leg
+(31, 92), -- Pain or tenderness in the leg
+(31, 93), -- Warmth or redness in the affected area
+
+-- Hearing Loss
+(32, 94), -- Difficulty understanding conversations
+(32, 95), -- Ringing or buzzing in the ears
+(32, 96), -- Need to turn up the volume on TV or radio
+
+-- Sinusitis
+(33, 97), -- Facial pain or pressure
+(33, 98), -- Nasal congestion
+(33, 99); -- Thick nasal discharge

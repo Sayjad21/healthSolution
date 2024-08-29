@@ -125,6 +125,44 @@ export default function Updatedoctor() {
         <>
             <Navbar />
             <div className="container my-3">
+            <div id="carouselExampleCaptions" class="carousel slide">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="search1.jpg" class="d-block w-100" alt="search1" />
+                            <div class="carousel-caption d-none d-md-block">
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="search2.jpg" class="d-block w-100" alt="search2 " />
+                            <div class="carousel-caption d-none d-md-block">
+
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="search3.jpg" class="d-block w-100" alt="search3" />
+                            <div class="carousel-caption d-none d-md-block">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
                 <div>
                     <form className="row g-3">
                         <div className="col-md-6">
@@ -164,7 +202,7 @@ export default function Updatedoctor() {
                             <input type="text" className="form-control" id="contactInfo" onChange={(e) => setContactInfo(e.target.value)} />
                         </div>
                         <div className="col-12">
-                            <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Submit</button>
+                            <button type="submit" className="btn btn-primary my-3" onClick={handleSubmit}>Submit Doctor Details</button>
                         </div>
                     </form>
                 </div>
@@ -188,7 +226,7 @@ export default function Updatedoctor() {
                                         <td>{doc.doctor_name}</td>
                                         <td>{doc.degree}</td>
                                         <td>{doc.doctor_speciality}</td>
-                                        <td>{doc.hospital}</td>
+                                        <td>{doc.name}</td>
                                         <td>{doc.treatment_type}</td>
                                         <td>{doc.contact_info}</td>
                                     </tr>

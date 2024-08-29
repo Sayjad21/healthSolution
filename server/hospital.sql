@@ -33,3 +33,18 @@ INSERT INTO hospital (name, street, city, policestation, contact_number, email) 
 ('Kurmitola General Hospital', 'Kurmitola', 'Dhaka', 'Cantonment', '01711123468', 'kurmitola@example.com'),
 ('Dhaka Shishu (Children) Hospital', 'shyamoli', 'Dhaka', 'Sher-e-Bangla Nagar', '01711123469', 'dsh@example.com'),
 ('Birdem General Hospital', '122 Kazi Nazrul Islam Ave', 'Dhaka', 'Shahbag', '01711123470', 'birdem@example.com');
+
+
+
+--added more entries outside dhaka
+INSERT INTO hospital (name, street, city, policestation, contact_number, email) VALUES
+('Chittagong Medical College Hospital', 'College Road', 'Chittagong', 'Panchlaish', '01811123471', 'cmch@example.com'),
+('Sylhet MAG Osmani Medical College Hospital', 'Medical College Road', 'Sylhet', 'Kotwali', '01811123472', 'sylhetosmani@example.com'),
+('Rajshahi Medical College Hospital', 'Medical College Road', 'Rajshahi', 'Rajpara', '01811123473', 'rmch@example.com'),
+('Khulna Medical College Hospital', 'Bottola More', 'Khulna', 'Khalishpur', '01811123474', 'kmch@example.com'),
+('Barisal Sher-e-Bangla Medical College Hospital', 'Hospital Road', 'Barisal', 'Kotwali', '01811123475', 'bsbmc@example.com'),
+('Rangpur Medical College Hospital', 'Medical College Road', 'Rangpur', 'Sadar', '01811123476', 'rmch@example.com'),
+('Comilla Medical College Hospital', 'Comilla Medical College Road', 'Comilla', 'Kotwali', '01811123477', 'cmch@example.com'),
+('Mymensingh Medical College Hospital', 'Charpara', 'Mymensingh', 'Sadar', '01811123478', 'mmch@example.com'),
+('Bogra Shaheed Ziaur Rahman Medical College Hospital', 'Medical College Road', 'Bogra', 'Sadar', '01811123479', 'szrmch@example.com'),
+('Faridpur Medical College Hospital', 'Medical College Road', 'Faridpur', 'Sadar', '01811123480', 'fmch@example.com');

@@ -152,28 +152,28 @@ export default function Vaccine() {
 
     const handleDownload = async () => {
         const formElement = formRef.current;
-    
+
         // Capture the form as a canvas
         const canvas = await html2canvas(formElement, { scrollY: -window.scrollY });
         const imgData = canvas.toDataURL('image/png');
-    
+
         // Create a new jsPDF instance with landscape orientation
         const pdf = new jsPDF('l', 'mm', 'a4'); // 'l' for landscape, 'mm' for millimeters, 'a4' for paper size
-    
+
         // Calculate dimensions
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
         const imgWidth = canvas.width * 0.264583; // Convert px to mm (1 px = 0.264583 mm)
         const imgHeight = canvas.height * 0.264583; // Convert px to mm
-    
+
         // Scale the image to fit the PDF page
         const scale = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
         const scaledWidth = imgWidth * scale;
         const scaledHeight = imgHeight * scale;
-    
+
         // Add image to PDF with scaling
         pdf.addImage(imgData, 'PNG', 0, 0, scaledWidth, scaledHeight);
-    
+
         // Save the PDF
         pdf.save('form.pdf');
     };
@@ -181,21 +181,38 @@ export default function Vaccine() {
     return (
         <>
             <Navbar />
-            <div className="container">
+            <div>
                 <h2>Diseases</h2>
                 <div className="card-container">
                     {disease.map((d) => (
-                        <div key={d.disease_id} className="card">
-                            <h3>{d.disease_name}</h3>
-                            <p><strong>Specialized:</strong> {d.preferred_specialized}</p>
-                            <p><strong>Symptoms:</strong> {d.symptom}</p>
+                        <div key={d.disease_id} className="card"
+                            style={{
+                                backgroundImage: `url(/vaccine.jpg)`, // replace with your image URL or path
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                
+                                padding: '20px',
+                                color: 'black' // optional: change text color for better visibility
+                            }}>
+                            
+                                <h3>{d.disease_name}</h3>
+                                <p><strong>Specialized:</strong> {d.preferred_specialized}</p>
+                                <p><strong>Symptoms:</strong> {d.symptom}</p>
                         </div>
                     ))}
                 </div>
                 <h2>Vaccines</h2>
                 <div className="card-container">
                     {vaccine.map((v) => (
-                        <div key={v.id} className="card">
+                        <div key={v.id} className="card"
+                        style={{
+                            backgroundImage: `url(/antibiotics.jpg)`, // replace with your image URL or path
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center',
+                            
+                            padding: '20px',
+                            color: 'black' // optional: change text color for better visibility
+                        }}>
                             <h3>{v.name}</h3>
                             <p><strong>Manufacturer:</strong> {v.manufacturer}</p>
                             <p><strong>Dose:</strong> {v.dose}</p>
@@ -219,7 +236,7 @@ export default function Vaccine() {
                             <input type="text" class="form-control" placeholder="Full name" aria-label="name" />
                         </div>
                         <div class="col">
-                            <label htmlFor="age">Age(required for get list of vaccines)</label>
+                            <label htmlFor="age">Age(required for getting list of vaccines)</label>
                             <input type="number" class="form-control" placeholder={age} aria-label="Age" onChange={(e) => setAge(e.target.value)} required />
                         </div>
                     </div>
@@ -310,7 +327,7 @@ export default function Vaccine() {
                         </div>
 
 
-                        
+
 
                     </div>
                     {/* <button type="button" class="btn btn-danger" onClick={showVaccines}>Show Vaccines</button> */}
@@ -319,15 +336,14 @@ export default function Vaccine() {
 
                 </div>
                 <div className="mt-3">
-                <button type="button"
-                            className="btn btn-info my-3" onClick={handleDownload} >
-                            Download Form as PDF
-                </button>
+                    <button type="button"
+                        className="btn btn-info my-3" onClick={handleDownload} >
+                        Download Form as PDF
+                    </button>
                 </div>
-                <div className="mt-3">
                     <h2>Patient needs following vaccines</h2>
                     <p>Select vaccines from following table</p>
-                    <table className="table">
+                    <table className="table" >
                         <thead>
                             <tr>
                                 <th>Name</th>
@@ -382,7 +398,7 @@ export default function Vaccine() {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                
 
             </div>
         </>

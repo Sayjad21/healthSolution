@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../context/context";
 import {tokenContext} from '../../context/context';
+import { useNavigate } from "react-router-dom";
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
 
@@ -18,11 +19,12 @@ const Navbar = () => {
   const tokenValue = useContext(tokenContext);
   // console.log(userValue.user.stats);
   const [signout, setSignout] = React.useState(false);
-
+  const navigate = useNavigate();
   const handleSignOut = () => {
     setSignout(true);
     userValue.setUser(null);
     tokenValue.setToken('');
+    navigate('/');
   }
   return (
     <Fragment>
@@ -67,7 +69,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/ExercisePage" className="nav-link">
-                  Exercize
+                  Exercise
                 </Link>
               </li>
               <li>
@@ -84,6 +86,11 @@ const Navbar = () => {
               <li>
                 <Link to="/Vaccination" className="nav-link">
                   Vaccine
+                </Link>
+              </li>
+              <li>
+                <Link to="/diagnosis" className="nav-link">
+                  Diagnosis
                 </Link>
               </li>
 
