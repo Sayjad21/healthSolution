@@ -39,8 +39,23 @@ const Home = () => {
             "title": "Find the Right Doctor for Your Needs",
             "content": "Search and filter doctors based on your specific needs. Our extensive database helps you find the right medical professional with the expertise you're looking for. Whether you need a specialist or a general practitioner, we make it easier to connect with the right doctor.",
             "image": Health, // Use the correct image path
-            "navigateTo": "/doctor-filtering"
+            "navigateTo": "/FindDocHos"
         },
+
+        "aichatbox" :{
+            "title": "Get Instant Health Advice with AI Chatbot",
+            "content": "Get quick answers to your health queries with our AI-powered chatbot. Our virtual assistant provides accurate information and guidance on a wide range of health topics. Whether you have questions about symptoms, treatments, or general wellness, our chatbot is here to help.",
+            "image": "aibot.jpg", // Use the correct image path
+            "navigateTo": "/AiChatBot"
+        },
+
+        "vaccination": {
+            "title": "Stay Informed with Our Vaccination Tracker",
+            "content": "Keep track of your vaccination schedule and stay up-to-date with our tracker. Get reminders for upcoming vaccinations and access information on recommended vaccines. Our platform helps you manage your vaccination history and ensures you receive the necessary immunizations.",
+            "image": "vaccine2.jpg", // Use the correct image path
+            "navigateTo": "/Vaccination"
+        },
+
         "exercisePlanning": {
             "title": "Create a Customized Exercise Plan",
             "content": "Design a workout routine tailored to your fitness goals with our planning tools. Whether you're starting out or looking to enhance your regimen, we provide the resources to create an effective exercise plan. Achieve your fitness objectives with our personalized guidance.",
@@ -149,6 +164,20 @@ const Home = () => {
                    marginRight: '100px',
                 }}>
                     <ShowCard {...features.doctorFiltering}/>                  
+                </div>
+
+                <div style={{
+                    marginLeft: '100px',
+                    marginRight: '600px',
+                }}>
+                    <ShowCard {...features.aichatbox}/>
+                </div>
+
+                <div style={{
+                    marginLeft: '600px',
+                    marginRight: '100px',
+                }}>
+                    <ShowCard {...features.vaccination}/>
                 </div>
 
                 <div style={{
