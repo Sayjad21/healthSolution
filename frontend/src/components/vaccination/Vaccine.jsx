@@ -181,7 +181,7 @@ export default function Vaccine() {
     return (
         <>
             <Navbar />
-            <div className="container">
+            <div>
                 <h2>Diseases</h2>
                 <div className="card-container">
                     {disease.map((d) => (
@@ -341,7 +341,6 @@ export default function Vaccine() {
                         Download Form as PDF
                     </button>
                 </div>
-                <div className="mt-3">
                     <h2>Patient needs following vaccines</h2>
                     <p>Select vaccines from following table</p>
                     <table className="table" >
@@ -399,7 +398,7 @@ export default function Vaccine() {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                
 
             </div>
         </>
