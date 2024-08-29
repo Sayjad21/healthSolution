@@ -7,11 +7,12 @@ import ShowCard from './utils/ShowCard';
 import PageFooter from './utils/PageFooter';
 
 import Health from './img/Health.jpg';
+import body from './img/body.png';
+import diet from './img/diet.webp';
+import pill from './img/pill.jpg';
 
 import bg1 from './img/h1.webp';
 import bg2 from './img/h2.webp';
-import bg3 from './img/h3.webp';
-import bg4 from './img/h4.webp';
 
 const Home = () => {
     
@@ -25,13 +26,13 @@ const Home = () => {
         "bodyType": {
             "title": "Discover Your Body Type and Caloric Needs",
             "content": "Understand your body type and calculate your daily caloric needs to optimize your diet and fitness plan. Our tools provide personalized insights to help you reach your health goals effectively. Learn how to tailor your diet and exercise based on your body type for the best results.",
-            "image": Health, // Use the correct image path
+            "image": body, // Use the correct image path
             "navigateTo": "/diet"
         },
         "dietPlanning": {
             "title": "Plan Your Perfect Diet with Ease",
             "content": "Create a balanced diet tailored to your needs with our easy-to-use tools. Track nutrients, plan meals, and achieve your dietary goals effortlessly. Our platform provides guidance to help you make informed choices and maintain a healthy diet that suits your lifestyle.",
-            "image": Health, // Use the correct image path
+            "image": diet, // Use the correct image path
             "navigateTo": "/meal"
         },
         "doctorFiltering": {
@@ -49,8 +50,8 @@ const Home = () => {
         "medicationReminding": {
             "title": "Never Miss a Dose with Medication Reminders",
             "content": "Stay on track with your medication schedule using our reminder system. Get notifications for when to take your medicines and ensure you never miss a dose. Our platform helps you manage your medication routine with ease and consistency.",
-            "image": Health, // Use the correct image path
-            "navigateTo": "/medication-reminding"
+            "image": pill, // Use the correct image path
+            "navigateTo": "/reminder"
         },
         "symptomMatching": {
             "title": "Match Symptoms to Get Relevant Health Insights",

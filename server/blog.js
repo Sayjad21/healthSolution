@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
         });
 
         res.json(formattedBlogs);
-        // res.json(allBlogs.rows);
     } catch (error) {
         console.error('Error fetching blogs:', error.message);
     }
