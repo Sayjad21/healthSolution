@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 
+import { userContext } from '../../context/context';
 
-const CreateBlogForm = ({setShowForm}) => {
+const CreateBlogForm = ({setShowForm, fetchBlogs}) => {
+    const userValue = useContext(userContext);
+
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
@@ -14,12 +17,15 @@ const CreateBlogForm = ({setShowForm}) => {
             const response = await axios.post('http://localhost:8000/addBlogs', {
                 title,
                 description,
-                user_id: 2, // Replace with actual user_id or get dynamically
+                user_id: userValue.user.id, // Replace with actual user_id or get dynamically
             });
             console.log('Blog created:', response.data);
             
             setTitle('');
             setDescription('');
+            
+            fetchBlogs(); // Fetch blogs to update the list
+            setShowForm(false); // Set showForm to false to hide the form
 
         } catch (error) {
             console.error('Error creating blog:', error);
@@ -35,7 +41,7 @@ const CreateBlogForm = ({setShowForm}) => {
              style = {{
                 height: "auto",
                 width: "auto",
-                backgroundColor: "white",
+                backgroundColor: "rgb(0, 0, 255, 0.2)",
                 margin: "50px",
                 padding: "20px",
                 borderRadius: "10px",
