@@ -19,8 +19,8 @@ const Home = () => {
         "bloodDonation": {
             "title": "Make a Difference: Donate Blood Today",
             "content": "Blood donation is a powerful way to save lives. By donating, you ensure hospitals have the necessary supply for surgeries, accidents, and chronic conditions. Our platform offers information on local donation centers and the benefits of donating. Join us to make a real difference and become a hero to those in need.",
-            "image": Health, // Use the correct image path
-            "navigateTo": "/blood-donation"
+            "image": "https://surgmedia.com/wp-content/uploads/2020/10/2171-blood-donation.jpg", // Use the correct image path
+            "navigateTo": "/BloodDonationForm"
         },
         "bodyType": {
             "title": "Discover Your Body Type and Caloric Needs",
@@ -43,8 +43,8 @@ const Home = () => {
         "exercisePlanning": {
             "title": "Create a Customized Exercise Plan",
             "content": "Design a workout routine tailored to your fitness goals with our planning tools. Whether you're starting out or looking to enhance your regimen, we provide the resources to create an effective exercise plan. Achieve your fitness objectives with our personalized guidance.",
-            "image": Health, // Use the correct image path
-            "navigateTo": "/exercise-planning"
+            "image": "https://media.istockphoto.com/id/1345283047/vector/black-family-exercising-together.jpg?s=612x612&w=0&k=20&c=tjiPcLDpa__Q2XmL88TgtTkJfGfGVtNbXfnjaHHVD-w=", // Use the correct image path
+            "navigateTo": "/ExercisePage"
         },
         "medicationReminding": {
             "title": "Never Miss a Dose with Medication Reminders",
@@ -55,8 +55,8 @@ const Home = () => {
         "symptomMatching": {
             "title": "Match Symptoms to Get Relevant Health Insights",
             "content": "Identify potential health issues by matching your symptoms with our extensive database. Receive valuable insights and recommendations to understand your health concerns better. Our tool helps you get a clearer picture of your symptoms and what they might indicate.",
-            "image": Health, // Use the correct image path
-            "navigateTo": "/symptom-matching"
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXKNMN1t1CYF5kxR09fjb0tbuNOaXMYkejUA&s", // Use the correct image path
+            "navigateTo": "/diagnosis"
         }
     };     
       
