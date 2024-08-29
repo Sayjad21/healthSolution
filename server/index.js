@@ -23,6 +23,9 @@ app.use('/deleteThana', require('./admin'));
 
 app.use('/addBlogs', require('./blog'));
 app.use('/getBlogs', require('./blog'));
+app.use('/getBlogger', require('./blog'));
+app.use('/blogLikes', require('./blog'));
+app.use('/toggleLike', require('./blog'));
 
 app.use('/getMail', require('./home'));
 app.use('/sendMail', require('./home'));

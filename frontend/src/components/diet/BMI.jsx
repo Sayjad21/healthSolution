@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import './css/diet.css'
+
 const BMI = () => {
     const [weight, setWeight] = useState(0.0);
     const [height, setHeight] = useState(0.0);
@@ -46,8 +48,12 @@ const BMI = () => {
                     value={height}
                     onChange={(e) => setHeight(e.target.value)}
                 />
+            </div >
+
+            <div className="button-container" align="center">
+                <button className="btn-modern mt-3 mb-5" onClick={calculateBMI}>Calculate BMI</button>
             </div>
-            <button className="btn btn-primary mb-3" onClick={calculateBMI}>Calculate BMI</button>
+            
             {bmi > 0 && (
                 <div className="table-responsive">
                     <table className="table table-bordered">

@@ -21,3 +21,32 @@
     font-size: 1.2rem;
     font-weight: 500;
 }
+
+.btn-modern {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Violet gradient */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-modern:hover {
+    background: linear-gradient(135deg, #4a00e0, #8e2de2); /* Reverse gradient for hover */
+    transform: translateY(-2px);
+}
+
+.btn-modern:active {
+    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* Original gradient for active */
+    transform: translateY(0);
+}
+
+.btn-modern:focus {
+    outline: none;
+}
+
