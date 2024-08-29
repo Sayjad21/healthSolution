@@ -56,7 +56,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/ExercisePage" className="nav-link">
-                  Exercize
+                  Exercise
                 </Link>
               </li>
               <li>
@@ -73,6 +73,11 @@ const Navbar = () => {
                 <li>
                 <Link to="/addDoctor" className="nav-link">
                   Add Doctor
+                </Link>
+              </li>
+              <li>
+                <Link to="/diagnosis" className="nav-link">
+                  Diagnosis
                 </Link>
               </li>
 

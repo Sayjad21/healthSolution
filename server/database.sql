@@ -208,7 +208,8 @@ CREATE TABLE DISEASE_HISTORY(
 CREATE TABLE symptom (
     id SERIAL PRIMARY KEY,
     body_part VARCHAR(100) NOT NULL,
-    body_symptom VARCHAR(255) NOT NULL
+    body_symptom VARCHAR(255) NOT NULL,
+    duration VARCHAR(100) NOT NULL
 );
 
 

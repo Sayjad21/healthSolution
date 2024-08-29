@@ -25,6 +25,8 @@ import ExerciseRoutine from './components/exercise/ExerciseRoutine.js';
 import BloodDonationForm from './components/blood/BloodDonationForm.js';
 import ViewDonor from './components/blood/ViewDonor.js';
 import NutritionCalc from './components/nutrition/NutritionCalc.js';
+import Diagnosis from './components/disease/Diagnosis.js';
+import DoctorSuggestion from './components/disease/DoctorSuggestion.js';
 
 
 
@@ -81,6 +83,8 @@ function App() {
               <Route path="/BloodDonationForm" element={<BloodDonationForm />} />
               <Route path ="/NutritionCalc" element={<NutritionCalc />} />
               <Route path="/donors" element={<ViewDonor  />} />
+              <Route exact path="/diagnosis" element={<Diagnosis />} />
+              <Route path="/doctor-suggestion" element={<DoctorSuggestion />} />
 
 
 
