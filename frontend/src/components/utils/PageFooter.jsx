@@ -52,6 +52,9 @@ const PageFooter = () => {
               <li>
                 Hazard Button
               </li>
+              <li>
+                Vaccination
+              </li>
             </ul>
           </div>
 
