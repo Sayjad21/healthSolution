@@ -6,7 +6,7 @@
 body {
     font-family: "Poppins", sans-serif;
     --color1: #FFF ;
-    --color2: #181818 ;
+    --color2: rgba(0, 0, 255, 0.5); 
 }
 .nav-link{
     color: white;
@@ -24,6 +24,7 @@ body {
     position: relative;
     background-color: var(--color2);
     padding: 12px 20px;
+    margin-bottom: 0px;
 }
 .logo img {width: 40px;}
 .menu {display: flex;}

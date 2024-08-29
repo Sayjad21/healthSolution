@@ -416,3 +416,92 @@ INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, con
 ('Dr. Sophia Baker', 'MBBS, DM', 'Pulmonologist', 'medicine', '0011223828', 15),
 ('Dr. Oliver Carter', 'MBBS, DM', 'Rheumatologist', 'medicine', '1122333928', 15),
 ('Dr. Amelia Davis', 'MBBS, MD', 'Dermatologist', 'medicine', '223336028', 15);
+
+
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Rana Banerjee', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112122', 22),
+('Dr. Riazul Islam', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223122', 22),
+('Dr. Sushmita Dutta', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336022', 22),
+('Dr. Sreemoyee Chakraborty', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357022', 22),
+('Dr. Pritam Ghosh', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568022', 22);
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Abhijit Roy', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112123', 23),
+('Dr. Soumen Basu', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223123', 23),
+('Dr. Subhajit Das', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336023', 23),
+('Dr. Ranjana Mitra', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357023', 23),
+('Dr. Anirban Chatterjee', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568023', 23);
+
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Sudip Banerjee', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112124', 24),
+('Dr. Prithwiraj Saha', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223124', 24),
+('Dr. Tanmoy Sinha', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336024', 24),
+('Dr. Rimita Ghosh', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357024', 24),
+('Dr. Arindam Mukherjee', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568024', 24);
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Sandeep Chatterjee', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112125', 25),
+('Dr. Partha Sarathi Ghosh', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223125', 25),
+('Dr. Kunal Sen', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336025', 25),
+('Dr. Sanghamitra Das', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357025', 25),
+('Dr. Ankit Bose', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568025', 25);
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Subhamoy Banik', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112126', 26),
+('Dr. Nandini Chakraborty', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223126', 26),
+('Dr. Kaustav Das', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336026', 26),
+('Dr. Chandrima Sen', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357026', 26),
+('Dr. Dipankar Basu', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568026', 26);
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Arnab Roy', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112127', 27),
+('Dr. Saikat Chakraborty', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223127', 27),
+('Dr. Swagata Ghosh', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336027', 27),
+('Dr. Saurav Mitra', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357027', 27),
+('Dr. Sourav Sen', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568027', 27);
+
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Sujit Paul', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112128', 28),
+('Dr. Nihar Ranjan', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223128', 28),
+('Dr. Rajarshi Banerjee', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336028', 28),
+('Dr. Rupa Sinha', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357028', 28),
+('Dr. Sayan Mukherjee', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568028', 28);
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Tirthankar Ghosh', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112129', 29),
+('Dr. Shubhankar Das', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223129', 29),
+('Dr. Meghna Saha', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336029', 29),
+('Dr. Subhasis Mitra', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357029', 29),
+('Dr. Bikash Paul', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568029', 29);
+
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Rupam Dey', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112130', 30),
+('Dr. Rajesh Sen', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223130', 30),
+('Dr. Madhumita Ghosh', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336030', 30),
+('Dr. Rajat Saha', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357030', 30),
+('Dr. Sukanta Banerjee', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568030', 30);
+
+
+
+INSERT INTO doctors (doctor_name, degree, doctor_speciality, treatment_type, contact_info, hospital_id) VALUES
+('Dr. Soumya Roy', 'MBBS, MS', 'ENT Specialist', 'surgery', '9900112131', 31),
+('Dr. Bipasha Ghosh', 'MBBS, DM', 'Cardiologist', 'medicine', '0011223131', 31),
+('Dr. Debjani Das', 'MBBS, MD', 'Dermatologist', 'medicine', '1122336031', 31),
+('Dr. Supratik Sinha', 'MBBS, MS', 'Orthopedic Specialist', 'surgery', '2233357031', 31),
+('Dr. Sourav Bhattacharya', 'MBBS, MCh', 'Neurologist', 'surgery', '3331568031', 31);
+
+
+

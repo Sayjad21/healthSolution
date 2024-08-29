@@ -12,7 +12,7 @@ export default function ViewDonor() {
   useEffect(() => {
     const fetchDonors = async () => {
       try {
-        const response = await fetch('http://localhost:3000/donors');
+        const response = await fetch('http://localhost:8000/donors');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

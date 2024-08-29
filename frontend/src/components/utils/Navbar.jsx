@@ -5,7 +5,9 @@ import {tokenContext} from '../../context/context';
 import { useNavigate } from "react-router-dom";
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
-import "../../cssFiles/navbar.css";
+
+// import "../../cssFiles/navbar.css";
+import "./css/navbar.css";
 
 // import { userContext} from "../../context/context";
 
@@ -44,7 +46,7 @@ const Navbar = () => {
                 className="navbar-brand"
                 style={{ color: "white", fontSize: "20px", padding: "10px" }}
               >
-                Health Guru
+                Health Solutions
               </div>
             </Link>
 
@@ -67,7 +69,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link to="/ExercisePage" className="nav-link">
-                  Exercize
+                  Exercise
                 </Link>
               </li>
               <li>
@@ -84,6 +86,11 @@ const Navbar = () => {
               <li>
                 <Link to="/Vaccination" className="nav-link">
                   Vaccine
+                </Link>
+              </li>
+              <li>
+                <Link to="/diagnosis" className="nav-link">
+                  Diagnosis
                 </Link>
               </li>
 

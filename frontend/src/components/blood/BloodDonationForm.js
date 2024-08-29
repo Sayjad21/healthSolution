@@ -35,12 +35,13 @@ export default function BloodDonationForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Form data:', formData);
     const { hepatitisB, cancer, HIV } = formData.diseaseHistory;
     if (hepatitisB || cancer || HIV) {
       alert('You cannot donate blood due to your disease history.');
     } else {
       try {
-        const response = await fetch('http://localhost:3000/donate', {
+        const response = await fetch('http://localhost:8000/donate', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
