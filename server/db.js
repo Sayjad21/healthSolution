@@ -10,7 +10,7 @@ const Pool=require('pg').Pool;
 
 const pool=new Pool({
   user: "postgres",
-  password: "HOTD-019105ndr",
+  password: "admin",
   //   user: "postgres",
   // password: "admin",
   host: "localhost",
