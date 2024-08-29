@@ -11,12 +11,14 @@ import Login from './components/RegLoginAuth/Login';
 import UserLifeInfo from './components/RegLoginAuth/UserLifeInfo';
 import Verification from './components/RegLoginAuth/Verification';
 import FinalAuthenticate from './components/RegLoginAuth/FinalAuthenticate';
+import SearchFilter from './components/Search&Filter/SearchFilter';
+
 import Home from './components/Home';
 import Diet from './components/diet/Diet';
 import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
-import SearchFilter from './components/Search&Filter/SearchFilter';
 import Populate from './components/admin/populate';
+import Blog from './components/blog/blog';
 // import Doctor from './components/admin/Doctor';
 import Updatedoctor from './components/admin/Updatedoctor';
 //-import ExercisePage from './components/exercise/ExercisePage.js';
@@ -25,6 +27,8 @@ import ExerciseRoutine from './components/exercise/ExerciseRoutine.js';
 import BloodDonationForm from './components/blood/BloodDonationForm.js';
 import ViewDonor from './components/blood/ViewDonor.js';
 import NutritionCalc from './components/nutrition/NutritionCalc.js';
+import Aichat from './components/AIchatbot/Aichat.jsx';
+import Vaccine from './components/vaccination/Vaccine.jsx';
 import Diagnosis from './components/disease/Diagnosis.js';
 import DoctorSuggestion from './components/disease/DoctorSuggestion.js';
 
@@ -57,6 +61,7 @@ function App() {
               <Route exact path="/meal" element={<MealPlanner />} />
               <Route exact path="/recipe" element={<Recipe />} />
               <Route exact path="/populate" element={<Populate />} />
+              <Route exact path="/blog" element={<Blog />} />
               <Route exact path="/exercise" element={<ExercisePage />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />
@@ -64,6 +69,8 @@ function App() {
               <Route exact path="/FindDocHos" element={<SearchFilter /> } />
               <Route exact path="/addDoctor" element ={<Updatedoctor />} />
               <Route exact path="/UserLifeLog" element={<UserLifeInfo />} />
+              <Route exact path="/AiChatBot" element={<Aichat/> } />
+              <Route exact path="/Vaccination" element={<Vaccine />  } />
 
 
               {/* sayjad */}

@@ -1,7 +1,7 @@
 import {React, Fragment } from "react";
 
-export default function HospitalCard({hospital}) {
-    const {name, street, city, policestation, contact_number, email} = hospital;
+export default function HospitalCard({hospital,handleDelete}) {
+    const {id,name, street, city, policestation, contact_number, email} = hospital;
 
     return(
         <Fragment>
@@ -14,6 +14,13 @@ export default function HospitalCard({hospital}) {
                         <p className="card-text">Police Station: {policestation}</p>
                         <p className="card-text">Contact Number: {contact_number}</p>
                         <p className="card-text">Email: {email}</p>
+                        <button
+                            className="btn btn-danger"
+                            onClick={() => handleDelete(id)}
+                            style={{ marginLeft: '300px' }}
+                        >
+                            Delete
+                        </button>
                     </div>
                 </div>
             </div>

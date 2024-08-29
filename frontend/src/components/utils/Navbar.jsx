@@ -1,9 +1,12 @@
 import React, { Fragment, useContext } from "react";
 import { Link } from "react-router-dom";
 import { userContext } from "../../context/context";
+import {tokenContext} from '../../context/context';
 // import SignUp from '../RegLoginAuth/SignUp';;
 // import '../../cssFiles/Signup.css';
-import "../../cssFiles/navbar.css";
+
+// import "../../cssFiles/navbar.css";
+import "./css/navbar.css";
 
 // import { userContext} from "../../context/context";
 
@@ -12,7 +15,15 @@ import "../../cssFiles/navbar.css";
 
 const Navbar = () => {
   const userValue = useContext(userContext);
-  console.log(userValue.stats);
+  const tokenValue = useContext(tokenContext);
+  // console.log(userValue.user.stats);
+  const [signout, setSignout] = React.useState(false);
+
+  const handleSignOut = () => {
+    setSignout(true);
+    userValue.setUser(null);
+    tokenValue.setToken('');
+  }
   return (
     <Fragment>
       <div>
@@ -33,7 +44,7 @@ const Navbar = () => {
                 className="navbar-brand"
                 style={{ color: "white", fontSize: "20px", padding: "10px" }}
               >
-                Health Guru
+                Health Solutions
               </div>
             </Link>
 
@@ -70,9 +81,9 @@ const Navbar = () => {
                 </Link>
               </li>
 
-                <li>
-                <Link to="/addDoctor" className="nav-link">
-                  Add Doctor
+              <li>
+                <Link to="/Vaccination" className="nav-link">
+                  Vaccine
                 </Link>
               </li>
               <li>
@@ -81,6 +92,14 @@ const Navbar = () => {
                 </Link>
               </li>
 
+              <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
+
+              {userValue.user && userValue.user.stats ==='admin' &&  <li>
+                <Link to="/addDoctor" className="nav-link">
+                  Add Doctor
+                </Link>
+              </li>}
+
               <li>
                 {userValue.user ? (
                   <li className="nav-item dropdown">
@@ -88,8 +107,8 @@ const Navbar = () => {
                       <div>{userValue.user.name}</div>
                     </button>
                     <ul className="dropdown-menu dropdown-menu-dark">
-                      <li><a className="dropdown-item" href="#">Action1</a></li>
-                      <li><a className="dropdown-item" href="#">Action2</a></li>
+                    {/* <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li> */}
+                      <button className="dropdown-item" onClick={handleSignOut}>Sign Out</button>
                       <li><Link className="nav-link" target="_self" to="/UserLifeLog">User Log</Link></li>
                     </ul>
                   </li>

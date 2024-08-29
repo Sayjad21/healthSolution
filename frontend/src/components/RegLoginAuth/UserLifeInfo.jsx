@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { userContext } from '../../context/context';
 import '../../cssFiles/userInfo.css';
 import '../../cssFiles/userlifeInfo.css';
+import Navbar from '../utils/Navbar';
 
 export default function UserLifeInfo() {
     const value = useContext(userContext);
@@ -163,6 +164,8 @@ export default function UserLifeInfo() {
     };
 
     return (
+        <>
+        <Navbar />
         <div className='container'>
             {gotUser === false ? (
                 <h1>loading</h1>
@@ -397,5 +400,6 @@ export default function UserLifeInfo() {
                 </div>
             )}
         </div>
+        </>
     )
 }

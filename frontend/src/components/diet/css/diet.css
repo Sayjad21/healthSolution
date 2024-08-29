@@ -7,6 +7,15 @@
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 
+.calc-container{
+    height: auto;
+    width: 800px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
 .description{
     padding: 10px;
     font-size: 1.2rem;

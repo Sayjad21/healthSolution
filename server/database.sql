@@ -254,4 +254,32 @@ CREATE TABLE nutritions (
 );
 
 
+CREATE TABLE user_nutrition (
+    user_id INT NOT NULL,
+    nutrition_id INT NOT NULL,
+    quantity DECIMAL(5, 2) NOT NULL,
+    PRIMARY KEY (user_id, nutrition_id),
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    FOREIGN KEY (nutrition_id) REFERENCES nutritions (id) ON DELETE CASCADE
+);
+
+-- //CREATE A TABLE FOR VACCINE
+CREATE TABLE vaccines (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    manufacturer VARCHAR(100) NOT NULL,
+    dose VARCHAR(50),
+    vaccine_interval VARCHAR(50),
+    vaccine_effectiveness DECIMAL(5,2),
+    from_age INT,
+    to_age INT,
+    side_effects TEXT,
+    precaution TEXT,
+    market_price DECIMAL(10,2),
+    disease_name VARCHAR(100)
+);
+
+
+
+
 
