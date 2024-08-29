@@ -2,10 +2,13 @@ import {React, Fragment, useState, useEffect} from "react";
 import {Link, useNavigate} from "react-router-dom";
 
 import Navbar from "../utils/Navbar";
+import PageFooter from "../utils/PageFooter";
 
 import surveyData from "../utils/data"; // data for survey
 
 import getPlan from "../utils/getPlan"; // function to get meal plan
+
+import "../diet/css/diet.css";
 
 export default function MealPlanner() {
     console.log("meal planner");
@@ -54,7 +57,7 @@ export default function MealPlanner() {
     return(
         <Fragment>
             <Navbar />
-                <div className="container mt-4">
+                <div className="container mt-4 mb-5">
                 <h1 className="mb-4">Meal Planner</h1>
                 <form onSubmit={handleSubmit}>
                 
@@ -202,11 +205,15 @@ export default function MealPlanner() {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className="btn btn-primary" style={{marginBottom: "30px"}}>
-                    Submit
-                </button>
+                <div className="button-container" align="center">
+                    <button type="submit" className="btn-modern" style={{marginBottom: "30px"}}>
+                        Submit
+                    </button>
+                </div>
                 </form>
             </div>
+
+            <PageFooter />
     </Fragment>
     );
 }

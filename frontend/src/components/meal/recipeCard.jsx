@@ -56,7 +56,7 @@ export default function RecipeCard({ rec, type }) {
 
 const styles = {
     card: {
-        backgroundColor: "#ececec",
+        backgroundColor: "rgb(0,0,255,0.1)",
         border: "1px solid #ddd",
         height: "300px",
         borderRadius: "20px",
@@ -112,7 +112,7 @@ const styles = {
         marginRight: "8px"
     },
     label: {
-        backgroundColor: "#fff",
+        backgroundColor: "rgb(0,0,255,0.2)",
         borderRadius: "20px",
         padding: "4px 8px",
         fontSize: "12px",

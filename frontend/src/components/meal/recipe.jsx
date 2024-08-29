@@ -2,6 +2,7 @@ import {React, Fragment, useState, useEffect} from "react";
 import { useLocation } from "react-router-dom";
 
 import Navbar from "../utils/Navbar";
+import PageFooter from "../utils/PageFooter";
 import Day from "./day";
 
 import surveyData from "../utils/data";
@@ -43,11 +44,17 @@ export default function Recipe() {
     return(
         <Fragment>
             <Navbar />
-            <div className="" style={{margin: "10px 90px 10px 90px"}}>
+
+            <div className="" style={{
+                margin: "10px 50px 10px 50px",
+                backgroundColor: "white",
+            }}>
                 {
                     generateDayMeals()
                 }
             </div>
+
+            <PageFooter />
         </Fragment>
     );
 }

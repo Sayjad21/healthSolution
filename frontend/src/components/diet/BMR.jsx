@@ -97,7 +97,11 @@ const BMR = () => {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-primary mb-3" onClick={calculateBMR}>Calculate BMR</button>
+            
+            <div className="button-container" align="center">
+                <button className="btn-modern mt-3 mb-5" onClick={calculateBMR}>Calculate BMR</button>
+            </div>
+
             {bmr && <p className="mb-4">Your Basal Metabolic Rate (BMR) is: {bmr.toFixed(2)} calories/day</p>}
 
             {bmr > 0 && (

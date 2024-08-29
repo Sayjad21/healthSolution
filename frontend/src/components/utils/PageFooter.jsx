@@ -46,6 +46,12 @@ const PageFooter = () => {
               <li>
                 Admin Site and Secure Authorization
               </li>
+              <li>
+                AI ChatBot
+              </li>
+              <li>
+                Hazard Button
+              </li>
             </ul>
           </div>
 
