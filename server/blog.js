@@ -35,7 +35,6 @@ router.get('/', async (req, res) => {
         });
 
         res.json(formattedBlogs);
-        // res.json(allBlogs.rows);
     } catch (error) {
         console.error('Error fetching blogs:', error.message);
     }
@@ -101,6 +100,19 @@ router.put('/toggleLike', async (req, res) => {
     } catch (error) {
         console.error('Error toggling like:', error.message);
         res.status(500).send('Server Error');
+    }
+});
+
+router.get('/topBlogs', async (req, res) => {
+    try {
+        const topBlogs = await pool.query(`select b.id, b.title, count(*) as like_count, (select name from users u where u.id = b.user_id) as user_name, b.description
+                                            from blog b join blog_reactions br on b.id = br.blog_id
+                                            group by br.blog_id, b.id
+                                            order by like_count desc, b.id asc
+                                            LIMIT 4`);
+        res.json(topBlogs.rows);
+    } catch (error) {
+        console.error('Error fetching top blogs:', error.message);
     }
 });
 

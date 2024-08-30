@@ -19,6 +19,7 @@ import MealPlanner from './components/survey/mealplanner';
 import Recipe from './components/meal/recipe';
 import Populate from './components/admin/populate';
 import Blog from './components/blog/blog';
+import Reminder from './components/medication/Reminder';
 // import Doctor from './components/admin/Doctor';
 import Updatedoctor from './components/admin/Updatedoctor';
 //-import ExercisePage from './components/exercise/ExercisePage.js';
@@ -62,6 +63,7 @@ function App() {
               <Route exact path="/recipe" element={<Recipe />} />
               <Route exact path="/populate" element={<Populate />} />
               <Route exact path="/blog" element={<Blog />} />
+              <Route exact path="/reminder" element={<Reminder />} />
               <Route exact path="/exercise" element={<ExercisePage />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<SignUp />} />

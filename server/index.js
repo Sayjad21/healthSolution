@@ -26,6 +26,12 @@ app.use('/getBlogs', require('./blog'));
 app.use('/getBlogger', require('./blog'));
 app.use('/blogLikes', require('./blog'));
 app.use('/toggleLike', require('./blog'));
+app.use('/topBlogs', require('./blog'));
+
+app.use('/addMedication', require('./medication'));
+app.use('/getMedication', require('./medication'));
+app.use('/deleteMedication', require('./medication'));
+app.use('/deleteExpiredMedications', require('./medication'));
 
 app.use('/getMail', require('./home'));
 app.use('/sendMail', require('./home'));

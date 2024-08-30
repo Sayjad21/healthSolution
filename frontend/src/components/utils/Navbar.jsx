@@ -52,11 +52,11 @@ const Navbar = () => {
 
             <input type="checkbox" id="check" />
             <span className="menu">
-              <li>
+              {/* <li>
                 <Link to="/" className="nav-link">
                   Home
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link to="/diet" className="nav-link">
                   Food
@@ -99,6 +99,15 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li>
+
+              {
+              userValue.user &&
+              <li>
+                <Link to="/reminder" className="nav-link">
+                  Reminder
+                </Link>
+              </li> 
+              }
 
               <li><Link className="nav-link" target="_self" to="/AiChatBot">Chat BOT</Link></li>
 
