@@ -436,6 +436,48 @@ app.post('/verify', async (req, res) => {
 
 });
 
+
+app.post('/getUser', async (req, res) => {
+  try {
+    const {email} = req.body;
+    const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+
+    if(user.rows.length === 0){
+      return res.status(400).json({message: "User not found"});
+    }
+    else{
+      res.status(200).json({
+        message: "User fetched successfully",
+        user: {
+          id: user.rows[0].id,
+          name: user.rows[0].name,
+          email: user.rows[0].email,
+          age: user.rows[0].age,
+          height: user.rows[0].height,
+          weight: user.rows[0].weight,
+          country: user.rows[0].country,
+          state_district: user.rows[0].state,
+          police_station: user.rows[0].police_station,
+          blood_group: user.rows[0].blood_group,
+          blood_donor: user.rows[0].blood_donor,
+          last_donated_blood: user.rows[0].last_donated_blood,
+          sperm_donor: user.rows[0].sperm_donor,
+          last_donated_sperm: user.rows[0].last_donated_sperm,
+          stats: user.rows[0].stats,
+          gender: user.rows[0].gender,
+          bmr: user.rows[0].bmr,
+          bmi: user.rows[0].bmi,
+        },
+      });
+    }
+
+
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+);
+
 app.get('/getAllergy_antibiotics_disease', async (req, res) => {
   const client = await pool.connect();
   try {
@@ -582,10 +624,22 @@ app.post('/getPatientAntibioticAndAllergyHistory', async (req, res) => {
     const userAntibioticResult = await client.query(userAntibioticQuery, [userId]);
     const userAntibiotics = userAntibioticResult.rows.map(row => row.name);
 
+    //query to fetch user disease history
+
+    const userDiseaseQuery = `
+          SELECT disease.disease_name
+          FROM DISEASE_HISTORY
+          JOIN disease ON DISEASE_HISTORY.disease_id = disease.disease_id
+          WHERE user_id = $1
+          `;
+    const userDiseaseResult = await client.query(userDiseaseQuery, [userId]);
+    const userDiseases = userDiseaseResult.rows.map(row => row.disease_name);
+
     res.status(200).json({
       message: 'Antibiotic and Allergy history fetched successfully',
       allergy: userAllergies,
-      antibiotic: userAntibiotics
+      antibiotic: userAntibiotics,
+      disease: userDiseases
     });
   } catch (error) {
     console.error(error.message);

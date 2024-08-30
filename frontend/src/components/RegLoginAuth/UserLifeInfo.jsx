@@ -38,6 +38,7 @@ export default function UserLifeInfo() {
             fetchPatientAntibioticAndAllergyHistory();
             Fetch_Allergy_Antibiotics_Disease();
             setEditableUser({
+                id: value.user.id,
                 name: value.user.name,
                 age: value.user.age,
                 email: value.user.email,
@@ -47,14 +48,23 @@ export default function UserLifeInfo() {
                 height: value.user.height,
                 weight: value.user.weight,
                 gender: value.user.gender,
-                last_donated_blood: value.user.last_donated_blood || '00-00-0000',
+                last_donated_blood: value.user.last_donated_blood ,
                 last_donated_sperm: value.user.last_donated_sperm || '00-00-0000',
                 blood_donor: value.user.blood_donor,
                 sperm_donor: value.user.sperm_donor,
                 blood_group: value.user.blood_group
             });
+            
+            console.log(value.user);
         }
+        
     }, [value.user]);
+
+    useEffect(() => {
+        console.log(editableUser);
+        
+    }, [editableUser]);
+
 
     const fetchPatientAntibioticAndAllergyHistory = async () => {
         try {
@@ -67,6 +77,7 @@ export default function UserLifeInfo() {
                 const data = await response.json();
                 setAllergyHistory(data.allergy);
                 setAntibioticHistory(data.antibiotic);
+                setDiseaseHistory(data.disease);
             } else {
                 console.log('Error in fetching patient antibiotic and allergy history');
             }
@@ -155,6 +166,7 @@ export default function UserLifeInfo() {
                 setEdit(false);
                 setIsEditable(false);
                 alert(data.message);
+                SetUser();
             } else {
                 console.log('Error in updating user');
             }
@@ -162,6 +174,25 @@ export default function UserLifeInfo() {
             console.log(error);
         }
     };
+
+    const SetUser = async () => {
+        try {
+            const response = await fetch('http://localhost:8000/getUser', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: value.user.email })
+            });
+            if (response.ok) {
+                const data = await response.json();
+                value.setUser(data.user);
+                console.log(value.user);
+            } else {
+                console.log('Error in fetching user');
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <>
@@ -228,11 +259,11 @@ export default function UserLifeInfo() {
                                 </div>
                                 <div className="col-md-5">
                                     <label htmlFor="last_donated_blood" className="form-label custom-label">Last Blood Donation</label>
-                                    <input type="date" className="form-control custom-input" id="last_donated_blood" value={editableUser.last_donated_blood} onChange={handleInputChange} readOnly={!isEditable} />
+                                    <input type="text" className="form-control custom-input" id="last_donated_blood" value={editableUser.last_donated_blood} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
                                 <div className="col-md-5">
                                     <label htmlFor="last_donated_sperm" className="form-label custom-label">Last Sperm Donation</label>
-                                    <input type="date" className="form-control custom-input" id="last_donated_sperm" value={editableUser.last_donated_sperm} onChange={handleInputChange} readOnly={!isEditable} />
+                                    <input type="text" className="form-control custom-input" id="last_donated_sperm" value={editableUser.last_donated_sperm} onChange={handleInputChange} readOnly={!isEditable} />
                                 </div>
                                 {/* <div className="col-md-2">
                                     <label htmlFor="input08" className="form-label custom-label">Status</label>
