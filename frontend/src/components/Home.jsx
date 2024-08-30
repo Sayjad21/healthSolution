@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+
+import { userContext } from '../context/context';
 
 import Navbar from './utils/Navbar';
 import HazardButton from './utils/HazardButton';
@@ -16,7 +18,8 @@ import bg1 from './img/h1.webp';
 import bg2 from './img/h2.webp';
 
 const Home = () => {
-    
+    const userValue = useContext(userContext);
+
     const features = {
         "bloodDonation": {
             "title": "Make a Difference: Donate Blood Today",
@@ -114,25 +117,26 @@ const Home = () => {
             </div>
             
             {/* Hazard Button */}
-            <div style={{ 
-                display: 'flex', 
-                justifyContent: 'center', 
-                alignItems: 'center', 
-                marginBottom: '100px',
-                }}>
-                <div 
-                    style={{
-                    height: "360px",
-                    width: "900px",
-                    backgroundColor: "rgba(0, 0, 255, 0.2)",
+            {userValue.user && <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center', 
+                    marginBottom: '100px',
+                    }}>
+                    <div 
+                        style={{
+                        height: "360px",
+                        width: "900px",
+                        backgroundColor: "rgba(0, 0, 255, 0.2)",
 
-                    borderRadius: "10px",
-                    boxShadow: "0 0 10px rgba(0, 0, 255, 0.7)",
-                    }}
-                >
-                    <HazardButton />
+                        borderRadius: "10px",
+                        boxShadow: "0 0 10px rgba(0, 0, 255, 0.7)",
+                        }}
+                    >
+                        <HazardButton />
+                    </div>
                 </div>
-            </div>
+            }
 
             <div style={{
                 backgroundImage: `url(${bg2})`,
