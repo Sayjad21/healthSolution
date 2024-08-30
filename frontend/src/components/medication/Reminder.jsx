@@ -1,6 +1,8 @@
 import {React, useState, useEffect, Fragment, useContext} from 'react';
 import axios from 'axios';
+
 import { IoAddCircleOutline } from "react-icons/io5";
+import { FaTimes } from 'react-icons/fa';
 
 import { userContext } from '../../context/context';
 
@@ -15,11 +17,17 @@ export default function Reminder() {
     const userValue = useContext(userContext);
 
     const [showForm, setShowForm] = useState(false);
+    const [showNotification, setShowNotification] = useState(false); 
+    const [pastMedicationsCount, setPastMedicationsCount] = useState(0);   
     const [reminders, setReminders] = useState([]);
 
     const toggleForm = () => {
         setShowForm(!showForm); // Toggle showForm state
     };
+
+    const handleCancelNotification = () => {
+        setShowNotification(false);
+    }
 
     const fetchMedicines = async () => {
         try {
@@ -31,8 +39,28 @@ export default function Reminder() {
                 }   
             );
 
-            console.log(response.data);
-            setReminders(response.data);
+            const currentTime = new Date();
+            let pastMedications = 0;
+
+            const updatedReminders = response.data.map(med => {
+                const intakeTime = new Date(`${new Date().toDateString()} ${med.intake_time}`);
+                
+                const isPastTime = intakeTime < currentTime;
+    
+                if (isPastTime) {
+                    pastMedications += 1;
+                }
+                return {
+                    ...med,
+                    red_border: isPastTime,  // Add the 'red_border' key
+                };
+            });
+
+            setReminders(updatedReminders);
+            if (pastMedications > 0) {
+                setShowNotification(true);
+                setPastMedicationsCount(pastMedications);
+            }
         } catch (error) {
             console.error('Error fetching medicines:', error);
         }
@@ -87,6 +115,53 @@ export default function Reminder() {
                 </div>
             )
             }
+
+            {/* NOTIFICATION */}
+            {showNotification && (
+                <div
+                    style={{
+                        margin: "0px 200px",
+                        padding: "20px",
+                        display: "flex",
+                        flexDirection: "row",
+                        justifyContent: "space-between",
+                        
+                        // backgroundColor: "#ffcccc",
+                        // border: "2px solid red",
+
+                        backgroundColor: "beige",
+                        border: "2px solid brown",
+
+                        borderRadius: "10px",
+                        textAlign: "center",
+                        boxShadow: "0px 0px 10px 0px rgba(0,0,0,0.3)",
+                    }}
+                >
+                    <h5 style={{
+                        color: "brown",
+                        alignContent: "center",
+                        marginLeft: "280px",
+                        padding: "0",
+                    }}>
+                        You have {pastMedicationsCount} medications with past intake times. Please take action.
+                    </h5>
+
+                    <div>
+                        <button 
+                            onClick={handleCancelNotification} 
+                            style={{
+                                backgroundColor: 'transparent',
+                                border: 'none',
+                                padding: '3px',
+                                color: 'brown',
+                                cursor: 'pointer'
+                            }}>
+                            <FaTimes size={20} />
+                        </button>
+                    </div>
+
+                </div>
+            )}
 
             {/* MEDICATION REMINDER LIST */}
             <div style = {{

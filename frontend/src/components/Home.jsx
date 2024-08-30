@@ -5,6 +5,7 @@ import HazardButton from './utils/HazardButton';
 import Ticker from './utils/ticker';
 import ShowCard from './utils/ShowCard';
 import PageFooter from './utils/PageFooter';
+import TopBlogs from './utils/topBlogs';
 
 import Health from './img/Health.jpg';
 import body from './img/body.png';
@@ -200,8 +201,13 @@ const Home = () => {
                 }}>
                     <ShowCard {...features.symptomMatching}/>
                 </div>
-            </div>
 
+                <div>
+                    <TopBlogs />
+                </div>
+            </div>
+            
+            
 
             <div>
                 <PageFooter />

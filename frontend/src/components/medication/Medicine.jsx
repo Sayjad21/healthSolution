@@ -30,7 +30,8 @@ const Medicine = ({ medicine, fetchMedicines }) => {
                 display: 'flex',
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
+                border: medicine.red_border ? '5px solid red' : 'none',
             }}>
             
             <div style={{ flex: 1 }}>

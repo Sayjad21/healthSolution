@@ -103,4 +103,17 @@ router.put('/toggleLike', async (req, res) => {
     }
 });
 
+router.get('/topBlogs', async (req, res) => {
+    try {
+        const topBlogs = await pool.query(`select b.id, b.title, count(*) as like_count, (select name from users u where u.id = b.user_id) as user_name, b.description
+                                            from blog b join blog_reactions br on b.id = br.blog_id
+                                            group by br.blog_id, b.id
+                                            order by like_count desc, b.id asc
+                                            LIMIT 4`);
+        res.json(topBlogs.rows);
+    } catch (error) {
+        console.error('Error fetching top blogs:', error.message);
+    }
+});
+
 module.exports = router;

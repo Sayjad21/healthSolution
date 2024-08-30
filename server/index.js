@@ -26,6 +26,7 @@ app.use('/getBlogs', require('./blog'));
 app.use('/getBlogger', require('./blog'));
 app.use('/blogLikes', require('./blog'));
 app.use('/toggleLike', require('./blog'));
+app.use('/topBlogs', require('./blog'));
 
 app.use('/addMedication', require('./medication'));
 app.use('/getMedication', require('./medication'));
